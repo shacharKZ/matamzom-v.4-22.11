@@ -1,0 +1,5 @@
+C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir
+C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/amount_set_tests_from_METARGELIM.dir
+C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir
+C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/rebuild_cache.dir
