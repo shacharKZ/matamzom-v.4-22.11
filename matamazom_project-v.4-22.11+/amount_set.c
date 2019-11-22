@@ -67,7 +67,7 @@ AmountSet asCreate(CopyASElement copyElement, FreeASElement freeElement, Compare
         return NULL;
     }
 
-    AmountSet ptr = malloc(sizeof(*ptr));
+    AmountSet ptr = calloc(1, sizeof(*ptr));
     if (ptr == NULL) {
         return NULL;
     }
@@ -83,15 +83,18 @@ AmountSet asCreate(CopyASElement copyElement, FreeASElement freeElement, Compare
 
 
 static ASNode nodeCreate (AmountSet set, ASElement element) {
-    ASNode new = malloc(sizeof(*new));
-    if (new == NULL) {
+    ASNode newNode = calloc(1, sizeof(*newNode));
+    if (newNode == NULL) {
         return NULL;
     }
-    new->element = set->copyElementFunc(element);
-    new->amount = 0;
-    new->nextNode = NULL;
-
-    return new;
+    newNode->element = set->copyElementFunc(element);
+    if (newNode->element == NULL) {
+        free(newNode);
+        return NULL;
+    }
+    newNode->amount = 0;
+    newNode->nextNode = NULL;
+    return newNode;
 }
 
 /* // used for testing
@@ -119,6 +122,8 @@ static void testPrintAsInt (AmountSet set) {
  * @param set - Target set to be deallocate. If set is NULL nothing will be done.
  *
  */
+
+ /*
 static void asDestroyAUX(AmountSet set, ASNode node) {
     if (set == NULL || node == NULL) {
         return;
@@ -129,6 +134,7 @@ static void asDestroyAUX(AmountSet set, ASNode node) {
     }
     free(node);
 }
+  */
 
 
 /**
@@ -142,23 +148,23 @@ void asDestroy(AmountSet set) {
         return;
     }
 
+    ASNode tempLoop = set->firstNode;
+    ASNode nextTarget = NULL;
+    while(tempLoop != NULL) {
+        nextTarget = tempLoop->nextNode;
+        set->freeElementFunc(tempLoop->element);
+        free(tempLoop);
+        tempLoop=nextTarget;
+    }
+
+    set->firstNode=NULL;
+    free(set);
+
+    /* option B:
     asDestroyAUX(set, set->firstNode);
     free(set);
     //set=NULL;
 
-
-    /* //option B:
-     ASNode target = set->firstNode;
-    ASNode nextTarget = NULL;
-    while(target != NULL) {
-        nextTarget = target->nextNode;
-        set->freeElementFunc(target->element);
-        free(target);
-        target=nextTarget;
-    }
-    target=NULL;
-    nextTarget=NULL;
-    free(set);
      * */
 }
 
@@ -194,7 +200,7 @@ AmountSet asCopy(AmountSet set) {
     duplicated_set->firstNode = copy_node;
     duplicated_set->current = copy_node;
 
-    set->current = set->firstNode->nextNode; //we forgot to premote before the for loop - the first was written twice 666
+    set->current = set->firstNode->nextNode; //we forgot to promote before the for loop - the first was written twice 666
 
     for (ASNode temp_node_for_copying = NULL; (set->current != NULL) ; //did changes 666
          copy_node = copy_node-> nextNode, asGetNext(set)) {
@@ -225,13 +231,13 @@ int asGetSize(AmountSet set) {
     if (set==NULL) {
         return -1;
     }
-    ASNode iteratorTemp = set->current;
+    ASNode tempLoop = set->firstNode; // 333
 
     int counter = 0;
-    for (set->current = set->firstNode; set->current; set->current=set->current->nextNode) {
+    while (tempLoop != NULL) {
         counter++;
+        tempLoop = tempLoop->nextNode;
     }
-    set->current = iteratorTemp;
     return counter;
 }
 
@@ -253,16 +259,15 @@ bool asContains(AmountSet set, ASElement element) {
     if (set==NULL) {
         return false;
     }
-    ASNode iteratorPosition = set->current;
 
-    for (set->current = set->firstNode; set->current; set->current=set->current->nextNode) {
-        if(set->compareElementFunc(set->current->element, element) == 0) {
-            set->current = iteratorPosition;
+    // change to while. and use ASNode i = set->firstNode 333
+    ASNode tempLoop = set->firstNode;
+    while (tempLoop != NULL) {
+        if(set->compareElementFunc(tempLoop->element, element) == 0) {
             return true;
         }
+        tempLoop = tempLoop->nextNode;
     }
-
-    set->current = iteratorPosition;
     return false;
 }
 
@@ -297,11 +302,13 @@ AmountSetResult asGetAmount(AmountSet set, ASElement element, double *outAmount)
         return AS_NULL_ARGUMENT;
     }
 
-    for (set->current = set->firstNode; set->current; set->current=set->current->nextNode) {
-        if(set->compareElementFunc(set->current->element, element) == 0) {
-            *outAmount = (set->current->amount);
+    ASNode tempLoop = set->firstNode;
+    while (tempLoop != NULL) { // 333
+        if(set->compareElementFunc(tempLoop->element, element) == 0) {
+            *outAmount = (tempLoop->amount);
             return AS_SUCCESS;
         }
+        tempLoop = tempLoop->nextNode;
     }
 
     return AS_ITEM_DOES_NOT_EXIST;
@@ -332,33 +339,30 @@ AmountSetResult asRegister(AmountSet set, ASElement element) {
             return AS_OUT_OF_MEMORY;
         }
         set->firstNode = newNode;
-        //set->current = newNode; // valgrind
         return AS_SUCCESS;
     }
 
     ASNode prevNode = NULL;
-    set->current = set->firstNode;
-    //while(set->current) { // can also use while. i was trying it for valgrind reasons
-    for (set->current = set->firstNode; set->current; set->current=set->current->nextNode) {
-        assert(set->current != NULL);
-        int positionFlag = set->compareElementFunc(set->current->element, element);
+    ASNode tempLoop = set->firstNode;
+    while (tempLoop != NULL) { /// 333
+        int positionFlag = set->compareElementFunc(tempLoop->element, element);
         if (positionFlag == 0) {
-            prevNode = NULL;
             return AS_ITEM_ALREADY_EXISTS;
         }
         else if (positionFlag > 0) {
             ASNode newNode = nodeCreate(set, set->copyElementFunc(element));
             if (prevNode == NULL) {
-                newNode->nextNode = set->current;
+                newNode->nextNode = tempLoop;
                 set->firstNode = newNode;
             }
             else {
-                newNode->nextNode = set->current;
+                newNode->nextNode = tempLoop;
                 prevNode->nextNode = newNode;
             }
             return AS_SUCCESS;
         }
-        prevNode = set->current;
+        prevNode = tempLoop;
+        tempLoop = tempLoop->nextNode;
     }
     ASNode newNode = nodeCreate(set, set->copyElementFunc(element));
     prevNode->nextNode = newNode;
@@ -389,22 +393,20 @@ AmountSetResult asChangeAmount(AmountSet set, ASElement element, const double am
     if (set==NULL || element==NULL) {
         return AS_NULL_ARGUMENT;
     }
-    ASNode iteratorBeforeFunc = set->current;
 
-    for (set->current = set->firstNode; set->current; set->current=set->current->nextNode) {
-        if (set->compareElementFunc(set->current->element, element) == 0) {
-            if (set->current->amount + amount < 0) {
-                set->current=iteratorBeforeFunc;
+    ASNode tempLoop = set->firstNode;
+    while (tempLoop != NULL) { /// 333
+        if (set->compareElementFunc(tempLoop->element, element) == 0) {
+            if (tempLoop->amount + amount < 0) {
                 return AS_INSUFFICIENT_AMOUNT;
             }
             else {
-                set->current->amount = (double) set->current->amount + amount;
-                set->current=iteratorBeforeFunc;
+                tempLoop->amount = tempLoop->amount + amount;
                 return AS_SUCCESS;
             }
         }
+        tempLoop = tempLoop->nextNode;
     }
-    set->current=iteratorBeforeFunc;
     return AS_ITEM_DOES_NOT_EXIST;
 }
 
@@ -428,20 +430,22 @@ AmountSetResult asDelete(AmountSet set, ASElement element) {
         return AS_NULL_ARGUMENT;
     }
     ASNode prevNode = NULL;
-    for (set->current = set->firstNode; set->current; set->current=set->current->nextNode) {
-        if(set->compareElementFunc(set->current->element, element) == 0) {
+    ASNode tempLoop = set->firstNode;
+    while (tempLoop != NULL) { /// 333
+        if(set->compareElementFunc(tempLoop->element, element) == 0) {
             if (prevNode == NULL) {
-                set->firstNode = set->current->nextNode;
+                set->firstNode = tempLoop->nextNode;
             }
             else {
-                prevNode->nextNode = set->current->nextNode;
+                prevNode->nextNode = tempLoop->nextNode;
 
             }
-            set->freeElementFunc(set->current->element);
-            free(set->current);
+            set->freeElementFunc(tempLoop->element);
+            free(tempLoop);
             return AS_SUCCESS;
         }
-        prevNode = set->current;
+        prevNode = tempLoop;
+        tempLoop = tempLoop->nextNode;
     }
     return AS_ITEM_DOES_NOT_EXIST;
 }
@@ -458,15 +462,26 @@ AmountSetResult asDelete(AmountSet set, ASElement element) {
  *     AS_SUCCESS - Otherwise.
  */
 AmountSetResult asClear(AmountSet set) {
-    if (set==NULL) {
+    if (set == NULL) {
         return AS_NULL_ARGUMENT;
     }
+
+    ASNode tempLoop = set->firstNode;
+    ASNode nextTarget = NULL;
+    while(tempLoop != NULL) {
+        nextTarget = tempLoop->nextNode;
+        set->freeElementFunc(tempLoop->element);
+        free(tempLoop);
+        tempLoop=nextTarget;
+    }
+    set->firstNode=NULL;
+/* // old version:
     CopyASElement copyTemp = set->copyElementFunc;
     FreeASElement freeTemp = set->freeElementFunc;
     CompareASElements compareTemp = set->compareElementFunc;
-    asDestroy(set);
+    asDestroy(set); // no good! realse all nodes instead 333
     set = asCreate(copyTemp, freeTemp, compareTemp); // need to be check
-
+ */
     return AS_SUCCESS;
 }
 

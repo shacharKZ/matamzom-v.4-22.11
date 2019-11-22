@@ -127,7 +127,7 @@ static unsigned int mtmInsertNewOrder(Matamazom matamazom, unsigned int newOrder
     else if (flag!=AS_SUCCESS) { // if something went wrong
         valueToReturn = 0;
     }
-    orderFree(newOrder); // the new order as getting cupied inside asRegister so this one is useless and delete
+    orderFree(newOrder); // the new order as getting copied inside asRegister so this one is useless and delete
     return valueToReturn;
 }
 

@@ -1,1 +1,1 @@
--lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ -LC:/Users/shach/DOCUME~1/TECHNI~1/SemB/MTM234~1/EX1(V1~1/MATAMZ~1.11/MATAMA~1.11_/. -Wl,-Bstatic -lmtm -Wl,-Bdynamic -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

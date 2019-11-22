@@ -20,9 +20,9 @@ Order orderCreate(unsigned int newId) {
         return NULL;
     }
 
-    Order (*copyFunc)(Order currentOrder) = &copyProduct;
-    void (*freeFunc)(Order currentOrder) = &freeProduct;
-    int (*compareFunc)(Order first, Order second) = &compareProduct;
+    Product (*copyFunc)(Product product) = &copyProduct;
+    void (*freeFunc)(Product product) = &freeProduct;
+    int (*compareFunc)(Product first, Product second) = &compareProduct;
 
     new_order->productCart = asCreate(copyFunc, freeFunc, compareFunc);
     if (!new_order->productCart) {
