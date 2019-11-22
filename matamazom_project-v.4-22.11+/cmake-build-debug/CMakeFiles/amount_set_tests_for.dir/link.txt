@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\amount_set_tests_for.dir/objects.a
-C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\amount_set_tests_for.dir/objects.a @CMakeFiles\amount_set_tests_for.dir\objects1.rsp
-C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\amount_set_tests_for.dir/objects.a -Wl,--no-whole-archive  -o amount_set_tests_for.exe -Wl,--out-implib,libamount_set_tests_for.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\amount_set_tests_for.dir\linklibs.rsp

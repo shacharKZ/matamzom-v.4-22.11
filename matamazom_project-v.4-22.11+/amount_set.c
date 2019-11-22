@@ -94,7 +94,7 @@ static ASNode nodeCreate (AmountSet set, ASElement element) {
     return new;
 }
 
-/*
+/* // used for testing
 static void testPrintAsInt (AmountSet set) {
     ASNode iteratorTemp = set->current;
     printf("Loop check: {");
@@ -181,21 +181,35 @@ AmountSet asCopy(AmountSet set) {
     if (duplicated_set == NULL) {
         return NULL;
     }
+    if (set->firstNode == NULL){     //added the check if there is a first node to copy before creating copy_node 666
+        return  duplicated_set;
+    }
 
     ASNode copy_node = nodeCreate(set, set->firstNode->element);
+    if (copy_node == NULL){
+        asDestroy(duplicated_set);
+        return NULL; // if segmentation failed, then the whole function failed 666
+    }
     copy_node->amount = set->firstNode->amount;
     duplicated_set->firstNode = copy_node;
     duplicated_set->current = copy_node;
 
-    for (ASNode temp_node_for_copying = set->firstNode->nextNode; (temp_node_for_copying != NULL) ;
-         temp_node_for_copying = temp_node_for_copying->nextNode, copy_node = copy_node-> nextNode, asGetNext(set)) {
+    set->current = set->firstNode->nextNode; //we forgot to premote before the for loop - the first was written twice 666
 
+    for (ASNode temp_node_for_copying = NULL; (set->current != NULL) ; //did changes 666
+         copy_node = copy_node-> nextNode, asGetNext(set)) {
         temp_node_for_copying = nodeCreate(set, set->current->element);
+        if (temp_node_for_copying == NULL){
+            asDestroy(duplicated_set);
+            return NULL; // if segmentation failed, then the whole function failed 666
+        }
+        temp_node_for_copying -> amount = set->current->amount; //we forgot this
         copy_node -> nextNode = temp_node_for_copying;
     }
 
     return duplicated_set;
 }
+
 
 /**
  * asGetSize: Returns the number of elements in a set.
