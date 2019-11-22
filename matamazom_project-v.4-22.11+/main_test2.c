@@ -6,19 +6,26 @@
 #include "matamazom(19.11sha).h"
 #include <assert.h>
 
-
+/*
 static void freeDouble(MtmProductData number) {
     free(number);
 }
+ */
 
 int main() {
+    /*
     Product (*copyFunc)(Product) = &copyProduct;
     void (*freeFunc)(Product) = &freeProduct;
     int (*compareFunc)(Product, Product) = &compareProduct;
-
-
     AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
     AmountSet nada = asCreate(copyFunc,freeFunc,compareFunc);
+     */
+
+    ASElement (*copyFunc)(ASElement) = &orderCopyASElement;
+    void (*freeFunc)(ASElement) = &orderFreeASElement;
+    int (*compareFunc)(ASElement, ASElement) = &orderCompareASElement;
+    AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
+    //AmountSet nada = asCreate(copyFunc,freeFunc,compareFunc);
 
     Product o1 = productCreate(1, "A prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
     Product o2 = productCreate(2, "B prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);

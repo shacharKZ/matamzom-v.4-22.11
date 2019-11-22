@@ -7,10 +7,9 @@
 
 
 int main() {
-    Product (*copyFunc)(Product) = &copyProduct;
-    void (*freeFunc)(Product) = &freeProduct;
-    int (*compareFunc)(Product, Product) = &compareProduct;
-
+    ASElement (*copyFunc)(ASElement) = &orderCopyASElement;
+    void (*freeFunc)(ASElement) = &orderFreeASElement;
+    int (*compareFunc)(ASElement, ASElement) = &orderCompareASElement;
 
     AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
 

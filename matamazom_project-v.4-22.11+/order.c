@@ -20,11 +20,13 @@ Order orderCreate(unsigned int newId) {
         return NULL;
     }
 
+    /*
     Product (*copyFunc)(Product product) = &copyProduct;
     void (*freeFunc)(Product product) = &freeProduct;
     int (*compareFunc)(Product first, Product second) = &compareProduct;
+     */
 
-    new_order->productCart = asCreate(copyFunc, freeFunc, compareFunc);
+    new_order->productCart = asCreate(orderCopyASElement, orderFreeASElement, orderCompareASElement);
     if (!new_order->productCart) {
         return NULL;
     }
@@ -33,13 +35,22 @@ Order orderCreate(unsigned int newId) {
     return new_order;
 }
 
+ASElement orderCopyASElement (ASElement orderToCopy) {
+    ASElement copiedOrder = orderCopy(orderToCopy);
+    return copiedOrder;
+}
+
 Order orderCopy (Order target) {
     if (!target) {
         return NULL;
     }
-
     Order newOrder = orderCreate(target->id);
     return newOrder;
+}
+
+
+void orderFreeASElement (ASElement target) {
+    orderFree(target);
 }
 
 void orderFree (Order target) {
@@ -48,6 +59,9 @@ void orderFree (Order target) {
     free(target);
 }
 
+int orderCompareASElement(ASElement first, ASElement second) {
+    return orderCompare(first, second);
+}
 int orderCompare(Order first, Order second) {
     return (int) (first->id - second->id);
 }

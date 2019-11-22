@@ -12,8 +12,11 @@ typedef struct Order_t *Order;
 
 Order orderCreate(unsigned int newId);
 
+ASElement orderCopyASElement (ASElement orderToCopy);
 Order orderCopy (Order target);
+void orderFreeASElement (ASElement target);
 void orderFree (Order target);
+int orderCompareASElement(ASElement first, ASElement second);
 int orderCompare(Order first, Order second);
 
 #endif //UNTITLED_ORDER_H
