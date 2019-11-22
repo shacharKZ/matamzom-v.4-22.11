@@ -49,6 +49,21 @@ struct AmountSet_t {
     CompareASElements compareElementFunc;
 };
 
+/*
+ // used for testing
+static void testPrintAsInt (AmountSet set) {
+     printf("<----Loop check: {");
+     ASNode tempLoop = set->firstNode; // 333
+     while (tempLoop != NULL) {
+         int* printTemp = tempLoop->element;
+         printf("i=%d, ", *printTemp);
+         tempLoop = tempLoop->nextNode;
+     }
+     printf("}----->\n");
+}
+*/
+
+
 /**
  * asCreate: Allocates a new empty amount set.
  *
@@ -67,7 +82,7 @@ AmountSet asCreate(CopyASElement copyElement, FreeASElement freeElement, Compare
         return NULL;
     }
 
-    AmountSet ptr = calloc(1, sizeof(*ptr));
+    AmountSet ptr = malloc(sizeof(*ptr));
     if (ptr == NULL) {
         return NULL;
     }
@@ -83,7 +98,7 @@ AmountSet asCreate(CopyASElement copyElement, FreeASElement freeElement, Compare
 
 
 static ASNode nodeCreate (AmountSet set, ASElement element) {
-    ASNode newNode = calloc(1, sizeof(*newNode));
+    ASNode newNode = malloc(sizeof(*newNode));
     if (newNode == NULL) {
         return NULL;
     }
@@ -96,24 +111,6 @@ static ASNode nodeCreate (AmountSet set, ASElement element) {
     newNode->nextNode = NULL;
     return newNode;
 }
-
-/* // used for testing
-static void testPrintAsInt (AmountSet set) {
-    ASNode iteratorTemp = set->current;
-    printf("Loop check: {");
-    for (int* currI = (int*) asGetFirst(set); currI ; currI = asGetNext(set)) {
-        printf("i=%d, ", *currI);
-    }
-    printf("} \n");
-
-    printf("The current As is: {");
-    for (set->current = set->firstNode; set->current; set->current=set->current->nextNode) {
-        int n = (int) &(set->current->element);
-        printf("%d, ", n);
-    }
-    printf("} \n\n");
-}
-*/
 
 
 /**
@@ -144,6 +141,10 @@ static void asDestroyAUX(AmountSet set, ASNode node) {
  * @param set - Target set to be deallocated. If set is NULL nothing will be done.
  */
 void asDestroy(AmountSet set) {
+    asClear(set); // the 'new' asClear doing the same except free to set
+    free(set);
+
+    /*
     if (set == NULL) {
         return;
     }
@@ -159,7 +160,7 @@ void asDestroy(AmountSet set) {
 
     set->firstNode=NULL;
     free(set);
-
+     */
     /* option B:
     asDestroyAUX(set, set->firstNode);
     free(set);
@@ -232,7 +233,6 @@ int asGetSize(AmountSet set) {
         return -1;
     }
     ASNode tempLoop = set->firstNode; // 333
-
     int counter = 0;
     while (tempLoop != NULL) {
         counter++;
@@ -310,8 +310,24 @@ AmountSetResult asGetAmount(AmountSet set, ASElement element, double *outAmount)
         }
         tempLoop = tempLoop->nextNode;
     }
-
     return AS_ITEM_DOES_NOT_EXIST;
+}
+
+
+
+static ASNode setNewNodeWithElement(AmountSet set, ASElement element) {
+    ASNode newNode = malloc(sizeof(*newNode));
+    if (newNode == NULL) {
+        return NULL;
+    }
+    newNode->amount = 0;
+    newNode->element = set->copyElementFunc(element);
+    if (newNode->element == NULL) {
+        free(newNode);
+        return NULL;
+    }
+    newNode->nextNode = NULL;
+    return newNode;
 }
 
 
@@ -334,7 +350,7 @@ AmountSetResult asRegister(AmountSet set, ASElement element) {
     }
 
     if (set->firstNode == NULL) { // first element in set
-        ASNode newNode = nodeCreate(set, set->copyElementFunc(element));
+        ASNode newNode = setNewNodeWithElement(set, element);
         if (newNode == NULL) {
             return AS_OUT_OF_MEMORY;
         }
@@ -350,7 +366,11 @@ AmountSetResult asRegister(AmountSet set, ASElement element) {
             return AS_ITEM_ALREADY_EXISTS;
         }
         else if (positionFlag > 0) {
-            ASNode newNode = nodeCreate(set, set->copyElementFunc(element));
+            ASNode newNode = setNewNodeWithElement(set, element);
+            if (newNode == NULL) {
+                return AS_OUT_OF_MEMORY;
+            }
+
             if (prevNode == NULL) {
                 newNode->nextNode = tempLoop;
                 set->firstNode = newNode;
@@ -364,7 +384,11 @@ AmountSetResult asRegister(AmountSet set, ASElement element) {
         prevNode = tempLoop;
         tempLoop = tempLoop->nextNode;
     }
-    ASNode newNode = nodeCreate(set, set->copyElementFunc(element));
+
+    ASNode newNode = setNewNodeWithElement(set, element);
+    if (newNode == NULL) {
+        return AS_OUT_OF_MEMORY;
+    }
     prevNode->nextNode = newNode;
     return AS_SUCCESS;
 }
@@ -468,13 +492,17 @@ AmountSetResult asClear(AmountSet set) {
 
     ASNode tempLoop = set->firstNode;
     ASNode nextTarget = NULL;
+
+    set->current=NULL; // VALGRIND? we absolutely need to null them somewhere or they hold a ptr to garbage
+    set->firstNode=NULL;
+
     while(tempLoop != NULL) {
         nextTarget = tempLoop->nextNode;
         set->freeElementFunc(tempLoop->element);
         free(tempLoop);
         tempLoop=nextTarget;
     }
-    set->firstNode=NULL;
+
 /* // old version:
     CopyASElement copyTemp = set->copyElementFunc;
     FreeASElement freeTemp = set->freeElementFunc;
@@ -482,6 +510,8 @@ AmountSetResult asClear(AmountSet set) {
     asDestroy(set); // no good! realse all nodes instead 333
     set = asCreate(copyTemp, freeTemp, compareTemp); // need to be check
  */
+
+
     return AS_SUCCESS;
 }
 
