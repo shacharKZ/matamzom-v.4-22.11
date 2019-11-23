@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35a10edf-32d0-4dc6-b570-5539a44d7060" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/amount_set.c" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/amount_set.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/matamazom.c" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/matamazom.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/product.c" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/product.c" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574528147372</updated>
-      <workItem from="1574528148563" duration="29000" />
+      <workItem from="1574528148563" duration="1154000" />
     </task>
     <servers />
   </component>

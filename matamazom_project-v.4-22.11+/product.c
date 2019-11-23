@@ -93,3 +93,19 @@ double getCurrentProfitOfProduct(Product product) {
     return (double)(product->profit);
 }
 
+Product getPtrToProductForID (struct AmountSet_t *storage ,unsigned int id, MtmFreeData custom_data_free_func){
+    Product temp_product = productCreate(id, NULL, MATAMAZOM_ANY_AMOUNT, NULL, NULL);
+    struct AmountSet_t *temp_storage = asCopy(storage);
+    assert(temp_product && temp_storage);
+    for (Product ptr_to_curr_product = asGetFirst(temp_storage); ptr_to_curr_product!=NULL; ptr_to_curr_product=asGetNext(temp_storage)) {
+        if (temp_product == ptr_to_curr_product){
+            freeProduct(temp_product, custom_data_free_func);
+            asDestroy(temp_storage);
+            return storage->current->element;
+        }
+    }
+    freeProduct(temp_product, custom_data_free_func);
+    asDestroy(temp_storage);
+    return NULL;
+}
+
