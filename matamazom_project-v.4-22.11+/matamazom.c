@@ -5,6 +5,7 @@
 #include "product.h"
 #include "order.h"
 #include "libmtm/set.h"
+#include "matamazom_print.h"
 #include <assert.h>
 
 
@@ -160,7 +161,6 @@ unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
     unsigned int newOrderId = setGetSize(matamazom->orders)+1;
     Order newOrder = orderCreate(newOrderId);
     while (setIsIn(matamazom->orders, newOrder) == true) {
-
         newOrderId++;
         orderChangeId(newOrder, newOrderId);
     }
@@ -322,7 +322,9 @@ MatamazomResult mtmCancelOrder(Matamazom matamazom, const unsigned int orderId) 
  *     MATAMAZOM_NULL_ARGUMENT - if a NULL argument is passed.
  *     MATAMAZOM_SUCCESS - if printed successfully.
  */
-MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output);
+MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output) {
+
+}
 
 /**
  * matamazomPrintOrder: print a summary of an order from a Matamazom warehouse,
