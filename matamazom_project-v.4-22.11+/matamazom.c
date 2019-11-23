@@ -5,6 +5,7 @@
 #include "product.h"
 #include "order.h"
 #include "libmtm/set.h"
+#include <string.h>
 #include "matamazom_print.h"
 #include <assert.h>
 
