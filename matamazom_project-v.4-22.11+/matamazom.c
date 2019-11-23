@@ -14,30 +14,41 @@ struct Matamazom_t{
     Set orders;
 };
 
-/**
- * matamazomCreate: create an empty Matamazom warehouse.
- *
- * @return A new Matamazom warehouse in case of success, and NULL otherwise (e.g.
- *     in case of an allocation error)
- */
-Matamazom matamazomCreate(){ // eilon 666!!!!
-    Matamazom matamazom_new = malloc(sizeof(*matamazom_new));
-    if  (matamazom_new == NULL){
-        return NULL;
+static bool valid_name (char* name){
+    if (name == NULL){
+        return false;
     }
-    matamazom_new -> storage = asCreate(&copyProduct, &freeProduct, &compareProduct);
-    if (matamazom_new -> storage == NULL) {
-        free (matamazom_new);
-        return NULL;
+    if ((name[0] <=57) && (name[0]>-48)){ //between 0-9
+        return true;
     }
-    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare); // compare with eilon
-    if (matamazom_new -> orders == NULL) {
-        asDestroy(matamazom_new->storage);
-        free (matamazom_new);
-        return NULL;
+    if (strlen(name)==1 || (name[0]<'A') || (name[0]>'z') || ((name[0]>'Z')&&(name[0]<'a'))){ //not a-z or A-Z
+        return false;
     }
-    return matamazom_new;
+    return true;
+}
 
+static bool valid_amount (const double amount, MatamazomAmountType amountType){
+    if (amount == 0 || amountType == MATAMAZOM_ANY_AMOUNT){
+        return  true;
+    }
+    if (amountType == MATAMAZOM_INTEGER_AMOUNT){
+        double x = amount;
+        int y = (int)x;
+        double z = x-y;
+        if (((z<1)&&(z>=0.999)) || ((z>=0)&&(z<=0.001))) {
+            return true;
+        }
+        return false;
+    }
+    if (amountType == MATAMAZOM_HALF_INTEGER_AMOUNT){
+        double x = amount;
+        int y = (int)x;
+        double z = x-y;
+        if (((z<1)&&(z>=0.999)) || ((z>=0)&&(z<=0.001)) || ((z>=0.499)&&(z<=0.501))) {
+            return true;
+        }
+        return false;
+    }
 }
 
 
@@ -66,97 +77,120 @@ static Order mtmFindOrder (Matamazom matamazom, const unsigned int orderId) {
 
 
 
+Matamazom matamazomCreate(){
+    Matamazom matamazom_new = malloc(sizeof(*matamazom_new));
+    if  (matamazom_new == NULL){
+        return NULL;
+    }
+    MtmFreeData = freeProduct;
+    MtmProductData = copyProduct;
+    int (*MtmCompareProducts)(Product, Product) = compareProduct;
 
-/**
- * matamazomDestroy: free a Matamazom warehouse, and all its contents, from
- * memory.
- *
- * @param matamazom - the warehouse to free from memory. A NULL value is
- *     allowed, and in that case the function does nothing.
- */
-void matamazomDestroy(Matamazom matamazom);
+    matamazom_new -> storage = asCreate(&copyProduct, &freeProduct, &compareProduct);
+    matamazom_new -> orderSet = setCreate(orderCopy, orderFree, orderCompare);
+}
 
-/**
- * mtmNewProduct: add a new product to a Matamazom warehouse.
- *
- * @param matamazom - warehouse to add the product to. Must be non-NULL.
- * @param id - new product id. Must be non-negative, and unique.
- * @param name - name of the product, e.g. "apple". Must be non-empty.
- * @param amount - the initial amount of the product when added to the warehouse.
- * @param amountType - defines what are valid amounts for this product.
- * @return
- *     MATAMAZOM_NULL_ARGUMENT - if matamazom or name are NULL.
- *     MATAMAZOM_INVALID_NAME - if name is empty, or doesn't start with a
- *         letter (a -z, A -Z) or a digit (0 -9).
- *     MATAMAZOM_INVALID_AMOUNT - if amount < 0, or is not consistent with amountType
- *         (@see MatamazomAmountType documentation above)
- *     MATAMAZOM_PRODUCT_ALREADY_EXIST - if a product with the given id already exist.
- *     MATAMAZOM_SUCCESS - if product was added successfully.
- */
-MatamazomResult mtmNewProduct(Matamazom matamazom, const unsigned int id, const char *name,
+void matamazomDestroy(Matamazom matamazom){
+    setDestroy(matamazom->orders);
+    asDestroy(matamazom->storage);
+    free (matamazom);
+}
+
+
+MatamazomResult mtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
                               const double amount, const MatamazomAmountType amountType,
-                              const MtmProductData, MtmCopyData, MtmFreeData, MtmGetProductPrice);
-/**
- * mtmChangeProductAmount: increase or decrease the amount of an *existing* product in a Matamazom warehouse.
- * if 'amount' < 0 then this amount should be decreased from the matamazom warehouse.
- * if 'amount' > 0 then this amount should be added to the matamazom warehouse.
- * if 'amount' = 0 then nothing should be done.
- * please note:
- * If the amount to decrease is larger than the product's amount in the
- * warehouse, then the product's amount is not changed, and a proper error-code
- * is returned.
- * If the amount is equal to the product's amount in the
- * warehouse,then the product will remain inside the warehouse
- * with amount of zero.
- *
- * @param matamazom - warehouse to add the product to. Must be non-NULL.
- * @param id - existing product id. Must exist in the warehouse.
- * @param amount - the amount of the product to increase/decrease to the warehouse.
- * @return
- *     MATAMAZOM_NULL_ARGUMENT - if a NULL argument is passed.
- *     MATAMAZOM_PRODUCT_NOT_EXIST - if matamazom does not contain a product with
- *         the given id.
- *     MATAMAZOM_INVALID_AMOUNT - if amount is not consistent with product's amount type
- *         (@see parameter amountType in mtmNewProduct).
- *     MATAMAZOM_INSUFFICIENT_AMOUNT - if 'amount' < 0 and the amount to be decreased
- *         is bigger than product's amount in the warehouse.
- *     MATAMAZOM_SUCCESS - if product amount was increased/decreased successfully.
- * @note Even if amount is 0 (thus the function will change nothing), still a proper
- *    error code is returned if one of the parameters is invalid, and MATAMAZOM_SUCCESS
- *    is returned if all the parameters are valid.
- */
-MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int id, const double amount);
+                              const MtmProductData customData, MtmCopyData CopyFunc,
+                              MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc) {
 
-/**
- * mtmClearProduct: clear a product from a Matamazom warehouse.
- *
- * The entire amount of the product is removed, and the product is erased
- * completely from the warehouse, from all existing orders and from the
- * 'income' mechanism(holding the profits for each existing product).
- * For example, after clearing a product with
- * mtmClearProduct, calling mtmAddProduct on that product will fail.
- *
- * @param matamazom - warehouse to remove the product from.
- * @param id - id of product to be removed.
- * @return
- *     MATAMAZOM_NULL_ARGUMENT - if a NULL argument is passed.
- *     MATAMAZOM_PRODUCT_NOT_EXIST - if matamazom does not contain a product with
- *         the given id.
- *     MATAMAZOM_SUCCESS - if product was cleared successfully.
- */
-MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id);
+    if (matamazom == NULL || name == NULL || customData == NULL
+        || CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    if (valid_name(name) == false) {
+        return MATAMAZOM_INVALID_NAME;
+    }
+    if (valid_amount(amount, amountType) == false || amount < 0) {
+        return MATAMAZOM_INVALID_AMOUNT;
+    }
+
+    Product product_new = productCreate(id, name, amountType, customData, ProductPriceFunc);
+
+    if (product_new == NULL) {
+        return MATAMAZOM_OUT_OF_MEMORY;
+    }
+    switch (asRegister(matamazom->storage, product_new)) {
+        case (AS_SUCCESS): {
+            return MATAMAZOM_SUCCESS;
+        }
+        case (AS_ITEM_ALREADY_EXISTS):{
+            return MATAMAZOM_PRODUCT_ALREADY_EXIST;
+        }
+        case (AS_NULL_ARGUMENT): {
+            return MATAMAZOM_NULL_ARGUMENT;
+        }
+    }
+}
 
 
+MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int id, const double amount){
 
-/**
- * mtmCreateNewOrder: create a new empty order in a Matamazom warehouse, and
- * return the order's id.
- *
- * @param matamazom - a Matamazom warehouse
- * @return
- *     Positive id of the new order, if successful.
- *     0 in case of failure.
- */
+    if (matamazom==NULL){
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    Product ptr = getPtrToProductForID(matamazom->storage, id, );
+    if (ptr == NULL){
+        return MATAMAZOM_PRODUCT_NOT_EXIST;
+    }
+    if (valid_amount(amount, ptr->amountType) == false){
+        return MATAMAZOM_INVALID_AMOUNT;
+    }
+    switch (asChangeAmount(matamazom->storage, ptr, amount)){
+        case AS_NULL_ARGUMENT:
+            return MATAMAZOM_NULL_ARGUMENT;
+        case AS_INSUFFICIENT_AMOUNT:
+            return MATAMAZOM_INSUFFICIENT_AMOUNT;
+        case AS_ITEM_DOES_NOT_EXIST:
+            return MATAMAZOM_PRODUCT_NOT_EXIST;
+        case AS_SUCCESS:
+            return MATAMAZOM_SUCCESS;
+    }
+}
+
+MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
+    if (matamazom == NULL){
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    if (id < 0){
+        return MATAMAZOM_PRODUCT_NOT_EXIST;
+    }
+    Product  temp = getPtrToProductForID(matamazom->storage, id, MtmFreeData); //??????? how do i use the user's free func, whats the name
+    switch (asDelete(matamazom->storage,temp)){
+        case AS_NULL_ARGUMENT:
+            return MATAMAZOM_OUT_OF_MEMORY;
+        case AS_ITEM_DOES_NOT_EXIST:
+            return MATAMAZOM_PRODUCT_NOT_EXIST;
+        case AS_SUCCESS:
+            return MATAMAZOM_SUCCESS;
+    }
+
+    return MATAMAZOM_SUCCESS;
+}
+
+MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
+    if (matamazom == NULL){
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    FILE *fp;
+    fp = fopen("output_file" , "w");
+    fprintf(fp,"Inventory Status:\n");
+    for (struct product_t *ptr = asGetFirst(matamazom->storage); ptr ; ptr = asGetNext(matamazom->storage)) {
+        mtmPrintProductDetails(getProductName(ptr->currentElement),
+                               getProductID(ptr->currentElement), ptr->currentAmount,
+                               realProductPrice(ptr->currentElement), fp);
+    }
+    fclose(fp);
+}
+
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
     unsigned int newOrderId = setGetSize(matamazom->orders)+1;
     Order newOrder = orderCreate(newOrderId);
