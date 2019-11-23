@@ -83,12 +83,19 @@ Matamazom matamazomCreate(){
     if  (matamazom_new == NULL){
         return NULL;
     }
-    MtmFreeData = freeProduct;
-    MtmProductData = copyProduct;
-    int (*MtmCompareProducts)(Product, Product) = compareProduct;
 
     matamazom_new -> storage = asCreate(&copyProduct, &freeProduct, &compareProduct);
-    matamazom_new -> orderSet = setCreate(orderCopy, orderFree, orderCompare);
+    if (matamazom_new -> storage == NULL) {
+        free (matamazom_new);
+        return NULL;
+    }
+
+    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare); 
+    if (matamazom_new -> orders == NULL) {
+        asDestroy(matamazom_new->storage);
+        free (matamazom_new);
+        return NULL;
+    }
 }
 
 void matamazomDestroy(Matamazom matamazom){
@@ -346,20 +353,6 @@ MatamazomResult mtmCancelOrder(Matamazom matamazom, const unsigned int orderId) 
     return MATAMAZOM_NULL_ARGUMENT;
 }
 
-
-/**
- * mtmPrintInventory: print a Matamazom warehouse and its contents as
- * explained in the *.pdf
- *
- * @param matamazom - a Matamazom warehouse to print.
- * @param output - an open, writable output stream, to which the contents are printed.
- * @return
- *     MATAMAZOM_NULL_ARGUMENT - if a NULL argument is passed.
- *     MATAMAZOM_SUCCESS - if printed successfully.
- */
-MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output) {
-
-}
 
 /**
  * matamazomPrintOrder: print a summary of an order from a Matamazom warehouse,
