@@ -90,7 +90,7 @@ Matamazom matamazomCreate(){
         return NULL;
     }
 
-    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare); 
+    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare);
     if (matamazom_new -> orders == NULL) {
         asDestroy(matamazom_new->storage);
         free (matamazom_new);
@@ -98,6 +98,8 @@ Matamazom matamazomCreate(){
     }
 }
 
+// -----------------------------------------------------------------------
+/*
 void matamazomDestroy(Matamazom matamazom){
     setDestroy(matamazom->orders);
     asDestroy(matamazom->storage);
@@ -211,6 +213,10 @@ unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
     }
     return 0;
 }
+
+
+*/
+//--------------------------------------------------------------------------------
 
 
 /**
@@ -369,7 +375,19 @@ MatamazomResult mtmCancelOrder(Matamazom matamazom, const unsigned int orderId) 
  *         the given orderId.
  *     MATAMAZOM_SUCCESS - if printed successfully.
  */
-MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, FILE *output);
+MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, FILE *output) {
+    if (matamazom == NULL || output == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    Order currentOrder = mtmFindOrder(matamazom, orderId);
+    if (currentOrder == NULL) {
+        return MATAMAZOM_ORDER_NOT_EXIST;
+    }
+
+
+
+}
 
 /**
  * mtmPrintBestSelling: print the best selling products of a Matamazom

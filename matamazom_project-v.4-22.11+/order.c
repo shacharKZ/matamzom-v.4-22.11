@@ -6,6 +6,7 @@
 #include "amount_set.h"
 #include <stdlib.h>
 #include "product.h"
+#include "matamazom_print.h"
 #include <assert.h>
 
 
@@ -34,6 +35,20 @@ Order orderCreate(unsigned int newId) {
 
     return new_order;
 }
+
+
+MatamazomResult orderPrintAllProduct (Order order, FILE *output) {
+    if (order == NULL || output == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    fprintf(output,"Inventory Status:\n");
+    AS_FOREACH(Product , currentProduct, order->productCart) {
+        productPrintDetiails();
+    }
+
+}
+
 
 
 
