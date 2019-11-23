@@ -37,20 +37,6 @@ Order orderCreate(unsigned int newId) {
 }
 
 
-MatamazomResult orderPrintAllProduct (Order order, FILE *output) {
-    if (order == NULL || output == NULL) {
-        return MATAMAZOM_NULL_ARGUMENT;
-    }
-
-    fprintf(output,"Inventory Status:\n");
-    AS_FOREACH(Product , currentProduct, order->productCart) {
-        productPrintDetiails();
-    }
-
-}
-
-
-
 
 static Order orderCopyUAX (Order target) {
     if (!target) {
@@ -100,8 +86,43 @@ void orderChangeId (Order target ,unsigned int newId) {
 }
 
 
+MatamazomResult orderPrintAllProduct (Order order, FILE *output) {
+    if (order == NULL || output == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    AS_FOREACH(Product , currentProduct, order->productCart) {
+        double* currentAmount;
+        if (asGetAmount(order->productCart, currentProduct, currentAmount) != AS_SUCCESS) { // make sure this is the right syntax with currentAmount
+            assert(0);
+            return MATAMAZOM_OUT_OF_MEMORY;
+        }
+        if (productPrintDetails(currentProduct, *currentAmount, output) != MATAMAZOM_SUCCESS) { // make sure this is the right syntax with currentAmount
+            assert(0);
+            return MATAMAZOM_OUT_OF_MEMORY;
+        }
+    }
+    return MATAMAZOM_SUCCESS;
+}
 
 
+double orderGetTotalPrice (Order order) {
+    if (order == NULL) {
+        assert(0);
+        return 0;
+    }
+
+    double totalPrice = 0;
+    AS_FOREACH(Product , currentProduct, order->productCart) {
+        double* currentAmount;
+        if (asGetAmount(order->productCart, currentProduct, currentAmount) != AS_SUCCESS) { // make sure this is the right syntax with currentAmount
+            assert(0);
+            return MATAMAZOM_OUT_OF_MEMORY;
+        }
+        totalPrice += realProductPrice(currentProduct, *currentAmount); // // make sure this is the right syntax with currentAmount
+    }
+    return totalPrice;
+}
 
 
 

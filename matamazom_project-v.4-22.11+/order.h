@@ -18,5 +18,7 @@ void orderFree (ASElement target);
 int orderCompare(ASElement first, ASElement second);
 void orderChangeId (Order target ,unsigned int newId);
 AmountSetResult orderRegisterProductOrChangeAmount (Order currentOrder, Product productToAdd, const double amount);
+MatamazomResult orderPrintAllProduct (Order order, FILE *output);
+double orderGetTotalPrice (Order order);
 
 #endif //UNTITLED_ORDER_H

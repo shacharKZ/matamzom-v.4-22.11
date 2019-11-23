@@ -9,6 +9,9 @@
 
 typedef struct product_t *Product;
 
+Product productCreate(unsigned int id, char* name, const MatamazomAmountType datatype,
+                      const MtmProductData customData,
+                      MtmCopyData CopyFunc, MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc);
 
 double getCurrentProfitOfProduct(Product product);
 double realProductPrice (Product product, double amount);
@@ -18,11 +21,11 @@ void freeProduct (ASElement product);
 int compareProduct(ASElement product1, ASElement product2);
 Product getPtrToProductForID (struct AmountSet_t *storage ,unsigned int id, MtmFreeData custom_data_free_func);
 
+MatamazomResult productPrintDetails (Product product, double amount, FILE *output);
 
-Product productCreate(unsigned int id, char *name,
-                      const double amount, const MatamazomAmountType amountType,
-                      const MtmProductData customData, MtmCopyData CopyFunc,
-                      MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc)
+
+
+
 
 
 #endif //UNTITLED1_PRODUCT17_11_H

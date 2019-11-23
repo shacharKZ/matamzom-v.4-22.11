@@ -104,8 +104,7 @@ Matamazom matamazomCreate(){
     }
 }
 
-// -----------------------------------------------------------------------
-/*
+
 void matamazomDestroy(Matamazom matamazom){
     setDestroy(matamazom->orders);
     asDestroy(matamazom->storage);
@@ -224,10 +223,6 @@ unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
     }
     return 0;
 }
-
-
-*/
-//--------------------------------------------------------------------------------
 
 
 /**
@@ -396,8 +391,12 @@ MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, F
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-
-
+    fprintf(output,"Inventory Status:\n");
+    MatamazomResult flag = orderPrintAllProduct (currentOrder, output);
+    fprintf(output, "----------\n");
+    double totalPrice = orderGetTotalPrice(currentOrder);
+    fprintf(output, "Total Price: %f\n", totalPrice);
+    return flag;
 }
 
 /**
