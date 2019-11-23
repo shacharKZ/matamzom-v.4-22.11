@@ -8,6 +8,8 @@
 #include <string.h>
 #include "matamazom_print.h"
 #include <assert.h>
+#include "matamazom_print.h"
+
 
 
 struct Matamazom_t{
@@ -84,6 +86,10 @@ Matamazom matamazomCreate(){
         return NULL;
     }
 
+
+    matamazom_new -> storage = asCreate(copyProduct, freeProduct, compareProduct);
+    matamazom_new -> orders = setCreate(orderCopy, orderFree, orderCompare);
+
     matamazom_new -> storage = asCreate(&copyProduct, &freeProduct, &compareProduct);
     if (matamazom_new -> storage == NULL) {
         free (matamazom_new);
@@ -123,21 +129,23 @@ MatamazomResult mtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
-    Product product_new = productCreate(id, name, amountType, customData, ProductPriceFunc);
+    Product product_new = productCreate(id, name, amount, amountType, customData, CopyFunc, FreeFunc, ProductPriceFunc);
 
     if (product_new == NULL) {
         return MATAMAZOM_OUT_OF_MEMORY;
     }
     switch (asRegister(matamazom->storage, product_new)) {
-        case (AS_SUCCESS): {
-            return MATAMAZOM_SUCCESS;
-        }
         case (AS_ITEM_ALREADY_EXISTS):{
             return MATAMAZOM_PRODUCT_ALREADY_EXIST;
         }
         case (AS_NULL_ARGUMENT): {
             return MATAMAZOM_NULL_ARGUMENT;
         }
+        case (AS_SUCCESS): {
+            return MATAMAZOM_SUCCESS;
+        }
+        case else:
+            return MATAMAZOM_SUCCESS;
     }
 }
 
@@ -163,6 +171,8 @@ MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int i
             return MATAMAZOM_PRODUCT_NOT_EXIST;
         case AS_SUCCESS:
             return MATAMAZOM_SUCCESS;
+        case else:
+            return MATAMAZOM_SUCCESS;
     }
 }
 
@@ -173,13 +183,15 @@ MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
     if (id < 0){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
-    Product  temp = getPtrToProductForID(matamazom->storage, id, MtmFreeData); //??????? how do i use the user's free func, whats the name
+    Product  temp = getPtrToProductForID(matamazom->storage, id);
     switch (asDelete(matamazom->storage,temp)){
         case AS_NULL_ARGUMENT:
             return MATAMAZOM_OUT_OF_MEMORY;
         case AS_ITEM_DOES_NOT_EXIST:
             return MATAMAZOM_PRODUCT_NOT_EXIST;
         case AS_SUCCESS:
+            return MATAMAZOM_SUCCESS;
+        case else:
             return MATAMAZOM_SUCCESS;
     }
 
@@ -190,15 +202,14 @@ MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
     if (matamazom == NULL){
         return MATAMAZOM_NULL_ARGUMENT;
     }
-    FILE *fp;
-    fp = fopen("output_file" , "w");
-    fprintf(fp,"Inventory Status:\n");
-    for (struct product_t *ptr = asGetFirst(matamazom->storage); ptr ; ptr = asGetNext(matamazom->storage)) {
+    output = fopen("output_file" , "w");
+    fprintf(output,"Inventory Status:\n");
+    for (Product ptr = asGetFirst(matamazom->storage); ptr ; ptr = asGetNext(matamazom->storage)) {
         mtmPrintProductDetails(getProductName(ptr->currentElement),
                                getProductID(ptr->currentElement), ptr->currentAmount,
-                               realProductPrice(ptr->currentElement), fp);
+                               realProductPrice(ptr->currentElement), output);
     }
-    fclose(fp);
+    fclose(output);
 }
 
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333

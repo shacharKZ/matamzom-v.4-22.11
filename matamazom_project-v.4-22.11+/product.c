@@ -23,24 +23,34 @@ struct product_t{
     double profit;
 };
 
-Product productCreate(unsigned int id, char* name, const MatamazomAmountType datatype,
-                      const MtmProductData customData,
-                      MtmCopyData CopyFunc, MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc){
+Product productCreate(unsigned int id, char *name,
+                      const double amount, const MatamazomAmountType amountType,
+                      const MtmProductData customData, MtmCopyData CopyFunc,
+                      MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc) { //maybe need a oopy func for copying the custom data 666
 
-    Product product = malloc(sizeof(*product));
-    if (product == NULL){
+    Product product_new = malloc(sizeof(*product_new));
+    if (product_new == NULL){
         return NULL;
     }
-    product -> name = malloc(sizeof(strlen(name)));
-    strcpy(product -> name, name);
-    product -> ID = id;
-    product -> amountType = datatype;
-    product -> customData = customData;
-    product -> CopyFunc = CopyFunc;
-    product -> FreeFunc = FreeFunc;
-    product -> ProductPriceFunc = ProductPriceFunc;
-    product -> profit = 0;
-    return product;
+    product_new -> name = malloc(sizeof(strlen(name)));
+    if (product_new->name == NULL){
+        free(product_new);
+        return NULL;
+    }
+    strcpy(product_new -> name, name);
+    product_new -> ID = id;
+    product_new -> amountType = amountType;
+    product_new->customData = CopyFunc(customData);
+    product_new -> customData = malloc(sizeof(customData));
+    if (product_new->customData == NULL){
+        free(product_new->name);
+        free(product_new);
+        return NULL;
+    }
+    product_new ->customData = customData; // do i need the copy func or does this work?
+    product_new -> ProductPriceFunc = ProductPriceFunc;
+    product_new -> profit = 0;
+    return product_new;
 }
 
 
@@ -70,9 +80,8 @@ void freeProduct (ASElement product){
     freeProductAUX(product);
 }
 
-
 static int compareProductAUX(Product product1, Product product2){
-    return (product1->ID - product2->ID);
+    return (int)(product1->ID - product2->ID);
 }
 
 int compareProduct(ASElement product1, ASElement product2){
@@ -93,19 +102,9 @@ double getCurrentProfitOfProduct(Product product) {
     return (double)(product->profit);
 }
 
-Product getPtrToProductForID (struct AmountSet_t *storage ,unsigned int id, MtmFreeData custom_data_free_func){
-    Product temp_product = productCreate(id, NULL, MATAMAZOM_ANY_AMOUNT, NULL, NULL);
-    struct AmountSet_t *temp_storage = asCopy(storage);
-    assert(temp_product && temp_storage);
-    for (Product ptr_to_curr_product = asGetFirst(temp_storage); ptr_to_curr_product!=NULL; ptr_to_curr_product=asGetNext(temp_storage)) {
-        if (temp_product == ptr_to_curr_product){
-            freeProduct(temp_product, custom_data_free_func);
-            asDestroy(temp_storage);
-            return storage->current->element;
-        }
-    }
-    freeProduct(temp_product, custom_data_free_func);
-    asDestroy(temp_storage);
+Product getPtrToProductForID (AmountSet storage ,unsigned int id){
+    Product ptr = asGetFirst(storage);
+    AS_FOREACH(Product, )
     return NULL;
 }
 
