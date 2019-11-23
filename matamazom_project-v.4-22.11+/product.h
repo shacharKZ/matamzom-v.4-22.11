@@ -4,16 +4,17 @@
 #ifndef UNTITLED1_PRODUCT17_11_H
 #define UNTITLED1_PRODUCT17_11_H
 #include <stdbool.h>
-#include "matamazom(19.11sha).h"
+#include "amount_set.h"
+#include "matamazom.h"
 
 typedef struct product_t *Product;
 
 double getCurrentProfitOfProduct(Product product);
 double realProductPrice (Product product, double amount);
 void changeProfit (Product product, double amount);
-Product copyProduct(Product product);
-void freeProduct (Product product);
-int compareProduct(Product product1, Product product2);
+ASElement copyProduct(ASElement product);
+void freeProduct (ASElement product);
+int compareProduct(ASElement product1, ASElement product2);
 
 
 Product productCreate(unsigned int id, char* name, const MatamazomAmountType datatype,

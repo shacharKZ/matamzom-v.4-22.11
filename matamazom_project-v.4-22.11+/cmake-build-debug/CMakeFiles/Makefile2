@@ -55,6 +55,7 @@ CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 
 all: CMakeFiles/self_test1.dir/all
 all: CMakeFiles/amount_set_tests_from_METARGELIM.dir/all
 all: CMakeFiles/self_test2.dir/all
+all: CMakeFiles/self_test3.dir/all
 
 .PHONY : all
 
@@ -62,6 +63,7 @@ all: CMakeFiles/self_test2.dir/all
 clean: CMakeFiles/self_test1.dir/clean
 clean: CMakeFiles/amount_set_tests_from_METARGELIM.dir/clean
 clean: CMakeFiles/self_test2.dir/clean
+clean: CMakeFiles/self_test3.dir/clean
 
 .PHONY : clean
 
@@ -150,6 +152,33 @@ self_test2: CMakeFiles/self_test2.dir/rule
 CMakeFiles/self_test2.dir/clean:
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/clean
 .PHONY : CMakeFiles/self_test2.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/self_test3.dir
+
+# All Build rule for target.
+CMakeFiles/self_test3.dir/all:
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/depend
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=15,16,17,18,19,20 "Built target self_test3"
+.PHONY : CMakeFiles/self_test3.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/self_test3.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 6
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/self_test3.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/self_test3.dir/rule
+
+# Convenience name for target.
+self_test3: CMakeFiles/self_test3.dir/rule
+
+.PHONY : self_test3
+
+# clean rule for target.
+CMakeFiles/self_test3.dir/clean:
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/clean
+.PHONY : CMakeFiles/self_test3.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

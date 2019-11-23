@@ -6,8 +6,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include "matamazom(19.11sha).h"
+#include "matamazom.h"
 #include "product.h"
+#include "amount_set.h"
 #include <assert.h>
 
 struct product_t{
@@ -42,7 +43,19 @@ Product productCreate(unsigned int id, char* name, const MatamazomAmountType dat
     return product;
 }
 
-void freeProduct (Product product){
+
+static Product copyProductAUX(Product product){
+    Product product_new = productCreate(product->ID, product->name, product->amountType,
+                                         product->customData, product->CopyFunc,
+                                         product->FreeFunc, product->ProductPriceFunc);
+    return product_new;
+}
+
+ASElement copyProduct (ASElement product) {
+    return copyProductAUX(product);
+}
+
+static void freeProductAUX (Product product){
     if (product->name) {
         free(product->name);
     }
@@ -53,16 +66,20 @@ void freeProduct (Product product){
     product = NULL;
 }
 
-Product copyProduct(Product product){
-    Product product_new = productCreate(product->ID, product->name, product->amountType,
-                                         product->customData, product->CopyFunc,
-                                         product->FreeFunc, product->ProductPriceFunc);
-    return product_new;
+void freeProduct (ASElement product){
+    freeProductAUX(product);
 }
 
-int compareProduct(Product product1, Product product2){
-        return (product1->ID - product2->ID);
+
+static int compareProductAUX(Product product1, Product product2){
+    return (product1->ID - product2->ID);
 }
+
+int compareProduct(ASElement product1, ASElement product2){
+    return compareProductAUX(product1, product2);
+}
+
+
 
 double realProductPrice (Product product, double amount){
     return product -> ProductPriceFunc (product->customData, amount);

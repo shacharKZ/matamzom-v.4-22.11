@@ -7,9 +7,9 @@
 
 
 int main() {
-    ASElement (*copyFunc)(ASElement) = &orderCopyASElement;
-    void (*freeFunc)(ASElement) = &orderFreeASElement;
-    int (*compareFunc)(ASElement, ASElement) = &orderCompareASElement;
+    ASElement (*copyFunc)(ASElement) = &orderCopy;
+    void (*freeFunc)(ASElement) = &orderFree;
+    int (*compareFunc)(ASElement, ASElement) = &orderCompare;
 
     AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
 
@@ -92,7 +92,7 @@ int main() {
     // printf("size of as is: %d \n", asGetSize(as)); // PROBLEM!!! after internet serching decide its ok. i talk with u about it
 
 
-    printf("Hello, World2!\n");
+    printf("test1 finish!\n");
 
     return 0;
 }

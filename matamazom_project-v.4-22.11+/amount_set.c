@@ -421,7 +421,7 @@ AmountSetResult asChangeAmount(AmountSet set, ASElement element, const double am
     ASNode tempLoop = set->firstNode;
     while (tempLoop != NULL) { /// 333
         if (set->compareElementFunc(tempLoop->element, element) == 0) {
-            if (tempLoop->amount + amount < 0) {
+            if (tempLoop->amount + amount <= 0) {
                 return AS_INSUFFICIENT_AMOUNT;
             }
             else {

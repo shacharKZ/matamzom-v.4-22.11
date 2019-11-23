@@ -26,7 +26,7 @@ Order orderCreate(unsigned int newId) {
     int (*compareFunc)(Product first, Product second) = &compareProduct;
      */
 
-    new_order->productCart = asCreate(orderCopyASElement, orderFreeASElement, orderCompareASElement);
+    new_order->productCart = asCreate(orderCopy, orderFree, orderCompare);
     if (!new_order->productCart) {
         return NULL;
     }
@@ -35,12 +35,9 @@ Order orderCreate(unsigned int newId) {
     return new_order;
 }
 
-ASElement orderCopyASElement (ASElement orderToCopy) {
-    ASElement copiedOrder = orderCopy(orderToCopy);
-    return copiedOrder;
-}
 
-Order orderCopy (Order target) {
+
+static Order orderCopyUAX (Order target) {
     if (!target) {
         return NULL;
     }
@@ -48,31 +45,43 @@ Order orderCopy (Order target) {
     return newOrder;
 }
 
-
-void orderFreeASElement (ASElement target) {
-    orderFree(target);
+ASElement orderCopy (ASElement target) {
+    ASElement copiedOrder = orderCopyUAX (target);
+    return copiedOrder;
 }
 
-void orderFree (Order target) {
+static void orderFreeUAX (Order target) {
     asDestroy(target->productCart);
     target->id = 0;
     free(target);
 }
 
-int orderCompareASElement(ASElement first, ASElement second) {
-    return orderCompare(first, second);
+void orderFree (ASElement target) {
+    orderFreeUAX(target);
 }
-int orderCompare(Order first, Order second) {
+
+
+static int orderCompareAUX(Order first, Order second) {
     return (int) (first->id - second->id);
 }
 
+int orderCompare(ASElement first, ASElement second) {
+    return orderCompareAUX(first, second);
+}
 
-AmountSetResult orderChangeProductAmount (Order currentOrder, Product productToAdd, const double amount) {
+AmountSetResult orderRegisterProductOrChangeAmount (Order currentOrder, Product productToAdd, const double amount) {
     AmountSetResult flag = asRegister(currentOrder->productCart, productToAdd);
-    if (flag==AS_SUCCESS) {
+    if (flag==AS_SUCCESS || flag == AS_ITEM_ALREADY_EXISTS) {
         flag = asChangeAmount(currentOrder->productCart, productToAdd, amount);
+        if (flag == AS_INSUFFICIENT_AMOUNT) {
+            flag = asDelete(currentOrder->productCart, productToAdd);
+        }
     }
     return flag;
+}
+
+void orderChangeId (Order target ,unsigned int newId) {
+    target->id = newId;
 }
 
 

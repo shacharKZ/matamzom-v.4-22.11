@@ -16,6 +16,7 @@ CMakeFiles/self_test2.dir/order.c.obj: ../order.c
 CMakeFiles/self_test2.dir/order.c.obj: ../order.h
 CMakeFiles/self_test2.dir/order.c.obj: ../product.h
 
+CMakeFiles/self_test2.dir/product.c.obj: ../amount_set.h
 CMakeFiles/self_test2.dir/product.c.obj: ../matamazom(19.11sha).h
 CMakeFiles/self_test2.dir/product.c.obj: ../product.c
 CMakeFiles/self_test2.dir/product.c.obj: ../product.h

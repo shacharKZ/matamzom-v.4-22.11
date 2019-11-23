@@ -1,13 +1,16 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "matamazom(19.11sha).h"
+#include "matamazom.h"
+#include "stdlib.h"
 #include "product.h"
 #include "order.h"
+#include "libmtm/set.h"
+#include <assert.h>
 
 
 struct Matamazom_t{
     AmountSet storage;
-    AmountSet order;
+    Set orders;
 };
 
 /**
@@ -22,8 +25,47 @@ Matamazom matamazomCreate(){ // eilon 666!!!!
         return NULL;
     }
     matamazom_new -> storage = asCreate(&copyProduct, &freeProduct, &compareProduct);
-    matamazom_new -> order = asCreate(&orderCopy, &orderFree, &orderCompare); // compare with eilon
+    if (matamazom_new -> storage == NULL) {
+        free (matamazom_new);
+        return NULL;
+    }
+    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare); // compare with eilon
+    if (matamazom_new -> orders == NULL) {
+        asDestroy(matamazom_new->storage);
+        free (matamazom_new);
+        return NULL;
+    }
+    return matamazom_new;
+
 }
+
+
+
+// add info
+static Order mtmFindOrder (Matamazom matamazom, const unsigned int orderId) {
+    if (matamazom == NULL) {
+        return NULL;
+    }
+
+    Order searchTarget = orderCreate(orderId);
+    if (searchTarget == NULL) {
+        return NULL;
+    }
+
+    SET_FOREACH(Order, currentOrder, matamazom->orders) {
+        if (orderCompare(currentOrder, searchTarget) == 0) {
+            orderFree(searchTarget);
+            return currentOrder;
+        }
+    }
+
+    orderFree(searchTarget);
+    return NULL;
+}
+
+
+
+
 /**
  * matamazomDestroy: free a Matamazom warehouse, and all its contents, from
  * memory.
@@ -103,6 +145,8 @@ MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int i
  */
 MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id);
 
+
+
 /**
  * mtmCreateNewOrder: create a new empty order in a Matamazom warehouse, and
  * return the order's id.
@@ -113,22 +157,17 @@ MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id);
  *     0 in case of failure.
  */
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
-    return mtmInsertNewOrder(matamazom, asGetSize(matamazom->order)+1);
-    // sends to func that create and inserts new order with an id that is bigger than the amount of current orders
-}
-
-static unsigned int mtmInsertNewOrder(Matamazom matamazom, unsigned int newOrderId) {  /// 33333
+    unsigned int newOrderId = setGetSize(matamazom->orders)+1;
     Order newOrder = orderCreate(newOrderId);
-    AmountSetResult flag = asRegister(matamazom->order, newOrder);
-    unsigned int valueToReturn = newOrderId;
-    if(asRegister(matamazom->order)!=AS_ITEM_ALREADY_EXISTS) { // if newOrderId is already in use by another order
-        valueToReturn = mtmInsertNewOrder(matamazom, newOrderId+1); // try insert new Order with bigger num as id
+    while (setIsIn(matamazom->orders, newOrder) == true) {
+
+        newOrderId++;
+        orderChangeId(newOrder, newOrderId);
     }
-    else if (flag!=AS_SUCCESS) { // if something went wrong
-        valueToReturn = 0;
+    if (setAdd(matamazom->orders, newOrder) == SET_SUCCESS) {
+        return newOrderId;
     }
-    orderFree(newOrder); // the new order as getting copied inside asRegister so this one is useless and delete
-    return valueToReturn;
+    return 0;
 }
 
 
@@ -162,7 +201,60 @@ static unsigned int mtmInsertNewOrder(Matamazom matamazom, unsigned int newOrder
  *    is returned if all the parameters are valid.
  */
 MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigned int orderId,
-                                              const unsigned int productId, const double amount);
+                                              const unsigned int productId, const double amount) {
+    // if the structure of the func works i will made it cleaner by separate to sub funcs
+    if (matamazom == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    Order searchForOrder = orderCreate(orderId);
+    if (setIsIn(matamazom->orders, searchForOrder) == false) {
+        orderFree(searchForOrder);
+        return MATAMAZOM_ORDER_NOT_EXIST;
+    }
+
+    Product searchForProduct = productCreate(productId, "NONE", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
+    if (asContains(matamazom->storage, searchForProduct) == false) {
+        orderFree(searchForOrder);
+        freeProduct(searchForProduct);
+        return MATAMAZOM_PRODUCT_NOT_EXIST;
+    }
+
+    // add func compare amount and amountType and if add a case for MATAMAZOM_INVALID_AMOUNT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+    bool flagCopyProduct = false;
+    AS_FOREACH(Product, currentProduct, matamazom->storage) {
+        if (compareProduct(currentProduct, searchForProduct) == true) {
+            freeProduct(searchForOrder);
+            searchForOrder = copyProduct(currentProduct);
+            flagCopyProduct = true;
+            if (searchForOrder == NULL) {
+                orderFree(searchForOrder);
+                freeProduct(searchForProduct);
+                return MATAMAZOM_OUT_OF_MEMORY;
+            }
+            break;
+        }
+    }
+    assert(flagCopyProduct == true); // something went wrong int the last loop
+
+    SET_FOREACH(Order, currentOrder, matamazom->orders) {
+        if (orderCompare(currentOrder, searchForOrder) == true) {
+            AmountSetResult flag = orderRegisterProductOrChangeAmount(currentOrder, searchForProduct, amount);
+            orderFree(searchForOrder);
+            freeProduct(searchForProduct);
+            if (flag == AS_SUCCESS) {
+                return MATAMAZOM_SUCCESS;
+            }
+            else if (flag == AS_NULL_ARGUMENT || flag == AS_ITEM_DOES_NOT_EXIST) {
+                return MATAMAZOM_OUT_OF_MEMORY;
+            }
+        }
+    }
+
+    assert(0);
+    return MATAMAZOM_OUT_OF_MEMORY;
+}
 /**
  * mtmShipOrder: ship an order and remove it from a Matamazom warehouse.
  *
@@ -202,7 +294,23 @@ MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId);
  *         the given orderId.
  *     MATAMAZOM_SUCCESS - if the order was shipped successfully.
  */
-MatamazomResult mtmCancelOrder(Matamazom matamazom, const unsigned int orderId);
+MatamazomResult mtmCancelOrder(Matamazom matamazom, const unsigned int orderId) {
+    if (matamazom == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    Order orderToCancel = mtmFindOrder(matamazom, orderId);
+
+    if (orderToCancel == NULL) {
+        return MATAMAZOM_ORDER_NOT_EXIST;
+    }
+    if (setRemove(matamazom->orders, orderToCancel) == SET_SUCCESS) {
+        return MATAMAZOM_SUCCESS;
+    }
+
+    assert(0); // does not suppose to get here
+    return MATAMAZOM_NULL_ARGUMENT;
+}
+
 
 /**
  * mtmPrintInventory: print a Matamazom warehouse and its contents as

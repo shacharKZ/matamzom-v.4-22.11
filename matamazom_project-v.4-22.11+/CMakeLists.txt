@@ -9,6 +9,7 @@ link_directories(.)
 
 add_executable(self_test1 main_test1.c amount_set.c amount_set.h order.c order.h product.c product.h libmtm/set.h)
 add_executable(amount_set_tests_from_METARGELIM amount_set.c amount_set.h tests/amount_set_main.c tests/amount_set_tests.c tests/amount_set_tests.h libmtm/set.h)
-add_executable(self_test2 main_test2.c amount_set.c amount_set.h order.c order.h product.c product.h order.c order.h libmtm/set.h)
-
 target_link_libraries(amount_set_tests_from_METARGELIM libmtm.a)
+add_executable(self_test2 main_test2.c amount_set.c amount_set.h order.c order.h product.c product.h order.c order.h libmtm/set.h)
+add_executable(self_test3 main_test3.c amount_set.c amount_set.h order.c order.h product.c product.h order.c order.h matamazom.c matamazom.h libmtm/set.h  )
+target_link_libraries(self_test3 libmtm.a)
