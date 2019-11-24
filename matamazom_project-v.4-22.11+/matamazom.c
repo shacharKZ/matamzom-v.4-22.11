@@ -201,14 +201,14 @@ MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
     if (matamazom == NULL){
         return MATAMAZOM_NULL_ARGUMENT;
     }
-    output = fopen("output_file" , "w");
+ //   output = fopen("output_file" , "w");
     fprintf(output,"Inventory Status:\n");
     for (Product ptr = asGetFirst(matamazom->storage); ptr ; ptr = asGetNext(matamazom->storage)) {
-        mtmPrintProductDetails(getProductName(ptr->currentElement),
-                               getProductID(ptr->currentElement), ptr->currentAmount,
-                               realProductPrice(ptr->currentElement), output);
+        double *temp;
+        asGetAmount(matamazom->storage, ptr, temp);
+        productPrintDetails(ptr,*temp , output);
     }
-    fclose(output);
+  //  fclose(output);
 }
 
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333

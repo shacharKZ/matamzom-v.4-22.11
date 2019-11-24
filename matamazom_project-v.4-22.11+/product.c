@@ -73,12 +73,13 @@ void freeProduct (ASElement product){
 
 
 static int compareProductAUX(Product product1, Product product2){
-    return (product1->ID - product2->ID);
+    return (int)(product1->ID - product2->ID);
 }
 
 int compareProduct(ASElement product1, ASElement product2){
     return compareProductAUX(product1, product2);
 }
+
 
 
 

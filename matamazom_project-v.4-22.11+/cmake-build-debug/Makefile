@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+"
+CMAKE_SOURCE_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -173,6 +173,33 @@ self_test4: cmake_check_build_system
 self_test4/fast:
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/build
 .PHONY : self_test4/fast
+
+C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.obj: C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj
+
+.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.obj
+
+# target to build an object file
+C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj:
+	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj
+.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj
+
+C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.i: C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i
+
+.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.i
+
+# target to preprocess a source file
+C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i:
+	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i
+.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i
+
+C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.s: C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s
+
+.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.s
+
+# target to generate assembly for a file
+C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s:
+	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s
+.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s
 
 amount_set.obj: amount_set.c.obj
 
@@ -478,6 +505,9 @@ help:
 	@echo ... self_test3
 	@echo ... edit_cache
 	@echo ... self_test4
+	@echo ... C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.obj
+	@echo ... C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.i
+	@echo ... C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.s
 	@echo ... amount_set.obj
 	@echo ... amount_set.i
 	@echo ... amount_set.s

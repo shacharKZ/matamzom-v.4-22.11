@@ -19,6 +19,7 @@ void changeProfit (Product product, double amount);
 ASElement copyProduct(ASElement product);
 void freeProduct (ASElement product);
 int compareProduct(ASElement product1, ASElement product2);
+double getProductAmount (AmountSet storage, Product product){
 Product getPtrToProductForID (struct AmountSet_t *storage ,unsigned int id, MtmFreeData custom_data_free_func);
 
 MatamazomResult productPrintDetails (Product product, double amount, FILE *output);
