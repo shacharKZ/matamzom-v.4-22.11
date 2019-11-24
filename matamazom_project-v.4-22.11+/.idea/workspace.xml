@@ -2,9 +2,11 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="untitled" targetName="self_test1" />
-      <config projectName="untitled" targetName="amount_set_tests_from_METARGELIM" />
-      <config projectName="untitled" targetName="self_test2" />
+      <config projectName="matamazom_project" targetName="amount_set_tests_from_METARGELIM" />
+      <config projectName="matamazom_project" targetName="self_test4" />
+      <config projectName="matamazom_project" targetName="self_test3" />
+      <config projectName="matamazom_project" targetName="self_test2" />
+      <config projectName="matamazom_project" targetName="self_test1" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -32,8 +34,13 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../matamazon_project-ex1-v.1" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -47,18 +54,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.amount_set_tests_from_METARGELIM">
-    <configuration name="amount_set_tests_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled" TARGET_NAME="amount_set_tests_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled" RUN_TARGET_NAME="amount_set_tests_from_METARGELIM">
+  <component name="RunManager" selected="CMake Application.self_test4">
+    <configuration name="amount_set_tests_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="amount_set_tests_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="amount_set_tests_from_METARGELIM">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="self_test1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled" TARGET_NAME="self_test1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled" RUN_TARGET_NAME="self_test1">
+    <configuration name="self_test1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="self_test2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="untitled" TARGET_NAME="self_test2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="untitled" RUN_TARGET_NAME="self_test2">
+    <configuration name="self_test2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test2">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="self_test3" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test3" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test3">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="self_test4" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test4">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -67,6 +84,8 @@
       <item itemvalue="CMake Application.amount_set_tests_from_METARGELIM" />
       <item itemvalue="CMake Application.self_test1" />
       <item itemvalue="CMake Application.self_test2" />
+      <item itemvalue="CMake Application.self_test3" />
+      <item itemvalue="CMake Application.self_test4" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -88,7 +107,7 @@
       <workItem from="1574354359517" duration="509000" />
       <workItem from="1574364299455" duration="306000" />
       <workItem from="1574401389428" duration="657000" />
-      <workItem from="1574402412569" duration="155000" />
+      <workItem from="1574402412569" duration="40578000" />
     </task>
     <servers />
   </component>

@@ -13,3 +13,7 @@ target_link_libraries(amount_set_tests_from_METARGELIM libmtm.a)
 add_executable(self_test2 main_test2.c amount_set.c amount_set.h order.c order.h product.c product.h order.c order.h libmtm/set.h)
 add_executable(self_test3 main_test3.c amount_set.c amount_set.h order.c order.h product.c product.h order.c order.h matamazom.c matamazom.h libmtm/set.h  )
 target_link_libraries(self_test3 libmtm.a)
+
+
+add_executable(self_test4 main_test4.c libmtm/set.h )
+target_link_libraries(self_test4 libmtm.a)

@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+
+CMAKE_SOURCE_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -160,6 +160,19 @@ self_test3: cmake_check_build_system
 self_test3/fast:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/build
 .PHONY : self_test3/fast
+
+#=============================================================================
+# Target rules for targets named self_test4
+
+# Build rule for target.
+self_test4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 self_test4
+.PHONY : self_test4
+
+# fast build rule for target.
+self_test4/fast:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/build
+.PHONY : self_test4/fast
 
 amount_set.obj: amount_set.c.obj
 
@@ -277,6 +290,33 @@ main_test3.s: main_test3.c.s
 main_test3.c.s:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/main_test3.c.s
 .PHONY : main_test3.c.s
+
+main_test4.obj: main_test4.c.obj
+
+.PHONY : main_test4.obj
+
+# target to build an object file
+main_test4.c.obj:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.obj
+.PHONY : main_test4.c.obj
+
+main_test4.i: main_test4.c.i
+
+.PHONY : main_test4.i
+
+# target to preprocess a source file
+main_test4.c.i:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.i
+.PHONY : main_test4.c.i
+
+main_test4.s: main_test4.c.s
+
+.PHONY : main_test4.s
+
+# target to generate assembly for a file
+main_test4.c.s:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.s
+.PHONY : main_test4.c.s
 
 matamazom.obj: matamazom.c.obj
 
@@ -437,6 +477,7 @@ help:
 	@echo ... rebuild_cache
 	@echo ... self_test3
 	@echo ... edit_cache
+	@echo ... self_test4
 	@echo ... amount_set.obj
 	@echo ... amount_set.i
 	@echo ... amount_set.s
@@ -449,6 +490,9 @@ help:
 	@echo ... main_test3.obj
 	@echo ... main_test3.i
 	@echo ... main_test3.s
+	@echo ... main_test4.obj
+	@echo ... main_test4.i
+	@echo ... main_test4.s
 	@echo ... matamazom.obj
 	@echo ... matamazom.i
 	@echo ... matamazom.s

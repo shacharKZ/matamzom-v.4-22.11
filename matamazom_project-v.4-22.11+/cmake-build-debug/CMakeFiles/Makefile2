@@ -43,10 +43,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+
+CMAKE_SOURCE_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -56,6 +56,7 @@ all: CMakeFiles/self_test1.dir/all
 all: CMakeFiles/amount_set_tests_from_METARGELIM.dir/all
 all: CMakeFiles/self_test2.dir/all
 all: CMakeFiles/self_test3.dir/all
+all: CMakeFiles/self_test4.dir/all
 
 .PHONY : all
 
@@ -64,6 +65,7 @@ clean: CMakeFiles/self_test1.dir/clean
 clean: CMakeFiles/amount_set_tests_from_METARGELIM.dir/clean
 clean: CMakeFiles/self_test2.dir/clean
 clean: CMakeFiles/self_test3.dir/clean
+clean: CMakeFiles/self_test4.dir/clean
 
 .PHONY : clean
 
@@ -79,14 +81,14 @@ preinstall:
 CMakeFiles/self_test1.dir/all:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/depend
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=5,6,7,8,9 "Built target self_test1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=5,6,7,8,9 "Built target self_test1"
 .PHONY : CMakeFiles/self_test1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/self_test1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 5
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/self_test1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/self_test1.dir/rule
 
 # Convenience name for target.
@@ -106,14 +108,14 @@ CMakeFiles/self_test1.dir/clean:
 CMakeFiles/amount_set_tests_from_METARGELIM.dir/all:
 	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/depend
 	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target amount_set_tests_from_METARGELIM"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4 "Built target amount_set_tests_from_METARGELIM"
 .PHONY : CMakeFiles/amount_set_tests_from_METARGELIM.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/amount_set_tests_from_METARGELIM.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 4
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/amount_set_tests_from_METARGELIM.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/amount_set_tests_from_METARGELIM.dir/rule
 
 # Convenience name for target.
@@ -133,14 +135,14 @@ CMakeFiles/amount_set_tests_from_METARGELIM.dir/clean:
 CMakeFiles/self_test2.dir/all:
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/depend
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=10,11,12,13,14 "Built target self_test2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=10,11,12,13,14 "Built target self_test2"
 .PHONY : CMakeFiles/self_test2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/self_test2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 5
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/self_test2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/self_test2.dir/rule
 
 # Convenience name for target.
@@ -160,14 +162,14 @@ CMakeFiles/self_test2.dir/clean:
 CMakeFiles/self_test3.dir/all:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/depend
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=15,16,17,18,19,20 "Built target self_test3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=15,16,17,18,19,20 "Built target self_test3"
 .PHONY : CMakeFiles/self_test3.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/self_test3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 6
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/self_test3.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/self_test3.dir/rule
 
 # Convenience name for target.
@@ -179,6 +181,33 @@ self_test3: CMakeFiles/self_test3.dir/rule
 CMakeFiles/self_test3.dir/clean:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/clean
 .PHONY : CMakeFiles/self_test3.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/self_test4.dir
+
+# All Build rule for target.
+CMakeFiles/self_test4.dir/all:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/depend
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=21,22 "Built target self_test4"
+.PHONY : CMakeFiles/self_test4.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/self_test4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/self_test4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/self_test4.dir/rule
+
+# Convenience name for target.
+self_test4: CMakeFiles/self_test4.dir/rule
+
+.PHONY : self_test4
+
+# clean rule for target.
+CMakeFiles/self_test4.dir/clean:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/clean
+.PHONY : CMakeFiles/self_test4.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
