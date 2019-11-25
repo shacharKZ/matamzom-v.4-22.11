@@ -36,6 +36,18 @@ double productGetCurrentProfitOf(ListElement product);
 
 unsigned int productGetId (ListElement product);
 
+void productGetName (ListElement product, char* temp);
+
+double productGetAmount (ListElement product);
+
+void productGetCustom(ListElement product, void* temp);
+
+void productFreeCustom (ListElement product, MtmProductData temp);
+
+bool productCustomFilter (ListElement product, MtmFilterProduct customFilter);
+
+void productPrintIncomeLine (List storage, FILE *output);
+
 void productRemove (List storage, unsigned int id);
 
 

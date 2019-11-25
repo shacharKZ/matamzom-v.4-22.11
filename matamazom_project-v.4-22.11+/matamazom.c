@@ -384,38 +384,29 @@ MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, F
     return flag;
 }
 
-/**
- * mtmPrintBestSelling: print the best selling products of a Matamazom
- * warehouse, as explained in the *.pdf.
- *
- * Print the products in descending order, from the best selling (highest total
- * income) to the worst selling (lowest total income). For each product, print
- * its name, id and total income.
- *
- * @param matamazom - a Matamazom warehouse.
- * @param output - an open, writable output stream, to which the order is printed.
- * @return
- *     MATAMAZOM_NULL_ARGUMENT - if a NULL argument is passed.
- *     MATAMAZOM_SUCCESS - if printed successfully.
- */
-MatamazomResult mtmPrintBestSelling(Matamazom matamazom, FILE *output);
 
-/**
- * mtmPrintFiltered: print some products of a Matamazom warehouse, according to
- * a custom filter, as explained in the *.pdf.
- *
- * Please note: This function filter only products that are inside the warehouses inventory.
- * I.e. this function should not care about what is happening inside the orders or the 'income'
- * mechanism.
- *
- * @param matamazom - a Matamazom warehouse.
- * @param customFilter - a boolean function that receives a product's information and
- *     returns true if it should be printed.
- * @param output - an open, writable output stream, to which the order is printed.
- * @return
- *     MATAMAZOM_NULL_ARGUMENT - if a NULL argument is passed.
- *     MATAMAZOM_SUCCESS - if printed successfully.
- */
-MatamazomResult mtmPrintFiltered(Matamazom matamazom, MtmFilterProduct customFilter, FILE *output);
+MatamazomResult mtmPrintBestSelling(Matamazom matamazom, FILE *output){
+
+    if(matamazom == NULL || output == NULL){
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    fprintf(output, "Best Selling Product:\n");
+    productPrintIncomeLine(matamazom->storage, output);
+    return MATAMAZOM_SUCCESS;
+}
+
+
+MatamazomResult mtmPrintFiltered(Matamazom matamazom, MtmFilterProduct customFilter, FILE *output) {
+    if (matamazom == NULL || customFilter == NULL || output == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    for (ListElement ptr = listGetFirst(matamazom->storage); ptr; ptr = listGetNext(matamazom->storage)) {
+
+        if (productCustomFilter(ptr, customFilter) == true) {
+            productPrintDetails(ptr, output);
+        }
+    }
+    return MATAMAZOM_SUCCESS;
+}
 
 

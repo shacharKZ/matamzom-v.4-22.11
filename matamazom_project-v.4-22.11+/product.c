@@ -165,3 +165,51 @@ double getCurrentProfitOfProduct(ListElement product) {
     return ((Product )product) -> profit;
 }
 
+
+/*
+void productGetName (ListElement product, char* temp){
+    temp = malloc(sizeof(strlen(((Product)product)->name)));
+    if (temp == NULL){
+        return;
+    }
+    strcpy(temp, (((Product)product)->name));
+}
+
+double productGetAmount (ListElement product){
+    return ((Product)product)->amount;
+}
+
+void productFreeCustom (ListElement product, MtmProductData temp){
+    ((Product)product)->FreeFunc(temp);
+}
+
+void productGetCustom(ListElement product, MtmProductData temp){
+    temp = (((Product)product) -> CopyFunc(((Product)product)->customData));
+}
+*/
+bool productCustomFilter (ListElement product, MtmFilterProduct customFilter){
+    double priceTemp = ((Product)product)->
+            ProductPriceFunc(((Product)product)->customData,((Product)product) -> amount);
+
+    return  customFilter((((Product)product)->ID), ((Product)product)->name,
+                           ((Product)product) -> amount, ((Product)product)->customData);
+
+}
+
+static double maxOfTwo (double x, double y){
+    return x > y ? x : y;
+}
+
+void productPrintIncomeLine (List storage, FILE *output){
+
+    double max = 0;
+    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
+        max = maxOfTwo(max, ((Product)ptr)->profit);
+    }
+    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
+        if ((((Product)ptr)->profit) == max){
+            mtmPrintIncomeLine(((Product)ptr)->name, ((Product)ptr)->ID, max, output);
+        }
+    }
+
+}

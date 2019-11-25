@@ -17,11 +17,7 @@
   <component name="ChangeListManager">
     <list default="true" id="35a10edf-32d0-4dc6-b570-5539a44d7060" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/matamazom_project.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/matamazom_project.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/matamazom.c" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/matamazom.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/matamazom.h" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/matamazom.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/product.c" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/product.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/product.h" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/product.h" afterDir="false" />
     </list>
@@ -47,6 +43,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -108,7 +105,7 @@
       <workItem from="1574582373673" duration="2485000" />
       <workItem from="1574587519804" duration="1061000" />
       <workItem from="1574662644345" duration="16000" />
-      <workItem from="1574662723271" duration="15364000" />
+      <workItem from="1574662723271" duration="20820000" />
     </task>
     <servers />
   </component>
