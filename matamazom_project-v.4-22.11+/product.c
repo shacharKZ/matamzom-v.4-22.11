@@ -165,31 +165,7 @@ double getCurrentProfitOfProduct(ListElement product) {
     return ((Product )product) -> profit;
 }
 
-
-/*
-void productGetName (ListElement product, char* temp){
-    temp = malloc(sizeof(strlen(((Product)product)->name)));
-    if (temp == NULL){
-        return;
-    }
-    strcpy(temp, (((Product)product)->name));
-}
-
-double productGetAmount (ListElement product){
-    return ((Product)product)->amount;
-}
-
-void productFreeCustom (ListElement product, MtmProductData temp){
-    ((Product)product)->FreeFunc(temp);
-}
-
-void productGetCustom(ListElement product, MtmProductData temp){
-    temp = (((Product)product) -> CopyFunc(((Product)product)->customData));
-}
-*/
 bool productCustomFilter (ListElement product, MtmFilterProduct customFilter){
-    double priceTemp = ((Product)product)->
-            ProductPriceFunc(((Product)product)->customData,((Product)product) -> amount);
 
     return  customFilter((((Product)product)->ID), ((Product)product)->name,
                            ((Product)product) -> amount, ((Product)product)->customData);
