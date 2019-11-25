@@ -4,29 +4,39 @@
 #ifndef UNTITLED1_PRODUCT17_11_H
 #define UNTITLED1_PRODUCT17_11_H
 #include <stdbool.h>
-#include "amount_set.h"
+#include "libmtm/list.h"
+#include "matamazom_print.h"
 #include "matamazom.h"
 
 typedef struct product_t *Product;
 
-Product productCreate(unsigned int id, char* name, const MatamazomAmountType datatype,
-                      const MtmProductData customData,
+Product productCreate(unsigned int id, char* name, double amount, MatamazomAmountType datatype, MtmProductData customData,
                       MtmCopyData CopyFunc, MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc);
 
-double getCurrentProfitOfProduct(Product product);
-double realProductPrice (Product product, double amount);
-void changeProfit (Product product, double amount);
-ASElement copyProduct(ASElement product);
-void freeProduct (ASElement product);
-int compareProduct(ASElement product1, ASElement product2);
-double getProductAmount (AmountSet storage, Product product){
-Product getPtrToProductForID (struct AmountSet_t *storage ,unsigned int id, MtmFreeData custom_data_free_func);
+void changeProfitForGivvenAmountSold (ListElement product, double amount);
 
-MatamazomResult productPrintDetails (Product product, double amount, FILE *output);
+ListElement copyProduct(ListElement product);
 
+void freeProduct (ListElement product);
 
+int compareProduct(ListElement product1, ListElement product2);
 
+void productChangeAmount(List storage ,unsigned int id, double amount);
 
+Product getPtrToProductForID (List storage ,unsigned int id, MtmFreeData custom_data_free_func);
+
+bool productAlreadyExists(List storage, unsigned int id);
+
+void findTheProductBeforeTheNewAndSetCurrentToIt (List storage, ListElement product_new);
+
+void productPrintDetails (ListElement product, FILE *output);
+
+MatamazomAmountType productGetAmountType(List storage, unsigned int id);
+double productGetCurrentProfitOf(ListElement product);
+
+unsigned int productGetId (ListElement product);
+
+void productRemove (List storage, unsigned int id);
 
 
 #endif //UNTITLED1_PRODUCT17_11_H

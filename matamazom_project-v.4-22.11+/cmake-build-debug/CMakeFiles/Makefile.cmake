@@ -49,7 +49,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/self_test1.dir/DependInfo.cmake"
-  "CMakeFiles/amount_set_tests_from_METARGELIM.dir/DependInfo.cmake"
   "CMakeFiles/self_test2.dir/DependInfo.cmake"
   "CMakeFiles/self_test3.dir/DependInfo.cmake"
   "CMakeFiles/self_test4.dir/DependInfo.cmake"

@@ -123,19 +123,6 @@ self_test1/fast:
 .PHONY : self_test1/fast
 
 #=============================================================================
-# Target rules for targets named amount_set_tests_from_METARGELIM
-
-# Build rule for target.
-amount_set_tests_from_METARGELIM: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 amount_set_tests_from_METARGELIM
-.PHONY : amount_set_tests_from_METARGELIM
-
-# fast build rule for target.
-amount_set_tests_from_METARGELIM/fast:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/build
-.PHONY : amount_set_tests_from_METARGELIM/fast
-
-#=============================================================================
 # Target rules for targets named self_test2
 
 # Build rule for target.
@@ -174,33 +161,6 @@ self_test4/fast:
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/build
 .PHONY : self_test4/fast
 
-C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.obj: C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj
-
-.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.obj
-
-# target to build an object file
-C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj
-.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj
-
-C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.i: C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i
-
-.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.i
-
-# target to preprocess a source file
-C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i
-.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.i
-
-C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.s: C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s
-
-.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.s
-
-# target to generate assembly for a file
-C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s
-.PHONY : C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.s
-
 amount_set.obj: amount_set.c.obj
 
 .PHONY : amount_set.obj
@@ -208,7 +168,6 @@ amount_set.obj: amount_set.c.obj
 # target to build an object file
 amount_set.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.obj
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/amount_set.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.obj
 .PHONY : amount_set.c.obj
@@ -220,7 +179,6 @@ amount_set.i: amount_set.c.i
 # target to preprocess a source file
 amount_set.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.i
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/amount_set.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.i
 .PHONY : amount_set.c.i
@@ -232,7 +190,6 @@ amount_set.s: amount_set.c.s
 # target to generate assembly for a file
 amount_set.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.s
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/amount_set.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.s
 .PHONY : amount_set.c.s
@@ -438,60 +395,6 @@ product.c.s:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.s
 .PHONY : product.c.s
 
-tests/amount_set_main.obj: tests/amount_set_main.c.obj
-
-.PHONY : tests/amount_set_main.obj
-
-# target to build an object file
-tests/amount_set_main.c.obj:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_main.c.obj
-.PHONY : tests/amount_set_main.c.obj
-
-tests/amount_set_main.i: tests/amount_set_main.c.i
-
-.PHONY : tests/amount_set_main.i
-
-# target to preprocess a source file
-tests/amount_set_main.c.i:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_main.c.i
-.PHONY : tests/amount_set_main.c.i
-
-tests/amount_set_main.s: tests/amount_set_main.c.s
-
-.PHONY : tests/amount_set_main.s
-
-# target to generate assembly for a file
-tests/amount_set_main.c.s:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_main.c.s
-.PHONY : tests/amount_set_main.c.s
-
-tests/amount_set_tests.obj: tests/amount_set_tests.c.obj
-
-.PHONY : tests/amount_set_tests.obj
-
-# target to build an object file
-tests/amount_set_tests.c.obj:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_tests.c.obj
-.PHONY : tests/amount_set_tests.c.obj
-
-tests/amount_set_tests.i: tests/amount_set_tests.c.i
-
-.PHONY : tests/amount_set_tests.i
-
-# target to preprocess a source file
-tests/amount_set_tests.c.i:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_tests.c.i
-.PHONY : tests/amount_set_tests.c.i
-
-tests/amount_set_tests.s: tests/amount_set_tests.c.s
-
-.PHONY : tests/amount_set_tests.s
-
-# target to generate assembly for a file
-tests/amount_set_tests.c.s:
-	$(MAKE) -f CMakeFiles\amount_set_tests_from_METARGELIM.dir\build.make CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_tests.c.s
-.PHONY : tests/amount_set_tests.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -499,15 +402,11 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... self_test1
-	@echo ... amount_set_tests_from_METARGELIM
 	@echo ... self_test2
 	@echo ... rebuild_cache
 	@echo ... self_test3
 	@echo ... edit_cache
 	@echo ... self_test4
-	@echo ... C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.obj
-	@echo ... C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.i
-	@echo ... C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.s
 	@echo ... amount_set.obj
 	@echo ... amount_set.i
 	@echo ... amount_set.s
@@ -532,12 +431,6 @@ help:
 	@echo ... product.obj
 	@echo ... product.i
 	@echo ... product.s
-	@echo ... tests/amount_set_main.obj
-	@echo ... tests/amount_set_main.i
-	@echo ... tests/amount_set_main.s
-	@echo ... tests/amount_set_tests.obj
-	@echo ... tests/amount_set_tests.i
-	@echo ... tests/amount_set_tests.s
 .PHONY : help
 
 

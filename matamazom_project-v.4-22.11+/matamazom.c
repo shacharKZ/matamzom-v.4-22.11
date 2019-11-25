@@ -4,6 +4,7 @@
 #include "stdlib.h"
 #include "product.h"
 #include "order.h"
+#include "libmtm/list.h"
 #include "libmtm/set.h"
 #include <string.h>
 #include "matamazom_print.h"
@@ -13,7 +14,7 @@
 
 
 struct Matamazom_t{
-    AmountSet storage;
+    List storage;
     Set orders;
 };
 
@@ -24,7 +25,7 @@ static bool valid_name (char* name){
     if ((name[0] <=57) && (name[0]>-48)){ //between 0-9
         return true;
     }
-    if (strlen(name)==1 || (name[0]<'A') || (name[0]>'z') || ((name[0]>'Z')&&(name[0]<'a'))){ //not a-z or A-Z
+    if (strlen(name)==0 || (name[0]<'A') || (name[0]>'z') || ((name[0]>'Z')&&(name[0]<'a'))){ //not a-z or A-Z
         return false;
     }
     return true;
@@ -54,8 +55,6 @@ static bool valid_amount (const double amount, MatamazomAmountType amountType){
     }
 }
 
-
-
 // add info
 static Order mtmFindOrder (Matamazom matamazom, const unsigned int orderId) {
     if (matamazom == NULL) {
@@ -78,27 +77,27 @@ static Order mtmFindOrder (Matamazom matamazom, const unsigned int orderId) {
     return NULL;
 }
 
-
-
 Matamazom matamazomCreate(){
     Matamazom matamazom_new = malloc(sizeof(*matamazom_new));
     if  (matamazom_new == NULL){
         return NULL;
     }
 
+    matamazom_new -> storage = listCreate(copyProduct, freeProduct);
+    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare);
 
-    matamazom_new -> storage = asCreate(copyProduct, freeProduct, compareProduct);
-    matamazom_new -> orders = setCreate(orderCopy, orderFree, orderCompare);
-
-    matamazom_new -> storage = asCreate(&copyProduct, &freeProduct, &compareProduct);
     if (matamazom_new -> storage == NULL) {
+        if (matamazom_new->orders !=NULL){
+            setDestroy(matamazom_new->orders);
+        }
         free (matamazom_new);
         return NULL;
     }
 
-    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare);
     if (matamazom_new -> orders == NULL) {
-        asDestroy(matamazom_new->storage);
+        if (matamazom_new->storage !=NULL){
+            listDestroy(matamazom_new->storage);
+        }
         free (matamazom_new);
         return NULL;
     }
@@ -107,17 +106,17 @@ Matamazom matamazomCreate(){
 
 void matamazomDestroy(Matamazom matamazom){
     setDestroy(matamazom->orders);
-    asDestroy(matamazom->storage);
+    listDestroy(matamazom->storage);
     free (matamazom);
 }
 
 
-MatamazomResult mtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
+MatamazomResult MtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
                               const double amount, const MatamazomAmountType amountType,
                               const MtmProductData customData, MtmCopyData CopyFunc,
                               MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc) {
 
-    if (matamazom == NULL || name == NULL || customData == NULL
+    if (matamazom == NULL || matamazom->storage == NULL|| name == NULL || customData == NULL
         || CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
@@ -127,25 +126,36 @@ MatamazomResult mtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
     if (valid_amount(amount, amountType) == false || amount < 0) {
         return MATAMAZOM_INVALID_AMOUNT;
     }
+    if (productAlreadyExists(matamazom->storage, id)){
+        return MATAMAZOM_PRODUCT_ALREADY_EXIST;
+    }
 
     Product product_new = productCreate(id, name, amount, amountType, customData, CopyFunc, FreeFunc, ProductPriceFunc);
-
     if (product_new == NULL) {
         return MATAMAZOM_OUT_OF_MEMORY;
     }
-    switch (asRegister(matamazom->storage, product_new)) {
-        case (AS_ITEM_ALREADY_EXISTS):{
-            return MATAMAZOM_PRODUCT_ALREADY_EXIST;
-        }
-        case (AS_NULL_ARGUMENT): {
-            return MATAMAZOM_NULL_ARGUMENT;
-        }
-        case (AS_SUCCESS): {
+    if (listGetFirst(matamazom->storage) == NULL){
+        ListResult check = listInsertFirst(matamazom -> storage, ((ListElement)product_new));
+
+        if(check == LIST_OUT_OF_MEMORY){
+            return MATAMAZOM_OUT_OF_MEMORY;
+        } else{
+            assert(check == LIST_SUCCESS);
             return MATAMAZOM_SUCCESS;
         }
-        case else:
+    } else{
+        findTheProductBeforeTheNewAndSetCurrentToIt (matamazom->storage, product_new);
+
+        ListResult check = listInsertAfterCurrent(matamazom->storage, product_new);
+
+        if(check == LIST_OUT_OF_MEMORY){
+            return MATAMAZOM_OUT_OF_MEMORY;
+        } else{
+            assert(check == LIST_SUCCESS);
             return MATAMAZOM_SUCCESS;
+        }
     }
+
 }
 
 
@@ -154,61 +164,35 @@ MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int i
     if (matamazom==NULL){
         return MATAMAZOM_NULL_ARGUMENT;
     }
-    Product ptr = getPtrToProductForID(matamazom->storage, id, );
-    if (ptr == NULL){
+    if (productAlreadyExists(matamazom->storage, id) == false){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
-    if (valid_amount(amount, ptr->amountType) == false){
+    if (valid_amount(amount, productGetAmountType(matamazom->storage, id)) == false){
         return MATAMAZOM_INVALID_AMOUNT;
     }
-    switch (asChangeAmount(matamazom->storage, ptr, amount)){
-        case AS_NULL_ARGUMENT:
-            return MATAMAZOM_NULL_ARGUMENT;
-        case AS_INSUFFICIENT_AMOUNT:
-            return MATAMAZOM_INSUFFICIENT_AMOUNT;
-        case AS_ITEM_DOES_NOT_EXIST:
-            return MATAMAZOM_PRODUCT_NOT_EXIST;
-        case AS_SUCCESS:
-            return MATAMAZOM_SUCCESS;
-        case else:
-            return MATAMAZOM_SUCCESS;
-    }
+
+    productChangeAmount(matamazom->storage, id, amount);
 }
 
 MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
     if (matamazom == NULL){
         return MATAMAZOM_NULL_ARGUMENT;
     }
-    if (id < 0){
+    if (id < 0 || productAlreadyExists(matamazom->storage, id) == false){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
-    Product  temp = getPtrToProductForID(matamazom->storage, id);
-    switch (asDelete(matamazom->storage,temp)){
-        case AS_NULL_ARGUMENT:
-            return MATAMAZOM_OUT_OF_MEMORY;
-        case AS_ITEM_DOES_NOT_EXIST:
-            return MATAMAZOM_PRODUCT_NOT_EXIST;
-        case AS_SUCCESS:
-            return MATAMAZOM_SUCCESS;
-        case else:
-            return MATAMAZOM_SUCCESS;
-    }
-
+    productRemove(matamazom->storage, id);
     return MATAMAZOM_SUCCESS;
 }
 
 MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
-    if (matamazom == NULL){
+    if (matamazom == NULL || output == NULL){
         return MATAMAZOM_NULL_ARGUMENT;
     }
- //   output = fopen("output_file" , "w");
     fprintf(output,"Inventory Status:\n");
-    for (Product ptr = asGetFirst(matamazom->storage); ptr ; ptr = asGetNext(matamazom->storage)) {
-        double *temp;
-        asGetAmount(matamazom->storage, ptr, temp);
-        productPrintDetails(ptr,*temp , output);
+    for (ListElement ptr = listGetFirst(matamazom->storage); ptr ; ptr = listGetNext(matamazom->storage)) {
+        productPrintDetails(ptr, output);
     }
-  //  fclose(output);
 }
 
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
@@ -267,19 +251,20 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-    Product searchForProduct = productCreate(productId, "NONE", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
+    Product searchForProduct = productCreate(productId, "NONE", MATAMAZOM_ANY_AMOUNT, NULL,
+            NULL, NULL, NULL);
     if (asContains(matamazom->storage, searchForProduct) == false) {
         orderFree(searchForOrder);
         freeProduct(searchForProduct);
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
 
-    // add func compare amount and amountType and if add a case for MATAMAZOM_INVALID_AMOUNT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+    // add func compare amount and amountType and if add a case for MATAMAZOM_INVALID_AMOUNT!!!!!!!!!!!!!!!!!!!!!
 
     bool flagCopyProduct = false;
-    AS_FOREACH(Product, currentProduct, matamazom->storage) {
+    LIST_FOREACH(Product, currentProduct, matamazom->storage) {
         if (compareProduct(currentProduct, searchForProduct) == true) {
-            freeProduct(searchForOrder);
+            freeProduct(searchForOrder); //666 free an order with freeproduct?
             searchForOrder = copyProduct(currentProduct);
             flagCopyProduct = true;
             if (searchForOrder == NULL) {
