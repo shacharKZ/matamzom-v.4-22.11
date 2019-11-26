@@ -21,7 +21,7 @@ MatamazomResult orderRegisterProductOrChangeAmount (Order currentOrder, Product 
 MatamazomResult orderPrintAllProduct (Order order, FILE *output);
 double orderGetTotalPrice (Order order);
 ListResult isProductIdInOrder (Order order, unsigned int id);
-void orderChangeProductAmount (Order order, unsigned int id, double amount);
+MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount);
 MatamazomResult addProductToOrder (Order order, Product product);
 
 #endif //UNTITLED_ORDER_H

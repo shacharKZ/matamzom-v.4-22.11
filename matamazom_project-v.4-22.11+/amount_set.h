@@ -259,7 +259,7 @@ ASElement asGetNext(AmountSet set);
  * Declares a new iterator for the loop.
  */
 #define AS_FOREACH(type, iterator, set)          \
-    for(type iterator = (type) asGetFirst(set) ; \
+    for(type iterator = (type)asGetFirst(set) ;  \
         iterator ;                               \
         iterator = asGetNext(set))
 

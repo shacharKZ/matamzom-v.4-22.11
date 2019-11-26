@@ -51,6 +51,39 @@ Product productCreate(unsigned int id, char* name, double amount, MatamazomAmoun
     return product;
 }
 
+/*
+Product getPtrToProductForID (List storage ,unsigned int id) { // 777
+
+    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)) {
+        if ((((Product)ptr)->ID) == id){
+            return ((Product)ptr);
+        }
+    }
+    return NULL;
+} */ //illigal, cancels out encapsulation
+
+static Product findProductForID (List storage, unsigned int id){
+
+    for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
+        if(((Product)ptr) -> ID == id){
+            return ptr;
+        }
+    }
+    return NULL;
+}
+
+void freeProduct(ListElement product){
+
+    free(((Product)product)->name);
+    ((Product)product)->FreeFunc(((Product)product)->customData);
+    free(product);
+}
+
+void productRemove (List storage, unsigned int id){
+    Product ptr = ((Product)findProductForID(storage, id)); //set iterator to wanted product and find the product
+    listRemoveCurrent(storage);
+    freeProduct(ptr);
+}
 
 static Product copyProductAUX(Product product){
     Product product_new = productCreate(product->ID, product->name, product->amount,
@@ -63,57 +96,27 @@ ListElement copyProduct (ListElement product) {
     return copyProductAUX(product);
 }
 
-static void freeProductAUX (Product product){
-
-    free(product->name);
-    product->FreeFunc(product->customData);
-    free(product);
-}
-
-void freeProduct (ListElement product){
-    freeProductAUX(product);
-}
-
-
-static int compareProductAUX(Product product1, Product product2){
-    return (int)(product1->ID - product2->ID);
-}
-
 int compareProduct(ListElement product1, ListElement product2){
-    return compareProductAUX(product1, product2);
+    return (int)((((Product)product1)->ID) - (((Product)product2)->ID));
 }
 
-double realProductPrice (Product product, double amount){
-    return (product -> ProductPriceFunc (product->customData, amount));
+double realProductPrice (ListElement product, double amount){
+    return (((Product)product) -> ProductPriceFunc (((Product)product)->customData, amount));
 }
 
-static void changeProfitForGivvenAmountSoldAUX (Product product, double amount) {
-    product->profit += realProductPrice(product, amount);
-}
-
-void changeProfitForGivvenAmountSold (ListElement product, double amount){
-    changeProfitForGivvenAmountSoldAUX(product, amount);
-}
-
-
-static Product findProductForID (List storage, unsigned int id){
-    // 777 has nn default return
-    for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
-        if(((Product)ptr) -> ID == id){
-            return ptr;
-        }
-    }
+void changeProfitForGivenAmountSold (ListElement product, double amount){
+    ((Product)product)->profit += realProductPrice(product, amount);
 }
 
 void productPrintDetails (ListElement product, FILE *output) {
-    //product was already checked if null before sent
+    //product and output were already checked if null before sent
     double priceTemp = ((Product)product)->
                          ProductPriceFunc(((Product)product)->customData,((Product)product) -> amount);
 
     mtmPrintProductDetails(((Product)product)->name, ((Product)product)->ID,
                            ((Product)product) -> amount, priceTemp, output); // 777 maybe we need to check the funcs return SUCCESS
+                                                                            //666this is a void func, given to us at matamazom_print.c
 }
-
 
 bool productAlreadyExists(List storage, unsigned int id){
 
@@ -122,43 +125,37 @@ bool productAlreadyExists(List storage, unsigned int id){
             return true;
         }
     }
-
     return false;
 }
 
-void findTheProductBeforeTheNewAndSetCurrentToIt (List storage, ListElement product_new){
+bool findTheProductAfterTheNewAndSetCurrentToIt (List storage, ListElement product_new){
  /// 777 does not work
+ // 666 modified
     for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
-        if (((Product)product_new)->ID > ((Product)ptr)->ID){
-            return;
+        if ( ( ((Product)product_new)->ID ) < ( ((Product)ptr)->ID ) ){
+            return true;
         }
     }
+    return false;
 }
 
-double productChangeAmount(List storage,unsigned int id, double amount){
-    // 777 not checking if exist and it is a problem
+MatamazomResult productChangeAmount(List storage,unsigned int id, double amount){
+
     Product  ptr = findProductForID(storage, id);
-    ((Product)ptr) -> amount += amount;
-    return ((Product)ptr) -> amount;
-}
+    if ( ( (((Product)ptr) -> amount) + amount) < 0){
+        return MATAMAZOM_INSUFFICIENT_AMOUNT;
+    } else{
+        ((Product)ptr) -> amount += amount;
+        return MATAMAZOM_SUCCESS;
+    }
 
-void productRemove (List storage, unsigned int id){
-    Product ptr = ((Product)findProductForID(storage, id)); //set iterator to wanted product and find the product
-    listRemoveCurrent(storage);
-    freeProduct(ptr);
 }
 
 MatamazomAmountType productGetAmountType(List storage, unsigned int id){
-    Product  ptr = findProductForID(storage, id);
-    return ((Product) ptr)->amountType;
-}
 
-MatamazomAmountType productGetAmountTypeOfProduct(Product product){
-    if (product == NULL) {
-        assert(0);
-        return 0;
-    }
-    return product->amountType;
+    Product ptr = findProductForID(storage, id);
+    assert(ptr);
+    return ((Product)ptr)->amountType;
 }
 
 double productGetAmount (ListElement product){
@@ -199,16 +196,6 @@ void productPrintIncomeLine (List storage, FILE *output){
 
 }
 
-Product getPtrToProductForID (List storage ,unsigned int id) { // 777
-
-    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)) {
-        if ((((Product)ptr)->ID) == id){
-            return ((Product)ptr);
-        }
-    }
-    return NULL;
-}
-
 MatamazomResult addProductToList (List list, Product product) {
 
     if (product == NULL || list == NULL) {
@@ -229,7 +216,7 @@ MatamazomResult addProductToList (List list, Product product) {
             return MATAMAZOM_SUCCESS;
         }
     } else {
-        findTheProductBeforeTheNewAndSetCurrentToIt (list, product);
+        findTheProductAfterTheNewAndSetCurrentToIt (list, product);
 
         ListResult check = listInsertAfterCurrent(list, product);
 

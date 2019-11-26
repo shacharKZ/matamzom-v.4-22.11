@@ -32,6 +32,7 @@ static bool valid_name (char* name){
 }
 
 static bool valid_amount (const double amount, MatamazomAmountType amountType){
+
     if (amount == 0 || amountType == MATAMAZOM_ANY_AMOUNT){
         return  true;
     }
@@ -101,15 +102,14 @@ Matamazom matamazomCreate(){
         free (matamazom_new);
         return NULL;
     }
+    return matamazom_new;
 }
-
 
 void matamazomDestroy(Matamazom matamazom){
     setDestroy(matamazom->orders);
     listDestroy(matamazom->storage);
     free (matamazom);
 }
-
 
 MatamazomResult MtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
                               const double amount, const MatamazomAmountType amountType,
@@ -130,12 +130,14 @@ MatamazomResult MtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
         return MATAMAZOM_PRODUCT_ALREADY_EXIST;
     }
 
-    Product product_new = productCreate(id, name, amount, amountType, customData, CopyFunc, FreeFunc, ProductPriceFunc);
+    Product product_new = productCreate(id, name, amount, amountType,
+                               customData, CopyFunc, FreeFunc, ProductPriceFunc);
     /////// 777 copy to product
+    //666 what?
     if (product_new == NULL) {
         return MATAMAZOM_OUT_OF_MEMORY;
     }
-    if (listGetFirst(matamazom->storage) == NULL){
+    if (listGetFirst(matamazom->storage) == NULL){ //case of first product
         ListResult check = listInsertFirst(matamazom -> storage, ((ListElement)product_new));
 
         if(check == LIST_OUT_OF_MEMORY){
@@ -144,10 +146,19 @@ MatamazomResult MtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
             assert(check == LIST_SUCCESS);
             return MATAMAZOM_SUCCESS;
         }
-    } else{
-        findTheProductBeforeTheNewAndSetCurrentToIt (matamazom->storage, product_new);
+    }
+    if (findTheProductAfterTheNewAndSetCurrentToIt(matamazom->storage, product_new) == true){
+        //check if he is not the last
+        ListResult check = listInsertBeforeCurrent(matamazom->storage, product_new);
 
-        ListResult check = listInsertAfterCurrent(matamazom->storage, product_new);
+        if(check == LIST_OUT_OF_MEMORY){
+            return MATAMAZOM_OUT_OF_MEMORY;
+        } else{
+            assert(check == LIST_SUCCESS);
+            return MATAMAZOM_SUCCESS;
+        }
+    } else{ //this means this product will be the last, and has the biggest id so far
+        ListResult check = listInsertLast(matamazom->storage, product_new);
 
         if(check == LIST_OUT_OF_MEMORY){
             return MATAMAZOM_OUT_OF_MEMORY;
@@ -172,7 +183,9 @@ MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int i
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
-    productChangeAmount(matamazom->storage, id, amount); /// 777 if the amount is under 0 we need to make another if/case
+    return productChangeAmount(matamazom->storage, id, amount);
+    // 777 if the amount is under 0 we need to make another if/case
+    // 666 - updated and now checks for change legality
 }
 
 MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
@@ -183,6 +196,7 @@ MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
     productRemove(matamazom->storage, id); // 777 i think we should put this func inside matamzom
+                                            // 666 we can't because it uses findProductForID which is static
     return MATAMAZOM_SUCCESS;
 }
 
@@ -194,6 +208,7 @@ MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
     for (ListElement ptr = listGetFirst(matamazom->storage); ptr ; ptr = listGetNext(matamazom->storage)) {
         productPrintDetails(ptr, output);
     }
+    return MATAMAZOM_SUCCESS;
 }
 
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
@@ -251,32 +266,24 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-    Product currentProduct = copyProduct(getPtrToProductForID(matamazom->storage, productId));
-    if (currentProduct == NULL) {
+    if (productAlreadyExists(matamazom->storage, productId) == false) {
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
 
-    if (valid_amount(amount, productGetAmountTypeOfProduct(currentProduct)) == false){
+    if (valid_amount(amount, productGetAmountType(matamazom->storage, productId) == false)){
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
-    if (isProductIdInOrder(currentOrder, productId) == true) {
-        orderChangeProductAmount(currentOrder, productId, amount);
-        return MATAMAZOM_SUCCESS;
+    if (isProductIdInOrder(currentOrder, productId) == false) {
+        return MATAMAZOM_PRODUCT_NOT_EXIST;
+    } else{
+        return orderChangeProductAmount(currentOrder, productId, amount);
     }
-    else if (amount <= 0 ) {
-            return MATAMAZOM_INSUFFICIENT_AMOUNT;
-    }
-
-    return addProductToOrder(currentOrder, currentProduct);
 }
-
-
 
 MatamazomResult mtmShipOrderAUX(Matamazom matamazom, Order currentOrder) {
     return 0;
 }
-
 
 /**
  * mtmShipOrder: ship an order and remove it from a Matamazom warehouse.
@@ -377,8 +384,10 @@ MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, F
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-    fprintf(output,"Inventory Status:\n");
-    MatamazomResult flag = orderPrintAllProduct (currentOrder, output);
+    //fprintf(output,"Inventory Status:\n"); changed this to that below 666
+
+    fprintf(output,"Order %u Details:\n", orderId);
+    MatamazomResult flag = orderPrintAllProduct (currentOrder, output); //you can use my print storage 666
     fprintf(output, "----------\n");
     double totalPrice = orderGetTotalPrice(currentOrder);
     fprintf(output, "Total Price: %f\n", totalPrice);

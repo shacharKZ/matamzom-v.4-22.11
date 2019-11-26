@@ -29,14 +29,14 @@ stdio.h
 C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/order.c
 order.h
 C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/order.h
-amount_set.h
-C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/amount_set.h
 stdlib.h
 -
 product.h
 C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/product.h
 matamazom_print.h
 C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/matamazom_print.h
+libmtm/list.h
+C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/libmtm/list.h
 assert.h
 -
 

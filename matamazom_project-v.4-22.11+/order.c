@@ -75,17 +75,15 @@ ListResult isProductIdInOrder (Order order, unsigned int id) {
     return (productAlreadyExists(order->productCart, id));
 }
 
-void orderChangeProductAmount (Order order, unsigned int id, double amount) { // 666 not complete
-    if (productChangeAmount(order->productCart, id, amount) <=0 ) {
-        productRemove (order->productCart, id);
-    }
+MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount) { // 666 not complete
+    return productChangeAmount(order->productCart, id, amount); //666 modified
 }
 
 MatamazomResult addProductToOrder (Order order, Product product) {
     return addProductToList (order->productCart, product);
 }
 
-
+/*
 MatamazomResult orderRegisterProductOrChangeAmount (Order currentOrder, Product productToAdd, const double amount) {
     if (currentOrder == NULL || productToAdd == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
@@ -108,7 +106,7 @@ MatamazomResult orderRegisterProductOrChangeAmount (Order currentOrder, Product 
         }
     }
     return flag;
-}
+} */
 
 
 
@@ -128,7 +126,7 @@ MatamazomResult orderPrintAllProduct (Order order, FILE *output) {
             assert(0);
             return MATAMAZOM_OUT_OF_MEMORY;
         }
-        if (productPrintDetails(currentProduct, *currentAmount, output) != MATAMAZOM_SUCCESS) { // make sure this is the right syntax with currentAmount
+        if (productPrintDetails(currentProduct, output) != MATAMAZOM_SUCCESS) { // make sure this is the right syntax with currentAmount
             assert(0);
             return MATAMAZOM_OUT_OF_MEMORY;
         }

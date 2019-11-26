@@ -8,30 +8,54 @@
 #include "matamazom_print.h"
 #include "matamazom.h"
 
+//type for representing a single product, holding all fields of data needed for a product
 typedef struct product_t *Product;
 
+/**
+ * productCreate: create a product.
+ *
+ * @param id - new product id. Must be non-negative, and unique.
+ * @param name - name of the product, e.g. "apple". Must be non-empty.
+ * @param amount - the initial amount of the product when added to the warehouse.
+ * @param amountType - defines what are valid amounts for this product.
+ * @param datatype -
+ * @param customData - pointer to an additional custom data of a product
+ * @param CopyFunc - pointer to a function used for copying the custom data of the product
+ * @param FreeFunc - pointer to a function used for freeing the custom data of the product
+ * @param ProductPriceFunc - pointer to a function used for calculating the price if given amount of the product
+ * @return
+ * A new product in case of success, and NULL otherwise
+ * (e.g. in case of an allocation error or if given a null argument)
+ *
+ */
 Product productCreate(unsigned int id, char* name, double amount, MatamazomAmountType datatype, MtmProductData customData,
                       MtmCopyData CopyFunc, MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc);
 
-void changeProfitForGivvenAmountSold (ListElement product, double amount);
+//function for removing a lists element - product
+void freeProduct (ListElement product);
+
+//function for deleting a product and taking him off the list
+void productRemove (List storage, unsigned int id);
+
+
+void changeProfitForGivenAmountSold (ListElement product, double amount);
 
 ListElement copyProduct(ListElement product);
 
-void freeProduct (ListElement product);
-
 int compareProduct(ListElement product1, ListElement product2);
 
-double productChangeAmount(List storage ,unsigned int id, double amount);
-
-Product getPtrToProductForID (List storage ,unsigned int id); // 777 not exist
+MatamazomResult productChangeAmount(List storage,unsigned int id, double amount);
 
 bool productAlreadyExists(List storage, unsigned int id);
 
-void findTheProductBeforeTheNewAndSetCurrentToIt (List storage, ListElement product_new);
+bool findTheProductAfterTheNewAndSetCurrentToIt (List storage, ListElement product_new);
 
 void productPrintDetails (ListElement product, FILE *output);
 
+double realProductPrice (ListElement product, double amount);
+
 MatamazomAmountType productGetAmountType(List storage, unsigned int id);
+
 double productGetCurrentProfitOf(ListElement product);
 
 unsigned int productGetId (ListElement product);
@@ -40,11 +64,7 @@ bool productCustomFilter (ListElement product, MtmFilterProduct customFilter);
 
 void productPrintIncomeLine (List storage, FILE *output);
 
-void productRemove (List storage, unsigned int id);
-
 MatamazomResult addProductToList (List list, Product product);
-
-MatamazomAmountType productGetAmountTypeOfProduct(Product product);
 
 
 #endif //UNTITLED1_PRODUCT17_11_H
