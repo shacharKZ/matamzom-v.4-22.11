@@ -43,6 +43,7 @@ int main() {
     AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
     //AmountSet nada = asCreate(copyFunc,freeFunc,compareFunc);
 
+
     Product o1 = productCreate(1, "A prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
     Product o2 = productCreate(2, "B prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
     Product o3 = productCreate(3, "C prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);

@@ -38,7 +38,8 @@ int main() {
     Set set2 = setCreate(&copyProduct, &freeProduct, &compareProduct);
 
     int * dummyData;
-    *dummyData = 999;
+    int n = -999;
+    dummyData = &n;
     Product p1 = productCreate(1, "A prod",1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
     Product p2 = productCreate(2, "B prod", 1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
     Product p3 = productCreate(3, "C prod", 1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
@@ -50,7 +51,6 @@ int main() {
     setAdd(set2, p3);
     setAdd(set2, p4);
     setAdd(set2, p5);
-
 
     Set set = setCreate(&copyInt, &freeInt, &compareInts);
 

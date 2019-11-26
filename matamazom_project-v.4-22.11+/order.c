@@ -83,33 +83,6 @@ MatamazomResult addProductToOrder (Order order, Product product) {
     return addProductToList (order->productCart, product);
 }
 
-/*
-MatamazomResult orderRegisterProductOrChangeAmount (Order currentOrder, Product productToAdd, const double amount) {
-    if (currentOrder == NULL || productToAdd == NULL) {
-        return MATAMAZOM_NULL_ARGUMENT;
-    }
-
-    MatamazomResult check = addProductToList(currentOrder->productCart, productToAdd);
-
-    if ( check == MATAMAZOM_ORDER_NOT_EXIST
-
-    }
-
-    ListResult flag =
-
-
-    AmountSetResult flag = asRegister(currentOrder->productCart, productToAdd);
-    if (flag==AS_SUCCESS || flag == AS_ITEM_ALREADY_EXISTS) {
-        flag = asChangeAmount(currentOrder->productCart, productToAdd, amount);
-        if (flag == AS_INSUFFICIENT_AMOUNT) {
-            flag = asDelete(currentOrder->productCart, productToAdd);
-        }
-    }
-    return flag;
-} */
-
-
-
 void orderChangeId (Order target ,unsigned int newId) {
     target->id = newId;
 }
@@ -120,16 +93,8 @@ MatamazomResult orderPrintAllProduct (Order order, FILE *output) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
 
-    AS_FOREACH(Product , currentProduct, order->productCart) {
-        double* currentAmount;
-        if (asGetAmount(order->productCart, currentProduct, currentAmount) != AS_SUCCESS) { // make sure this is the right syntax with currentAmount
-            assert(0);
-            return MATAMAZOM_OUT_OF_MEMORY;
-        }
-        if (productPrintDetails(currentProduct, output) != MATAMAZOM_SUCCESS) { // make sure this is the right syntax with currentAmount
-            assert(0);
-            return MATAMAZOM_OUT_OF_MEMORY;
-        }
+    LIST_FOREACH(Product, currentProduct, order->productCart) {
+        productPrintDetails(currentProduct, output);
     }
     return MATAMAZOM_SUCCESS;
 }
@@ -142,30 +107,10 @@ double orderGetTotalPrice (Order order) {
     }
 
     double totalPrice = 0;
-    AS_FOREACH(Product , currentProduct, order->productCart) {
-        double* currentAmount;
-        if (asGetAmount(order->productCart, currentProduct, currentAmount) != AS_SUCCESS) { // make sure this is the right syntax with currentAmount
-            assert(0);
-            return MATAMAZOM_OUT_OF_MEMORY;
-        }
-        totalPrice += realProductPrice(currentProduct, *currentAmount); // // make sure this is the right syntax with currentAmount
+
+    LIST_FOREACH(Product, currentProduct, order->productCart) {
+        totalPrice += productGetPrice(currentProduct);
     }
     return totalPrice;
 }
 
-
-
-/** testing:
-unsigned int productIdCopy (unsigned int *id) {
-    unsigned int copied = *id;
-    return copied;
-}
-
-void productIdFree (unsigned int *id) {
-    *id = 0; // !!! it is just int.
-}
-
-int productIdCompare (unsigned int *first, unsigned int *second) {
-    return (int) (*first - *second);
-}
- */

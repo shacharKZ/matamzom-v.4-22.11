@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+
+CMAKE_SOURCE_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -309,6 +309,7 @@ matamazom.obj: matamazom.c.obj
 # target to build an object file
 matamazom.c.obj:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.obj
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.obj
 .PHONY : matamazom.c.obj
 
 matamazom.i: matamazom.c.i
@@ -318,6 +319,7 @@ matamazom.i: matamazom.c.i
 # target to preprocess a source file
 matamazom.c.i:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.i
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.i
 .PHONY : matamazom.c.i
 
 matamazom.s: matamazom.c.s
@@ -327,7 +329,35 @@ matamazom.s: matamazom.c.s
 # target to generate assembly for a file
 matamazom.c.s:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.s
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.s
 .PHONY : matamazom.c.s
+
+matamazom_print.obj: matamazom_print.c.obj
+
+.PHONY : matamazom_print.obj
+
+# target to build an object file
+matamazom_print.c.obj:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.obj
+.PHONY : matamazom_print.c.obj
+
+matamazom_print.i: matamazom_print.c.i
+
+.PHONY : matamazom_print.i
+
+# target to preprocess a source file
+matamazom_print.c.i:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.i
+.PHONY : matamazom_print.c.i
+
+matamazom_print.s: matamazom_print.c.s
+
+.PHONY : matamazom_print.s
+
+# target to generate assembly for a file
+matamazom_print.c.s:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.s
+.PHONY : matamazom_print.c.s
 
 order.obj: order.c.obj
 
@@ -338,6 +368,7 @@ order.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.obj
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.obj
 .PHONY : order.c.obj
 
 order.i: order.c.i
@@ -349,6 +380,7 @@ order.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.i
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.i
 .PHONY : order.c.i
 
 order.s: order.c.s
@@ -360,6 +392,7 @@ order.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.s
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.s
 .PHONY : order.c.s
 
 product.obj: product.c.obj
@@ -428,6 +461,9 @@ help:
 	@echo ... matamazom.obj
 	@echo ... matamazom.i
 	@echo ... matamazom.s
+	@echo ... matamazom_print.obj
+	@echo ... matamazom_print.i
+	@echo ... matamazom_print.s
 	@echo ... order.obj
 	@echo ... order.i
 	@echo ... order.s

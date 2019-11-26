@@ -104,6 +104,10 @@ double realProductPrice (ListElement product, double amount){
     return (((Product)product) -> ProductPriceFunc (((Product)product)->customData, amount));
 }
 
+double productGetPrice (ListElement product){
+    return (((Product)product) -> ProductPriceFunc (((Product)product)->customData, ((Product)product)->amount));
+}
+
 void changeProfitForGivenAmountSold (ListElement product, double amount){
     ((Product)product)->profit += realProductPrice(product, amount);
 }

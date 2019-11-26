@@ -54,6 +54,9 @@ static bool valid_amount (const double amount, MatamazomAmountType amountType){
         }
         return false;
     }
+
+
+    return true; /// 777 need a defult return
 }
 
 // add info

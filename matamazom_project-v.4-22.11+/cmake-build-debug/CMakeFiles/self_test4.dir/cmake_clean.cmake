@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/self_test4.dir/main_test4.c.obj"
+  "CMakeFiles/self_test4.dir/matamazom.c.obj"
+  "CMakeFiles/self_test4.dir/matamazom_print.c.obj"
+  "CMakeFiles/self_test4.dir/order.c.obj"
   "CMakeFiles/self_test4.dir/product.c.obj"
   "libself_test4.dll.a"
   "self_test4.exe"

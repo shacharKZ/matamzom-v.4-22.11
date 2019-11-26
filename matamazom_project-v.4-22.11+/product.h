@@ -54,6 +54,8 @@ void productPrintDetails (ListElement product, FILE *output);
 
 double realProductPrice (ListElement product, double amount);
 
+double productGetPrice (ListElement product);
+
 MatamazomAmountType productGetAmountType(List storage, unsigned int id);
 
 double productGetCurrentProfitOf(ListElement product);
