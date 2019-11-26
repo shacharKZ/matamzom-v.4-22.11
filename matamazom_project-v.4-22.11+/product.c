@@ -95,6 +95,7 @@ void changeProfitForGivvenAmountSold (ListElement product, double amount){
     changeProfitForGivvenAmountSoldAUX(product, amount);
 }
 
+
 static Product findProductForID (List storage, unsigned int id){
     // 777 has nn default return
     for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){

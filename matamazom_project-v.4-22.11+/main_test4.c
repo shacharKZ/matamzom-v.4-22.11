@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include "libmtm/set.h"
 #include "amount_set.h"
+#include "product.h"
 #include <assert.h>
 
-static ASElement copyInt(ASElement number) {
+ ASElement copyInt(ASElement number) {
     int *copy = malloc(sizeof(*copy));
     if (copy != NULL) {
         *copy = *(int *)number;
@@ -12,10 +13,14 @@ static ASElement copyInt(ASElement number) {
     return copy;
 }
 
-static void freeInt(ASElement number) { free(number); }
+ void freeInt(ASElement number) { free(number); }
 
-static int compareInts(ASElement lhs, ASElement rhs) {
+ int compareInts(ASElement lhs, ASElement rhs) {
     return (*(int *)lhs) - (*(int *)rhs);
+}
+
+double dummyFunc(MtmProductData basePrice, const double amount) {
+    return 0;
 }
 
 
@@ -26,14 +31,25 @@ void testPrintSetInt (Set set) {
     }
 
     printf("}----->\n");
-
-
-
-
-
 }
 
 int main() {
+
+    Set set2 = setCreate(&copyProduct, &freeProduct, &compareProduct);
+
+    int * dummyData;
+    *dummyData = 999;
+    Product p1 = productCreate(1, "A prod",1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
+    Product p2 = productCreate(2, "B prod", 1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
+    Product p3 = productCreate(3, "C prod", 1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
+    Product p4 = productCreate(4, "D prod", 1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
+    Product p5 = productCreate(5, "E prod", 1, MATAMAZOM_ANY_AMOUNT, &dummyData, copyInt, freeInt, dummyFunc);
+
+    setAdd(set2, p1);
+    setAdd(set2, p2);
+    setAdd(set2, p3);
+    setAdd(set2, p4);
+    setAdd(set2, p5);
 
 
     Set set = setCreate(&copyInt, &freeInt, &compareInts);

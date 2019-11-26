@@ -57,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.self_test3">
+  <component name="RunManager" selected="CMake Application.self_test4">
     <configuration name="self_test1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -105,7 +105,9 @@
       <workItem from="1574364299455" duration="306000" />
       <workItem from="1574401389428" duration="657000" />
       <workItem from="1574402412569" duration="44146000" />
-      <workItem from="1574742526217" duration="5971000" />
+      <workItem from="1574742526217" duration="6020000" />
+      <workItem from="1574750211350" duration="12000" />
+      <workItem from="1574750683028" duration="886000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test4.c" "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/main_test4.c.obj"
+  "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/product.c" "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/product.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

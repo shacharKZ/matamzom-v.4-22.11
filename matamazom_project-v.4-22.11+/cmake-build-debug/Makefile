@@ -371,6 +371,7 @@ product.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.obj
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.obj
 .PHONY : product.c.obj
 
 product.i: product.c.i
@@ -382,6 +383,7 @@ product.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.i
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.i
 .PHONY : product.c.i
 
 product.s: product.c.s
@@ -393,6 +395,7 @@ product.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.s
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.s
 .PHONY : product.c.s
 
 # Help Target

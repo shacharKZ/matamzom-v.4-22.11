@@ -226,11 +226,10 @@
 			<Option target="self_test1"/>
 			<Option target="self_test2"/>
 			<Option target="self_test3"/>
+			<Option target="self_test4"/>
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/product.h">
-			<Option target="self_test1"/>
-			<Option target="self_test2"/>
-			<Option target="self_test3"/>
+			<Option target="self_test4"/>
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
