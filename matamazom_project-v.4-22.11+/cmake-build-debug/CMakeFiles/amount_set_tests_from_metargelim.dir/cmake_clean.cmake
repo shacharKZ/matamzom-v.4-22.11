@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/amount_set_tests_from_METARGELIM.dir/C_/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/main_test5.c.obj"
   "CMakeFiles/amount_set_tests_from_METARGELIM.dir/amount_set.c.obj"
   "CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_main.c.obj"
   "CMakeFiles/amount_set_tests_from_METARGELIM.dir/tests/amount_set_tests.c.obj"

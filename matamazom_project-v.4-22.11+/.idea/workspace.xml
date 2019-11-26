@@ -35,9 +35,13 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../matamazon_project-ex1-v.1" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+" />
     </key>
@@ -54,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.self_test4">
+  <component name="RunManager" selected="CMake Application.self_test3">
     <configuration name="amount_set_tests_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="amount_set_tests_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="amount_set_tests_from_METARGELIM">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -107,7 +111,7 @@
       <workItem from="1574354359517" duration="509000" />
       <workItem from="1574364299455" duration="306000" />
       <workItem from="1574401389428" duration="657000" />
-      <workItem from="1574402412569" duration="40578000" />
+      <workItem from="1574402412569" duration="44146000" />
     </task>
     <servers />
   </component>
