@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 
 
 # The main recursive "all" target.
 all: CMakeFiles/self_test1.dir/all
+all: CMakeFiles/matamazom_test_from_METARGELIM.dir/all
 all: CMakeFiles/self_test2.dir/all
 all: CMakeFiles/self_test3.dir/all
 all: CMakeFiles/self_test4.dir/all
@@ -61,6 +62,7 @@ all: CMakeFiles/self_test4.dir/all
 
 # The main recursive "clean" target.
 clean: CMakeFiles/self_test1.dir/clean
+clean: CMakeFiles/matamazom_test_from_METARGELIM.dir/clean
 clean: CMakeFiles/self_test2.dir/clean
 clean: CMakeFiles/self_test3.dir/clean
 clean: CMakeFiles/self_test4.dir/clean
@@ -79,7 +81,7 @@ preinstall:
 CMakeFiles/self_test1.dir/all:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/depend
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5 "Built target self_test1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=8,9,10,11,12 "Built target self_test1"
 .PHONY : CMakeFiles/self_test1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -100,13 +102,40 @@ CMakeFiles/self_test1.dir/clean:
 .PHONY : CMakeFiles/self_test1.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/matamazom_test_from_METARGELIM.dir
+
+# All Build rule for target.
+CMakeFiles/matamazom_test_from_METARGELIM.dir/all:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/depend
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6,7 "Built target matamazom_test_from_METARGELIM"
+.PHONY : CMakeFiles/matamazom_test_from_METARGELIM.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/matamazom_test_from_METARGELIM.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 7
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/matamazom_test_from_METARGELIM.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/matamazom_test_from_METARGELIM.dir/rule
+
+# Convenience name for target.
+matamazom_test_from_METARGELIM: CMakeFiles/matamazom_test_from_METARGELIM.dir/rule
+
+.PHONY : matamazom_test_from_METARGELIM
+
+# clean rule for target.
+CMakeFiles/matamazom_test_from_METARGELIM.dir/clean:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/clean
+.PHONY : CMakeFiles/matamazom_test_from_METARGELIM.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/self_test2.dir
 
 # All Build rule for target.
 CMakeFiles/self_test2.dir/all:
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/depend
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=6,7,8,9,10 "Built target self_test2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=13,14,15,16,17 "Built target self_test2"
 .PHONY : CMakeFiles/self_test2.dir/all
 
 # Build rule for subdir invocation for target.
@@ -133,7 +162,7 @@ CMakeFiles/self_test2.dir/clean:
 CMakeFiles/self_test3.dir/all:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/depend
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=11,12,13,14,15,16 "Built target self_test3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=18,19,20,21,22,23 "Built target self_test3"
 .PHONY : CMakeFiles/self_test3.dir/all
 
 # Build rule for subdir invocation for target.
@@ -160,7 +189,7 @@ CMakeFiles/self_test3.dir/clean:
 CMakeFiles/self_test4.dir/all:
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/depend
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=17,18,19,20,21,22 "Built target self_test4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=24,25,26,27,28,29 "Built target self_test4"
 .PHONY : CMakeFiles/self_test4.dir/all
 
 # Build rule for subdir invocation for target.

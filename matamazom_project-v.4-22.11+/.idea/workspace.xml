@@ -5,6 +5,7 @@
       <config projectName="matamazom_project" targetName="self_test4" />
       <config projectName="matamazom_project" targetName="self_test3" />
       <config projectName="matamazom_project" targetName="self_test2" />
+      <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
       <config projectName="matamazom_project" targetName="self_test1" />
     </generated>
   </component>
@@ -57,7 +58,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.self_test4">
+  <component name="RunManager" selected="CMake Application.matamazom_test_from_METARGELIM">
+    <configuration name="matamazom_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="matamazom_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="matamazom_test_from_METARGELIM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="self_test1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -79,6 +85,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="CMake Application.matamazom_test_from_METARGELIM" />
       <item itemvalue="CMake Application.self_test1" />
       <item itemvalue="CMake Application.self_test2" />
       <item itemvalue="CMake Application.self_test3" />
@@ -108,7 +115,9 @@
       <workItem from="1574742526217" duration="6020000" />
       <workItem from="1574750211350" duration="12000" />
       <workItem from="1574750683028" duration="915000" />
-      <workItem from="1574753229536" duration="1815000" />
+      <workItem from="1574753229536" duration="1855000" />
+      <workItem from="1574778471207" duration="39000" />
+      <workItem from="1574778949876" duration="2003000" />
     </task>
     <servers />
   </component>

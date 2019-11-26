@@ -123,6 +123,19 @@ self_test1/fast:
 .PHONY : self_test1/fast
 
 #=============================================================================
+# Target rules for targets named matamazom_test_from_METARGELIM
+
+# Build rule for target.
+matamazom_test_from_METARGELIM: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 matamazom_test_from_METARGELIM
+.PHONY : matamazom_test_from_METARGELIM
+
+# fast build rule for target.
+matamazom_test_from_METARGELIM/fast:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/build
+.PHONY : matamazom_test_from_METARGELIM/fast
+
+#=============================================================================
 # Target rules for targets named self_test2
 
 # Build rule for target.
@@ -308,6 +321,7 @@ matamazom.obj: matamazom.c.obj
 
 # target to build an object file
 matamazom.c.obj:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.obj
 .PHONY : matamazom.c.obj
@@ -318,6 +332,7 @@ matamazom.i: matamazom.c.i
 
 # target to preprocess a source file
 matamazom.c.i:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.i
 .PHONY : matamazom.c.i
@@ -328,6 +343,7 @@ matamazom.s: matamazom.c.s
 
 # target to generate assembly for a file
 matamazom.c.s:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.s
 .PHONY : matamazom.c.s
@@ -338,6 +354,7 @@ matamazom_print.obj: matamazom_print.c.obj
 
 # target to build an object file
 matamazom_print.c.obj:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.obj
 .PHONY : matamazom_print.c.obj
 
@@ -347,6 +364,7 @@ matamazom_print.i: matamazom_print.c.i
 
 # target to preprocess a source file
 matamazom_print.c.i:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.i
 .PHONY : matamazom_print.c.i
 
@@ -356,6 +374,7 @@ matamazom_print.s: matamazom_print.c.s
 
 # target to generate assembly for a file
 matamazom_print.c.s:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.s
 .PHONY : matamazom_print.c.s
 
@@ -366,6 +385,7 @@ order.obj: order.c.obj
 # target to build an object file
 order.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.obj
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.obj
@@ -378,6 +398,7 @@ order.i: order.c.i
 # target to preprocess a source file
 order.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.i
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.i
@@ -390,6 +411,7 @@ order.s: order.c.s
 # target to generate assembly for a file
 order.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.s
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.s
@@ -402,6 +424,7 @@ product.obj: product.c.obj
 # target to build an object file
 product.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.obj
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.obj
@@ -414,6 +437,7 @@ product.i: product.c.i
 # target to preprocess a source file
 product.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.i
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.i
@@ -426,10 +450,65 @@ product.s: product.c.s
 # target to generate assembly for a file
 product.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.s
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.s
 .PHONY : product.c.s
+
+tests/matamazom_main.obj: tests/matamazom_main.c.obj
+
+.PHONY : tests/matamazom_main.obj
+
+# target to build an object file
+tests/matamazom_main.c.obj:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj
+.PHONY : tests/matamazom_main.c.obj
+
+tests/matamazom_main.i: tests/matamazom_main.c.i
+
+.PHONY : tests/matamazom_main.i
+
+# target to preprocess a source file
+tests/matamazom_main.c.i:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.i
+.PHONY : tests/matamazom_main.c.i
+
+tests/matamazom_main.s: tests/matamazom_main.c.s
+
+.PHONY : tests/matamazom_main.s
+
+# target to generate assembly for a file
+tests/matamazom_main.c.s:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.s
+.PHONY : tests/matamazom_main.c.s
+
+tests/matamazom_tests.obj: tests/matamazom_tests.c.obj
+
+.PHONY : tests/matamazom_tests.obj
+
+# target to build an object file
+tests/matamazom_tests.c.obj:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj
+.PHONY : tests/matamazom_tests.c.obj
+
+tests/matamazom_tests.i: tests/matamazom_tests.c.i
+
+.PHONY : tests/matamazom_tests.i
+
+# target to preprocess a source file
+tests/matamazom_tests.c.i:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.i
+.PHONY : tests/matamazom_tests.c.i
+
+tests/matamazom_tests.s: tests/matamazom_tests.c.s
+
+.PHONY : tests/matamazom_tests.s
+
+# target to generate assembly for a file
+tests/matamazom_tests.c.s:
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.s
+.PHONY : tests/matamazom_tests.c.s
 
 # Help Target
 help:
@@ -438,6 +517,7 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... self_test1
+	@echo ... matamazom_test_from_METARGELIM
 	@echo ... self_test2
 	@echo ... rebuild_cache
 	@echo ... self_test3
@@ -470,6 +550,12 @@ help:
 	@echo ... product.obj
 	@echo ... product.i
 	@echo ... product.s
+	@echo ... tests/matamazom_main.obj
+	@echo ... tests/matamazom_main.i
+	@echo ... tests/matamazom_main.s
+	@echo ... tests/matamazom_tests.obj
+	@echo ... tests/matamazom_tests.i
+	@echo ... tests/matamazom_tests.s
 .PHONY : help
 
 

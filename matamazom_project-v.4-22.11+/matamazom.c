@@ -113,8 +113,7 @@ void matamazomDestroy(Matamazom matamazom){
     listDestroy(matamazom->storage);
     free (matamazom);
 }
-
-MatamazomResult MtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
+MatamazomResult mtmNewProduct(Matamazom matamazom, const unsigned int id, const char *name,
                               const double amount, const MatamazomAmountType amountType,
                               const MtmProductData customData, MtmCopyData CopyFunc,
                               MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc) {

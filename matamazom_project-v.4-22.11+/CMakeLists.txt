@@ -15,3 +15,6 @@ target_link_libraries(self_test3 libmtm.a)
 
 add_executable(self_test4 main_test4.c libmtm/set.h order.h order.c product.h product.c matamazom.h matamazom.c matamazom_print.h matamazom_print.c)
 target_link_libraries(self_test4 libmtm.a)
+
+add_executable(matamazom_test_from_METARGELIM tests/matamazom_main.c tests/matamazom_tests.h tests/matamazom_tests.c tests/test_utilities.h libmtm/set.h order.h order.c product.h product.c matamazom.h matamazom.c matamazom_print.h matamazom_print.c)
+target_link_libraries(matamazom_test_from_METARGELIM libmtm.a)
