@@ -5,7 +5,7 @@
 #include "product.h"
 #include <assert.h>
 
- ASElement copyInt(ASElement number) {
+ASElement copyInt(ASElement number) {
     int *copy = malloc(sizeof(*copy));
     if (copy != NULL) {
         *copy = *(int *)number;
