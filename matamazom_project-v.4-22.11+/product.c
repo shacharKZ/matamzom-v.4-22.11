@@ -95,7 +95,8 @@ void changeProfitForGivvenAmountSold (ListElement product, double amount){
     changeProfitForGivvenAmountSoldAUX(product, amount);
 }
 
-static Product findProductForID (List storage, unsigned id){
+static Product findProductForID (List storage, unsigned int id){
+    // 777 has nn default return
     for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
         if(((Product)ptr) -> ID == id){
             return ptr;
@@ -109,24 +110,23 @@ void productPrintDetails (ListElement product, FILE *output) {
                          ProductPriceFunc(((Product)product)->customData,((Product)product) -> amount);
 
     mtmPrintProductDetails(((Product)product)->name, ((Product)product)->ID,
-                           ((Product)product) -> amount, priceTemp, output);
+                           ((Product)product) -> amount, priceTemp, output); // 777 maybe we need to check the funcs return SUCCESS
 }
+
 
 bool productAlreadyExists(List storage, unsigned int id){
 
-    List duplicatedList = listCopy(storage); // so I don't change the iterator
-    for (ListElement ptr = listGetFirst(duplicatedList); ptr ; ptr = listGetNext(duplicatedList)){
+    for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
         if(((Product)ptr) -> ID == id){
-            listDestroy(duplicatedList);
             return true;
         }
     }
-    listDestroy(duplicatedList);
+
     return false;
 }
 
 void findTheProductBeforeTheNewAndSetCurrentToIt (List storage, ListElement product_new){
-
+ /// 777 does not work
     for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
         if (((Product)product_new)->ID > ((Product)ptr)->ID){
             return;
@@ -134,22 +134,30 @@ void findTheProductBeforeTheNewAndSetCurrentToIt (List storage, ListElement prod
     }
 }
 
-void productChangeAmount(List storage,unsigned int id, double amount){
-
+double productChangeAmount(List storage,unsigned int id, double amount){
+    // 777 not checking if exist and it is a problem
     Product  ptr = findProductForID(storage, id);
     ((Product)ptr) -> amount += amount;
+    return ((Product)ptr) -> amount;
 }
 
 void productRemove (List storage, unsigned int id){
     Product ptr = ((Product)findProductForID(storage, id)); //set iterator to wanted product and find the product
-    freeProduct(ptr);
     listRemoveCurrent(storage);
+    freeProduct(ptr);
 }
 
 MatamazomAmountType productGetAmountType(List storage, unsigned int id){
-
     Product  ptr = findProductForID(storage, id);
     return ((Product) ptr)->amountType;
+}
+
+MatamazomAmountType productGetAmountTypeOfProduct(Product product){
+    if (product == NULL) {
+        assert(0);
+        return 0;
+    }
+    return product->amountType;
 }
 
 double productGetAmount (ListElement product){
@@ -188,4 +196,47 @@ void productPrintIncomeLine (List storage, FILE *output){
         }
     }
 
+}
+
+Product getPtrToProductForID (List storage ,unsigned int id) { // 777
+
+    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)) {
+        if ((((Product)ptr)->ID) == id){
+            return ((Product)ptr);
+        }
+    }
+    return NULL;
+}
+
+MatamazomResult addProductToList (List list, Product product) {
+
+    if (product == NULL || list == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    if (productAlreadyExists(list, product->ID)){
+        return MATAMAZOM_PRODUCT_ALREADY_EXIST;
+    }
+
+    if (listGetFirst(list) == NULL){
+        ListResult check = listInsertFirst(list, ((ListElement)list));
+
+        if(check == LIST_OUT_OF_MEMORY){
+            return MATAMAZOM_OUT_OF_MEMORY;
+        } else{
+            assert(check == LIST_SUCCESS);
+            return MATAMAZOM_SUCCESS;
+        }
+    } else {
+        findTheProductBeforeTheNewAndSetCurrentToIt (list, product);
+
+        ListResult check = listInsertAfterCurrent(list, product);
+
+        if(check == LIST_OUT_OF_MEMORY){
+            return MATAMAZOM_OUT_OF_MEMORY;
+        } else{
+            assert(check == LIST_SUCCESS);
+            return MATAMAZOM_SUCCESS;
+        }
+    }
 }

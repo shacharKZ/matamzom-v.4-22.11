@@ -21,9 +21,9 @@ void freeProduct (ListElement product);
 
 int compareProduct(ListElement product1, ListElement product2);
 
-void productChangeAmount(List storage ,unsigned int id, double amount);
+double productChangeAmount(List storage ,unsigned int id, double amount);
 
-Product getPtrToProductForID (List storage ,unsigned int id, MtmFreeData custom_data_free_func);
+Product getPtrToProductForID (List storage ,unsigned int id); // 777 not exist
 
 bool productAlreadyExists(List storage, unsigned int id);
 
@@ -41,6 +41,10 @@ bool productCustomFilter (ListElement product, MtmFilterProduct customFilter);
 void productPrintIncomeLine (List storage, FILE *output);
 
 void productRemove (List storage, unsigned int id);
+
+MatamazomResult addProductToList (List list, Product product);
+
+MatamazomAmountType productGetAmountTypeOfProduct(Product product);
 
 
 #endif //UNTITLED1_PRODUCT17_11_H

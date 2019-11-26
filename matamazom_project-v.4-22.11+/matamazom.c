@@ -131,6 +131,7 @@ MatamazomResult MtmNewProduct(Matamazom matamazom, unsigned int id, char *name,
     }
 
     Product product_new = productCreate(id, name, amount, amountType, customData, CopyFunc, FreeFunc, ProductPriceFunc);
+    /////// 777 copy to product
     if (product_new == NULL) {
         return MATAMAZOM_OUT_OF_MEMORY;
     }
@@ -171,7 +172,7 @@ MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int i
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
-    productChangeAmount(matamazom->storage, id, amount);
+    productChangeAmount(matamazom->storage, id, amount); /// 777 if the amount is under 0 we need to make another if/case
 }
 
 MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
@@ -181,7 +182,7 @@ MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
     if (id < 0 || productAlreadyExists(matamazom->storage, id) == false){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
-    productRemove(matamazom->storage, id);
+    productRemove(matamazom->storage, id); // 777 i think we should put this func inside matamzom
     return MATAMAZOM_SUCCESS;
 }
 
@@ -245,55 +246,38 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         return MATAMAZOM_NULL_ARGUMENT;
     }
 
-    Order searchForOrder = orderCreate(orderId);
-    if (setIsIn(matamazom->orders, searchForOrder) == false) {
-        orderFree(searchForOrder);
+    Order currentOrder = mtmFindOrder(matamazom, orderId);
+    if (currentOrder == NULL) {
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-    Product searchForProduct = productCreate(productId, "NONE", MATAMAZOM_ANY_AMOUNT, NULL,
-            NULL, NULL, NULL);
-    if (asContains(matamazom->storage, searchForProduct) == false) {
-        orderFree(searchForOrder);
-        freeProduct(searchForProduct);
+    Product currentProduct = copyProduct(getPtrToProductForID(matamazom->storage, productId));
+    if (currentProduct == NULL) {
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
 
-    // add func compare amount and amountType and if add a case for MATAMAZOM_INVALID_AMOUNT!!!!!!!!!!!!!!!!!!!!!
-
-    bool flagCopyProduct = false;
-    LIST_FOREACH(Product, currentProduct, matamazom->storage) {
-        if (compareProduct(currentProduct, searchForProduct) == true) {
-            freeProduct(searchForOrder); //666 free an order with freeproduct?
-            searchForOrder = copyProduct(currentProduct);
-            flagCopyProduct = true;
-            if (searchForOrder == NULL) {
-                orderFree(searchForOrder);
-                freeProduct(searchForProduct);
-                return MATAMAZOM_OUT_OF_MEMORY;
-            }
-            break;
-        }
-    }
-    assert(flagCopyProduct == true); // something went wrong int the last loop
-
-    SET_FOREACH(Order, currentOrder, matamazom->orders) {
-        if (orderCompare(currentOrder, searchForOrder) == true) {
-            AmountSetResult flag = orderRegisterProductOrChangeAmount(currentOrder, searchForProduct, amount);
-            orderFree(searchForOrder);
-            freeProduct(searchForProduct);
-            if (flag == AS_SUCCESS) {
-                return MATAMAZOM_SUCCESS;
-            }
-            else if (flag == AS_NULL_ARGUMENT || flag == AS_ITEM_DOES_NOT_EXIST) {
-                return MATAMAZOM_OUT_OF_MEMORY;
-            }
-        }
+    if (valid_amount(amount, productGetAmountTypeOfProduct(currentProduct)) == false){
+        return MATAMAZOM_INVALID_AMOUNT;
     }
 
-    assert(0);
-    return MATAMAZOM_OUT_OF_MEMORY;
+    if (isProductIdInOrder(currentOrder, productId) == true) {
+        orderChangeProductAmount(currentOrder, productId, amount);
+        return MATAMAZOM_SUCCESS;
+    }
+    else if (amount <= 0 ) {
+            return MATAMAZOM_INSUFFICIENT_AMOUNT;
+    }
+
+    return addProductToOrder(currentOrder, currentProduct);
 }
+
+
+
+MatamazomResult mtmShipOrderAUX(Matamazom matamazom, Order currentOrder) {
+    return 0;
+}
+
+
 /**
  * mtmShipOrder: ship an order and remove it from a Matamazom warehouse.
  *
@@ -317,7 +301,24 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
  *         that is larger than its amount in matamazom.
  *     MATAMAZOM_SUCCESS - if the order was shipped successfully.
  */
-MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId);
+MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId) {
+
+    return 0;
+    /*
+    if (matamazom == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    Order currentOrder = mtmFindOrder(matamazom, orderId);
+    if (currentOrder == NULL) {
+        return MATAMAZOM_ORDER_NOT_EXIST;
+    }
+
+    mtmShipOrderAUX (matamazom, currentOrder);
+     */
+}
+
+
 
 /**
  * mtmCancelOrder: cancel an order and remove it from a Matamazom warehouse.

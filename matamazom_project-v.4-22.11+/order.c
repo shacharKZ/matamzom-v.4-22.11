@@ -3,16 +3,16 @@
 //
 
 #include "order.h"
-#include "amount_set.h"
 #include <stdlib.h>
 #include "product.h"
 #include "matamazom_print.h"
+#include "libmtm/list.h"
 #include <assert.h>
 
 
 struct Order_t {
     unsigned int id;
-    AmountSet productCart;
+    List productCart;
 };
 
 Order orderCreate(unsigned int newId) {
@@ -27,7 +27,7 @@ Order orderCreate(unsigned int newId) {
     int (*compareFunc)(Product first, Product second) = &compareProduct;
      */
 
-    new_order->productCart = asCreate(orderCopy, orderFree, orderCompare);
+    new_order->productCart = listCreate(orderCopy, orderFree);
     if (!new_order->productCart) {
         return NULL;
     }
@@ -46,18 +46,18 @@ static Order orderCopyUAX (Order target) {
     return newOrder;
 }
 
-ASElement orderCopy (ASElement target) {
-    ASElement copiedOrder = orderCopyUAX (target);
+ListElement orderCopy (ListElement target) {
+    ListElement copiedOrder = orderCopyUAX (target);
     return copiedOrder;
 }
 
 static void orderFreeUAX (Order target) {
-    asDestroy(target->productCart);
+    listDestroy(target->productCart);
     target->id = 0;
     free(target);
 }
 
-void orderFree (ASElement target) {
+void orderFree (ListElement target) {
     orderFreeUAX(target);
 }
 
@@ -66,11 +66,40 @@ static int orderCompareAUX(Order first, Order second) {
     return (int) (first->id - second->id);
 }
 
-int orderCompare(ASElement first, ASElement second) {
+int orderCompare(ListElement first, ListElement second) {
     return orderCompareAUX(first, second);
 }
 
-AmountSetResult orderRegisterProductOrChangeAmount (Order currentOrder, Product productToAdd, const double amount) {
+
+ListResult isProductIdInOrder (Order order, unsigned int id) {
+    return (productAlreadyExists(order->productCart, id));
+}
+
+void orderChangeProductAmount (Order order, unsigned int id, double amount) { // 666 not complete
+    if (productChangeAmount(order->productCart, id, amount) <=0 ) {
+        productRemove (order->productCart, id);
+    }
+}
+
+MatamazomResult addProductToOrder (Order order, Product product) {
+    return addProductToList (order->productCart, product);
+}
+
+
+MatamazomResult orderRegisterProductOrChangeAmount (Order currentOrder, Product productToAdd, const double amount) {
+    if (currentOrder == NULL || productToAdd == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    MatamazomResult check = addProductToList(currentOrder->productCart, productToAdd);
+
+    if ( check == MATAMAZOM_ORDER_NOT_EXIST
+
+    }
+
+    ListResult flag =
+
+
     AmountSetResult flag = asRegister(currentOrder->productCart, productToAdd);
     if (flag==AS_SUCCESS || flag == AS_ITEM_ALREADY_EXISTS) {
         flag = asChangeAmount(currentOrder->productCart, productToAdd, amount);
@@ -80,6 +109,8 @@ AmountSetResult orderRegisterProductOrChangeAmount (Order currentOrder, Product 
     }
     return flag;
 }
+
+
 
 void orderChangeId (Order target ,unsigned int newId) {
     target->id = newId;
