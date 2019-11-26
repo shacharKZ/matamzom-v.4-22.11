@@ -6,15 +6,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include "matamazom.h"
 #include "product.h"
-#include "amount_set.h"
-#include "matamazom_print.h"
 #include <assert.h>
 
 struct product_t{
 
     unsigned int ID;
+    double amount;
     char *name;
     MatamazomAmountType amountType;
     MtmProductData customData;
@@ -24,19 +22,28 @@ struct product_t{
     double profit;
 };
 
-Product productCreate(unsigned int id, char* name, const MatamazomAmountType datatype,
-                      const MtmProductData customData,
-                      MtmCopyData CopyFunc, MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc){
+Product productCreate(unsigned int id, char* name, double amount, MatamazomAmountType datatype,
+                      MtmProductData customData, MtmCopyData CopyFunc, MtmFreeData FreeFunc,
+                      MtmGetProductPrice ProductPriceFunc){
+
+    if(CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL || customData == NULL){
+        return NULL;
+    }
 
     Product product = malloc(sizeof(*product));
     if (product == NULL){
         return NULL;
     }
     product -> name = malloc(sizeof(strlen(name)));
+    if (name == NULL){
+        freeProduct(product);
+        return NULL;
+    }
     strcpy(product -> name, name);
     product -> ID = id;
+    product -> amount = amount;
     product -> amountType = datatype;
-    product -> customData = customData;
+    product -> customData = CopyFunc(customData);
     product -> CopyFunc = CopyFunc;
     product -> FreeFunc = FreeFunc;
     product -> ProductPriceFunc = ProductPriceFunc;
@@ -46,28 +53,24 @@ Product productCreate(unsigned int id, char* name, const MatamazomAmountType dat
 
 
 static Product copyProductAUX(Product product){
-    Product product_new = productCreate(product->ID, product->name, product->amountType,
-                                         product->customData, product->CopyFunc,
-                                         product->FreeFunc, product->ProductPriceFunc);
+    Product product_new = productCreate(product->ID, product->name, product->amount,
+                                        product->amountType, product->customData, product->CopyFunc,
+                                        product->FreeFunc, product->ProductPriceFunc);
     return product_new;
 }
 
-ASElement copyProduct (ASElement product) {
+ListElement copyProduct (ListElement product) {
     return copyProductAUX(product);
 }
 
 static void freeProductAUX (Product product){
-    if (product->name) {
-        free(product->name);
-    }
-    if (product->FreeFunc) {
-        product->FreeFunc(product->customData);
-    }
+
+    free(product->name);
+    product->FreeFunc(product->customData);
     free(product);
-    product = NULL;
 }
 
-void freeProduct (ASElement product){
+void freeProduct (ListElement product){
     freeProductAUX(product);
 }
 
@@ -76,52 +79,113 @@ static int compareProductAUX(Product product1, Product product2){
     return (int)(product1->ID - product2->ID);
 }
 
-int compareProduct(ASElement product1, ASElement product2){
+int compareProduct(ListElement product1, ListElement product2){
     return compareProductAUX(product1, product2);
 }
 
-
-
-
 double realProductPrice (Product product, double amount){
-    return product -> ProductPriceFunc (product->customData, amount);
+    return (product -> ProductPriceFunc (product->customData, amount));
 }
 
-void changeProfit (Product product, double amount){
-    product -> profit += realProductPrice (product, amount);
+static void changeProfitForGivvenAmountSoldAUX (Product product, double amount) {
+    product->profit += realProductPrice(product, amount);
 }
 
-double getCurrentProfitOfProduct(Product product) {
-    return (double)(product->profit);
+void changeProfitForGivvenAmountSold (ListElement product, double amount){
+    changeProfitForGivvenAmountSoldAUX(product, amount);
 }
 
-Product getPtrToProductForID (struct AmountSet_t *storage ,unsigned int id, MtmFreeData custom_data_free_func){
-    Product temp_product = productCreate(id, NULL, MATAMAZOM_ANY_AMOUNT, NULL, NULL);
-    struct AmountSet_t *temp_storage = asCopy(storage);
-    assert(temp_product && temp_storage);
-    for (Product ptr_to_curr_product = asGetFirst(temp_storage); ptr_to_curr_product!=NULL; ptr_to_curr_product=asGetNext(temp_storage)) {
-        if (temp_product == ptr_to_curr_product){
-            freeProduct(temp_product, custom_data_free_func);
-            asDestroy(temp_storage);
-            return storage->current->element;
+static Product findProductForID (List storage, unsigned id){
+    for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
+        if(((Product)ptr) -> ID == id){
+            return ptr;
         }
     }
-    freeProduct(temp_product, custom_data_free_func);
-    asDestroy(temp_storage);
-    return NULL;
 }
 
+void productPrintDetails (ListElement product, FILE *output) {
+    //product was already checked if null before sent
+    double priceTemp = ((Product)product)->
+                         ProductPriceFunc(((Product)product)->customData,((Product)product) -> amount);
 
+    mtmPrintProductDetails(((Product)product)->name, ((Product)product)->ID,
+                           ((Product)product) -> amount, priceTemp, output);
+}
 
-MatamazomResult productPrintDetails (Product product, double amount, FILE *output) {
-    if (product == NULL) {
-        return MATAMAZOM_NULL_ARGUMENT;
+bool productAlreadyExists(List storage, unsigned int id){
+
+    List duplicatedList = listCopy(storage); // so I don't change the iterator
+    for (ListElement ptr = listGetFirst(duplicatedList); ptr ; ptr = listGetNext(duplicatedList)){
+        if(((Product)ptr) -> ID == id){
+            listDestroy(duplicatedList);
+            return true;
+        }
     }
-    double priceTemp = product->ProductPriceFunc(product->customData, amount);
-    mtmPrintProductDetails(product->name, product->ID, amount, priceTemp, output);
-    return MATAMAZOM_SUCCESS;
+    listDestroy(duplicatedList);
+    return false;
+}
+
+void findTheProductBeforeTheNewAndSetCurrentToIt (List storage, ListElement product_new){
+
+    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
+        if (((Product)product_new)->ID > ((Product)ptr)->ID){
+            return;
+        }
+    }
+}
+
+void productChangeAmount(List storage,unsigned int id, double amount){
+
+    Product  ptr = findProductForID(storage, id);
+    ((Product)ptr) -> amount += amount;
+}
+
+void productRemove (List storage, unsigned int id){
+    Product ptr = ((Product)findProductForID(storage, id)); //set iterator to wanted product and find the product
+    freeProduct(ptr);
+    listRemoveCurrent(storage);
+}
+
+MatamazomAmountType productGetAmountType(List storage, unsigned int id){
+
+    Product  ptr = findProductForID(storage, id);
+    return ((Product) ptr)->amountType;
+}
+
+double productGetAmount (ListElement product){
+    return ((Product)product)->amount;
 }
 
 
+unsigned int productGetId (ListElement product){
+    return ((Product )product)->ID;
+}
 
+double getCurrentProfitOfProduct(ListElement product) {
+    return ((Product )product) -> profit;
+}
 
+bool productCustomFilter (ListElement product, MtmFilterProduct customFilter){
+
+    return  customFilter((((Product)product)->ID), ((Product)product)->name,
+                           ((Product)product) -> amount, ((Product)product)->customData);
+
+}
+
+static double maxOfTwo (double x, double y){
+    return x > y ? x : y;
+}
+
+void productPrintIncomeLine (List storage, FILE *output){
+
+    double max = 0;
+    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
+        max = maxOfTwo(max, ((Product)ptr)->profit);
+    }
+    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
+        if ((((Product)ptr)->profit) == max){
+            mtmPrintIncomeLine(((Product)ptr)->name, ((Product)ptr)->ID, max, output);
+        }
+    }
+
+}

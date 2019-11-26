@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+
 typedef enum MatamazomResult_t {
     MATAMAZOM_SUCCESS = 0,
     MATAMAZOM_NULL_ARGUMENT,
