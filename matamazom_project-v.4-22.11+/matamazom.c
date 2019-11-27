@@ -359,7 +359,11 @@ MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId) {
         assert(0);
         return MATAMAZOM_OUT_OF_MEMORY;
     }
-
+    
+    if (setRemove(matamazom->orders, orderToShip) != SET_SUCCESS) {
+        assert(0);
+        return MATAMAZOM_OUT_OF_MEMORY;
+    }
     return MATAMAZOM_SUCCESS;
 }
 
