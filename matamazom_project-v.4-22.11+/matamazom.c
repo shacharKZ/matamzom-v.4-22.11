@@ -88,16 +88,12 @@ Matamazom matamazomCreate(){
     }
 
     matamazom_new -> storage = listCreate(copyProduct, freeProduct);
-    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare);
-
     if (matamazom_new -> storage == NULL) {
-        if (matamazom_new->orders !=NULL){
-            setDestroy(matamazom_new->orders);
-        }
         free (matamazom_new);
         return NULL;
     }
 
+    matamazom_new -> orders = setCreate(&orderCopy, &orderFree, &orderCompare);
     if (matamazom_new -> orders == NULL) {
         if (matamazom_new->storage !=NULL){
             listDestroy(matamazom_new->storage);
