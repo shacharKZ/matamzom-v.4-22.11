@@ -20,9 +20,10 @@ void orderChangeId (Order target ,unsigned int newId);
 MatamazomResult orderRegisterProductOrChangeAmount (Order currentOrder, Product productToAdd, const double amount);
 MatamazomResult orderPrintAllProduct (Order order, FILE *output);
 double orderGetTotalPrice (Order order);
-ListResult isProductIdInOrder (Order order, unsigned int id);
+bool isProductIdInOrder (Order order, unsigned int id);
 MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount);
-MatamazomResult addProductToOrder (Order order, Product product);
+MatamazomResult orderSetProductAmount (Order order, unsigned int id);
+MatamazomResult orderAddProductToCart (Order order, Product product);
 List orderGetPtrToProductList (Order order);
 
 #endif //UNTITLED_ORDER_H

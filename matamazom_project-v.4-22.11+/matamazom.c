@@ -18,7 +18,7 @@ struct Matamazom_t{
     Set orders;
 };
 
-static bool valid_name (char* name){
+static bool valid_name (const char* name){
     if (name == NULL){
         return false;
     }
@@ -34,6 +34,7 @@ static bool valid_name (char* name){
 static bool valid_amount (const double amount, MatamazomAmountType amountType){
 
     if (amount == 0 || amountType == MATAMAZOM_ANY_AMOUNT){
+
         return  true;
     }
     if (amountType == MATAMAZOM_INTEGER_AMOUNT){
@@ -41,8 +42,10 @@ static bool valid_amount (const double amount, MatamazomAmountType amountType){
         int y = (int)x;
         double z = x-y;
         if (((z<1)&&(z>=0.999)) || ((z>=0)&&(z<=0.001))) {
+
             return true;
         }
+
         return false;
     }
     if (amountType == MATAMAZOM_HALF_INTEGER_AMOUNT){
@@ -50,8 +53,10 @@ static bool valid_amount (const double amount, MatamazomAmountType amountType){
         int y = (int)x;
         double z = x-y;
         if (((z<1)&&(z>=0.999)) || ((z>=0)&&(z<=0.001)) || ((z>=0.499)&&(z<=0.501))) {
+
             return true;
         }
+
         return false;
     }
 
@@ -268,15 +273,29 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
 
-    if (valid_amount(amount, productGetAmountType(matamazom->storage, productId) == false)){
+    if (valid_amount(amount, productGetAmountType(matamazom->storage, productId)) == false){
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
     if (isProductIdInOrder(currentOrder, productId) == false) {
-        return MATAMAZOM_PRODUCT_NOT_EXIST;
-    } else{
-        return orderChangeProductAmount(currentOrder, productId, amount);
+        if (amount < 0) {
+            return MATAMAZOM_INSUFFICIENT_AMOUNT;
+        }
+        Product newProduct = copyProduct( getPtrToProductForID (matamazom->storage ,productId) );
+        if (newProduct == NULL) {
+            return MATAMAZOM_OUT_OF_MEMORY;
+        }
+        productSetAmount(newProduct, amount);
+        MatamazomResult flag = orderAddProductToCart(currentOrder,newProduct);
+        free(newProduct);
+        Product temp = getPtrToProductForID( orderGetPtrToProductList(currentOrder) , productId);
+        if (temp!= NULL) {
+
+        }
+
+        return flag;
     }
+    return orderChangeProductAmount(currentOrder, productId, amount);
 }
 
 MatamazomResult mtmShipCheckAmount (List storage, List order) {
@@ -284,12 +303,12 @@ MatamazomResult mtmShipCheckAmount (List storage, List order) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
 
-    LIST_FOREACH(ListElement, currentProduct, order) {
-        Product storageProduct = getPtrToProductForSameProduct(storage, currentProduct);
+    LIST_FOREACH(ListElement, orderProduct, order) {
+        Product storageProduct = getPtrToProductForSameProduct(storage, orderProduct);
         if (storageProduct == NULL) {
-            return MATAMAZOM_ORDER_NOT_EXIST;
+            return MATAMAZOM_PRODUCT_NOT_EXIST;
         }
-        if ( productGetAmount(storageProduct) < productGetAmount(((Product)currentProduct))) {
+        if ( productGetAmount(storageProduct) < productGetAmount(((Product)orderProduct))) {
             return MATAMAZOM_INSUFFICIENT_AMOUNT;
         }
     }
@@ -297,7 +316,7 @@ MatamazomResult mtmShipCheckAmount (List storage, List order) {
 }
 
 
-MatamazomResult mtmShipOrderExecut(List storage, List order) {
+MatamazomResult mtmShipOrderExecute(List storage, List order) {
     if (storage == NULL || order == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
@@ -309,6 +328,7 @@ MatamazomResult mtmShipOrderExecut(List storage, List order) {
             return MATAMAZOM_OUT_OF_MEMORY;
         }
     }
+    return MATAMAZOM_SUCCESS;
 
 }
 
@@ -339,8 +359,8 @@ MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId) {
     if (matamazom == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
-    Order orderToShip = mtmFindOrder(matamazom, orderId);
 
+    Order orderToShip = mtmFindOrder(matamazom, orderId);
     if (orderToShip == NULL) {
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
@@ -350,7 +370,7 @@ MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId) {
         return flag;
     }
 
-    flag = mtmShipOrderExecut(matamazom->storage, orderGetPtrToProductList(orderToShip));
+    flag = mtmShipOrderExecute(matamazom->storage, orderGetPtrToProductList(orderToShip));
     if (flag != MATAMAZOM_SUCCESS) {
         assert(0);
         return MATAMAZOM_OUT_OF_MEMORY;

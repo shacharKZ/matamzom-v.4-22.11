@@ -22,7 +22,7 @@ struct product_t{
     double profit;
 };
 
-Product productCreate(unsigned int id, char* name, double amount, MatamazomAmountType datatype,
+Product productCreate(unsigned int id, const char* name, double amount, MatamazomAmountType datatype,
                       MtmProductData customData, MtmCopyData CopyFunc, MtmFreeData FreeFunc,
                       MtmGetProductPrice ProductPriceFunc){
 
@@ -34,8 +34,8 @@ Product productCreate(unsigned int id, char* name, double amount, MatamazomAmoun
     if (product == NULL){
         return NULL;
     }
-    product -> name = malloc(sizeof(strlen(name)));
-    if (name == NULL){
+    product -> name = malloc(sizeof(char)*(strlen(name)+1));
+    if (product->name == NULL){
         freeProduct(product);
         return NULL;
     }
@@ -51,9 +51,8 @@ Product productCreate(unsigned int id, char* name, double amount, MatamazomAmoun
     return product;
 }
 
-/*
-Product getPtrToProductForID (List list ,unsigned int id) {
 
+Product getPtrToProductForID (List list ,unsigned int id) {
     LIST_FOREACH(ListElement, ptr,list) {
         if ((((Product)ptr)->ID) == id) {
             return ((Product)ptr);
@@ -61,15 +60,17 @@ Product getPtrToProductForID (List list ,unsigned int id) {
     }
     return NULL;
 }
-*/
 
 Product getPtrToProductForSameProduct (List list ,Product product) {
 
     LIST_FOREACH(ListElement, ptr,list) {
+
         if ((((Product)ptr)->ID) == product->ID) {
+
             return ((Product)ptr);
         }
     }
+
     return NULL;
 }
 
@@ -83,17 +84,34 @@ static Product findProductForID (List storage, unsigned int id){
     return NULL;
 }
 
-void freeProduct(ListElement product){
+void freeProductAUX(Product product){
+    if (product == NULL){
+        return;
+    }
+    if (product->name!=NULL){
+        free(product->name);
+    }
+    product->FreeFunc(product->customData);
+    free(product);
+}
 
-    free(((Product)product)->name);
+void freeProduct(ListElement product){
+    freeProductAUX(product);
+
+    return;
+    if (product == NULL){
+        return;
+    }
+    if (((Product)product)->name!=NULL){
+        free(((Product)product)->name);
+    }
     ((Product)product)->FreeFunc(((Product)product)->customData);
     free(product);
 }
 
 void productRemove (List storage, unsigned int id){
-    Product ptr = ((Product)findProductForID(storage, id)); //set iterator to wanted product and find the product
+    findProductForID(storage, id); //set iterator to wanted product and find the product
     listRemoveCurrent(storage);
-    freeProduct(ptr);
 }
 
 static Product copyProductAUX(Product product){
@@ -134,12 +152,13 @@ void productPrintDetails (ListElement product, FILE *output) {
 }
 
 bool productAlreadyExists(List storage, unsigned int id){
-
     for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
+
         if(((Product)ptr) -> ID == id){
             return true;
         }
     }
+
     return false;
 }
 
@@ -165,6 +184,35 @@ MatamazomResult productChangeAmountForID(List storage, unsigned int id, double a
     }
 }
 
+MatamazomResult productChangeAmountInList(List list, unsigned int id, double amount){
+    if (list == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    Product  ptr = findProductForID(list, id); // also sets the ptr of list to the product
+    if (ptr == NULL) {
+        return MATAMAZOM_PRODUCT_NOT_EXIST;
+    }
+    ((Product)ptr)->amount += amount;
+    if (((Product)ptr) -> amount< 0) {
+        ListResult flag = listRemoveCurrent(list);
+        if (flag == LIST_SUCCESS) {
+            return MATAMAZOM_SUCCESS;
+        } else {
+            return MATAMAZOM_OUT_OF_MEMORY;
+        }
+    }
+    return MATAMAZOM_SUCCESS;
+}
+
+MatamazomResult productSetAmountForID(List storage, unsigned int id){
+    Product  ptr = findProductForID(storage, id);
+    if (ptr == NULL) {
+        return MATAMAZOM_ORDER_NOT_EXIST;
+    }
+    ptr->amount = 0;
+    return MATAMAZOM_SUCCESS;
+}
+
 MatamazomAmountType productGetAmountType(List storage, unsigned int id){
 
     Product ptr = findProductForID(storage, id);
@@ -186,6 +234,13 @@ unsigned int productGetId (ListElement product){
 
 double getCurrentProfitOfProduct(ListElement product) {
     return ((Product )product) -> profit;
+}
+
+void productSetAmount (Product product, double amount) {
+    if (product == NULL) {
+        return;
+    }
+    product->amount = 0;
 }
 
 bool productCustomFilter (ListElement product, MtmFilterProduct customFilter){
@@ -243,7 +298,7 @@ MatamazomResult productShipChangeAmountAndProfit(Product product, double amount)
 }
 
 
-MatamazomResult addProductToList (List list, Product product) {
+MatamazomResult productAddToList (List list, Product product) {
 
     if (product == NULL || list == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
@@ -252,6 +307,9 @@ MatamazomResult addProductToList (List list, Product product) {
     if (productAlreadyExists(list, product->ID)){
         return MATAMAZOM_PRODUCT_ALREADY_EXIST;
     }
+    listInsertFirst(list, product);
+    listSort(list, compareProduct);
+    return MATAMAZOM_SUCCESS;
 
     if (listGetFirst(list) == NULL){
         ListResult check = listInsertFirst(list, ((ListElement)list));
@@ -260,6 +318,7 @@ MatamazomResult addProductToList (List list, Product product) {
             return MATAMAZOM_OUT_OF_MEMORY;
         } else{
             assert(check == LIST_SUCCESS);
+
             return MATAMAZOM_SUCCESS;
         }
     } else {
@@ -270,8 +329,10 @@ MatamazomResult addProductToList (List list, Product product) {
         if(check == LIST_OUT_OF_MEMORY){
             return MATAMAZOM_OUT_OF_MEMORY;
         } else{
+
             assert(check == LIST_SUCCESS);
             return MATAMAZOM_SUCCESS;
         }
     }
+    return MATAMAZOM_SUCCESS;
 }

@@ -52,7 +52,12 @@ ListElement orderCopy (ListElement target) {
 }
 
 static void orderFreeUAX (Order target) {
-    listDestroy(target->productCart);
+    if (target == NULL) {
+        return;
+    }
+    if (target->productCart != NULL) {
+        listDestroy(target->productCart);
+    }
     target->id = 0;
     free(target);
 }
@@ -71,16 +76,20 @@ int orderCompare(ListElement first, ListElement second) {
 }
 
 
-ListResult isProductIdInOrder (Order order, unsigned int id) {
-    return (productAlreadyExists(order->productCart, id));
+bool isProductIdInOrder (Order order, unsigned int id) {
+    return productAlreadyExists(order->productCart, id);
 }
 
-MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount) { // 666 not complete
-    return productChangeAmountForID(order->productCart, id, amount); //666 modified
+MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount) {
+    return productChangeAmountInList(order->productCart, id, amount);
+    }
+
+MatamazomResult orderSetProductAmount (Order order, unsigned int id) {
+    return productSetAmountForID(order->productCart, id);
 }
 
-MatamazomResult addProductToOrder (Order order, Product product) {
-    return addProductToList (order->productCart, product);
+MatamazomResult orderAddProductToCart (Order order, Product product) {
+    return productAddToList (order->productCart, product);
 }
 
 void orderChangeId (Order target ,unsigned int newId) {

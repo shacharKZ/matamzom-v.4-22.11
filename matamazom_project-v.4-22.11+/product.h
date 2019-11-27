@@ -28,7 +28,7 @@ typedef struct product_t *Product;
  * (e.g. in case of an allocation error or if given a null argument)
  *
  */
-Product productCreate(unsigned int id, char* name, double amount, MatamazomAmountType datatype, MtmProductData customData,
+Product productCreate(unsigned int id, const char* name, double amount, MatamazomAmountType datatype, MtmProductData customData,
                       MtmCopyData CopyFunc, MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc);
 
 //function for removing a lists element - product
@@ -66,17 +66,23 @@ bool productCustomFilter (ListElement product, MtmFilterProduct customFilter);
 
 void productPrintIncomeLine (List storage, FILE *output);
 
-MatamazomResult addProductToList (List list, Product product);
+MatamazomResult productAddToList (List list, Product product);
 
 double productGetAmount (Product product);
 
 double productChangeAmount(Product product, double amount);
 
+MatamazomResult productSetAmountForID(List storage, unsigned int id);
+
+void productSetAmount (Product product, double amount);
+
 MatamazomResult productShipChangeAmountAndProfit(Product product, double amount);
 
-// Product getPtrToProductForID (List list ,unsigned int id);
+Product getPtrToProductForID (List list ,unsigned int id);
 
 Product getPtrToProductForSameProduct (List list ,Product product);
+
+MatamazomResult productChangeAmountInList(List list, unsigned int id, double amount);
 
 #endif //UNTITLED1_PRODUCT17_11_H
 
