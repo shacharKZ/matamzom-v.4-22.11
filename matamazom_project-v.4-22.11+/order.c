@@ -76,7 +76,7 @@ ListResult isProductIdInOrder (Order order, unsigned int id) {
 }
 
 MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount) { // 666 not complete
-    return productChangeAmount(order->productCart, id, amount); //666 modified
+    return productChangeAmountForID(order->productCart, id, amount); //666 modified
 }
 
 MatamazomResult addProductToOrder (Order order, Product product) {
@@ -112,5 +112,12 @@ double orderGetTotalPrice (Order order) {
         totalPrice += productGetPrice(currentProduct);
     }
     return totalPrice;
+}
+
+List orderGetPtrToProductList (Order order) {
+    if (order == NULL) {
+        return NULL;
+    }
+    return order->productCart;
 }
 

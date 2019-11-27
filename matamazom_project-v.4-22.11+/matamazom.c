@@ -185,7 +185,7 @@ MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int i
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
-    return productChangeAmount(matamazom->storage, id, amount);
+    return productChangeAmountForID(matamazom->storage, id, amount);
     // 777 if the amount is under 0 we need to make another if/case
     // 666 - updated and now checks for change legality
 }
@@ -283,8 +283,37 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
     }
 }
 
-MatamazomResult mtmShipOrderAUX(Matamazom matamazom, Order currentOrder) {
-    return 0;
+MatamazomResult mtmShipCheckAmount (List storage, List order) {
+    if (storage == NULL || order == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    LIST_FOREACH(ListElement, currentProduct, order) {
+        Product storageProduct = getPtrToProductForSameProduct(storage, currentProduct);
+        if (storageProduct == NULL) {
+            return MATAMAZOM_ORDER_NOT_EXIST;
+        }
+        if ( productGetAmount(storageProduct) < productGetAmount(((Product)currentProduct))) {
+            return MATAMAZOM_INSUFFICIENT_AMOUNT;
+        }
+    }
+    return MATAMAZOM_SUCCESS;
+}
+
+
+MatamazomResult mtmShipOrderExecut(List storage, List order) {
+    if (storage == NULL || order == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    LIST_FOREACH(ListElement, currentProduct, order) {
+        Product storageProduct = getPtrToProductForSameProduct(storage, currentProduct);
+        if (productShipChangeAmountProfit(storageProduct, productGetAmount(((Product)currentProduct))) != MATAMAZOM_SUCCESS) {
+            assert(0);
+            return MATAMAZOM_OUT_OF_MEMORY;
+        }
+    }
+
 }
 
 /**
@@ -311,20 +340,27 @@ MatamazomResult mtmShipOrderAUX(Matamazom matamazom, Order currentOrder) {
  *     MATAMAZOM_SUCCESS - if the order was shipped successfully.
  */
 MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId) {
-
-    return 0;
-    /*
     if (matamazom == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
+    Order orderToShip = mtmFindOrder(matamazom, orderId);
 
-    Order currentOrder = mtmFindOrder(matamazom, orderId);
-    if (currentOrder == NULL) {
+    if (orderToShip == NULL) {
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-    mtmShipOrderAUX (matamazom, currentOrder);
-     */
+    MatamazomResult flag = mtmShipCheckAmount(matamazom->storage, orderGetPtrToProductList(orderToShip));
+    if (flag != MATAMAZOM_SUCCESS) {
+        return flag;
+    }
+
+    flag = mtmShipOrderExecut(matamazom->storage, orderGetPtrToProductList(orderToShip));
+    if (flag != MATAMAZOM_SUCCESS) {
+        assert(0);
+        return MATAMAZOM_OUT_OF_MEMORY;
+    }
+
+    return MATAMAZOM_SUCCESS;
 }
 
 
@@ -420,5 +456,4 @@ MatamazomResult mtmPrintFiltered(Matamazom matamazom, MtmFilterProduct customFil
     }
     return MATAMAZOM_SUCCESS;
 }
-
 

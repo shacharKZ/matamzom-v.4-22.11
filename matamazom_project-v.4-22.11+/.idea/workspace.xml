@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="matamazom_project" targetName="self_test4" />
       <config projectName="matamazom_project" targetName="self_test3" />
       <config projectName="matamazom_project" targetName="self_test2" />
-      <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
       <config projectName="matamazom_project" targetName="self_test1" />
+      <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
+      <config projectName="matamazom_project" targetName="self_test4" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -118,6 +118,7 @@
       <workItem from="1574753229536" duration="1855000" />
       <workItem from="1574778471207" duration="39000" />
       <workItem from="1574778949876" duration="2090000" />
+      <workItem from="1574836368691" duration="3474000" />
     </task>
     <servers />
   </component>

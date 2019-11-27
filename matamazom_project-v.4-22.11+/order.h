@@ -23,5 +23,6 @@ double orderGetTotalPrice (Order order);
 ListResult isProductIdInOrder (Order order, unsigned int id);
 MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount);
 MatamazomResult addProductToOrder (Order order, Product product);
+List orderGetPtrToProductList (Order order);
 
 #endif //UNTITLED_ORDER_H

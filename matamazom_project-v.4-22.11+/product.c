@@ -52,15 +52,26 @@ Product productCreate(unsigned int id, char* name, double amount, MatamazomAmoun
 }
 
 /*
-Product getPtrToProductForID (List storage ,unsigned int id) { // 777
+Product getPtrToProductForID (List list ,unsigned int id) {
 
-    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)) {
-        if ((((Product)ptr)->ID) == id){
+    LIST_FOREACH(ListElement, ptr,list) {
+        if ((((Product)ptr)->ID) == id) {
             return ((Product)ptr);
         }
     }
     return NULL;
-} */ //illigal, cancels out encapsulation
+}
+*/
+
+Product getPtrToProductForSameProduct (List list ,Product product) {
+
+    LIST_FOREACH(ListElement, ptr,list) {
+        if ((((Product)ptr)->ID) == product->ID) {
+            return ((Product)ptr);
+        }
+    }
+    return NULL;
+}
 
 static Product findProductForID (List storage, unsigned int id){
 
@@ -143,7 +154,7 @@ bool findTheProductAfterTheNewAndSetCurrentToIt (List storage, ListElement produ
     return false;
 }
 
-MatamazomResult productChangeAmount(List storage,unsigned int id, double amount){
+MatamazomResult productChangeAmountForID(List storage, unsigned int id, double amount){
 
     Product  ptr = findProductForID(storage, id);
     if ( ( (((Product)ptr) -> amount) + amount) < 0){
@@ -152,7 +163,17 @@ MatamazomResult productChangeAmount(List storage,unsigned int id, double amount)
         ((Product)ptr) -> amount += amount;
         return MATAMAZOM_SUCCESS;
     }
+}
 
+MatamazomResult productShipChangeAmountProfit(Product product, double amount){
+    if (product == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    // 777 maybe add amountType check
+    product->amount += amount;
+    product->profit += realProductPrice(((List)product), amount);
+    return MATAMAZOM_SUCCESS;
 }
 
 MatamazomAmountType productGetAmountType(List storage, unsigned int id){
@@ -162,7 +183,10 @@ MatamazomAmountType productGetAmountType(List storage, unsigned int id){
     return ((Product)ptr)->amountType;
 }
 
-double productGetAmount (ListElement product){
+double productGetAmount (Product product){
+    if (product == NULL) {
+        return 0;
+    }
     return ((Product)product)->amount;
 }
 
@@ -199,6 +223,25 @@ void productPrintIncomeLine (List storage, FILE *output){
     }
 
 }
+
+
+MatamazomResult productShipCheckAmount (List storage, List order) {
+    if (storage == NULL || order == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    LIST_FOREACH(ListElement, currentProduct, order) {
+        Product storageProduct = getPtrToProductForID(storage, ((Product)currentProduct)->ID);
+        if (storageProduct == NULL) {
+            return MATAMAZOM_ORDER_NOT_EXIST;
+        }
+        if (storageProduct->amount < ((Product)currentProduct)->amount) {
+            return MATAMAZOM_INSUFFICIENT_AMOUNT;
+        }
+    }
+    return MATAMAZOM_SUCCESS;
+}
+
 
 MatamazomResult addProductToList (List list, Product product) {
 
