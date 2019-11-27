@@ -231,7 +231,7 @@ MatamazomResult productShipCheckAmount (List storage, List order) {
     }
 
     LIST_FOREACH(ListElement, currentProduct, order) {
-        Product storageProduct = getPtrToProductForID(storage, ((Product)currentProduct)->ID);
+        Product storageProduct = getPtrToProductForSameProduct(storage, ((Product)currentProduct));
         if (storageProduct == NULL) {
             return MATAMAZOM_ORDER_NOT_EXIST;
         }
