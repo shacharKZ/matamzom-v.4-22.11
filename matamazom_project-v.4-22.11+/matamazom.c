@@ -308,7 +308,7 @@ MatamazomResult mtmShipOrderExecut(List storage, List order) {
 
     LIST_FOREACH(ListElement, currentProduct, order) {
         Product storageProduct = getPtrToProductForSameProduct(storage, currentProduct);
-        if (productShipChangeAmountProfit(storageProduct, productGetAmount(((Product)currentProduct))) != MATAMAZOM_SUCCESS) {
+        if (productShipChangeAmountAndProfit(storageProduct, productGetAmount(((Product) currentProduct))) != MATAMAZOM_SUCCESS) {
             assert(0);
             return MATAMAZOM_OUT_OF_MEMORY;
         }

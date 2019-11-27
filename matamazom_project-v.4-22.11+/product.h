@@ -72,7 +72,7 @@ double productGetAmount (Product product);
 
 double productChangeAmount(Product product, double amount);
 
-MatamazomResult productShipChangeAmountProfit(Product product, double amount);
+MatamazomResult productShipChangeAmountAndProfit(Product product, double amount);
 
 // Product getPtrToProductForID (List list ,unsigned int id);
 

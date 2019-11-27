@@ -165,17 +165,6 @@ MatamazomResult productChangeAmountForID(List storage, unsigned int id, double a
     }
 }
 
-MatamazomResult productShipChangeAmountProfit(Product product, double amount){
-    if (product == NULL) {
-        return MATAMAZOM_NULL_ARGUMENT;
-    }
-
-    // 777 maybe add amountType check
-    product->amount += amount;
-    product->profit += realProductPrice(((List)product), amount);
-    return MATAMAZOM_SUCCESS;
-}
-
 MatamazomAmountType productGetAmountType(List storage, unsigned int id){
 
     Product ptr = findProductForID(storage, id);
@@ -239,6 +228,17 @@ MatamazomResult productShipCheckAmount (List storage, List order) {
             return MATAMAZOM_INSUFFICIENT_AMOUNT;
         }
     }
+    return MATAMAZOM_SUCCESS;
+}
+
+MatamazomResult productShipChangeAmountAndProfit(Product product, double amount){
+    if (product == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+
+    // 777 maybe add amountType check
+    product->amount -= amount;
+    product->profit += realProductPrice(((List)product), amount);
     return MATAMAZOM_SUCCESS;
 }
 
