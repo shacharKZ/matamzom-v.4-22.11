@@ -285,14 +285,9 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         if (newProduct == NULL) {
             return MATAMAZOM_OUT_OF_MEMORY;
         }
-        productSetAmount(newProduct, amount);
+        productSetNewAmount(newProduct, amount);
         MatamazomResult flag = orderAddProductToCart(currentOrder,newProduct);
         free(newProduct);
-        Product temp = getPtrToProductForID( orderGetPtrToProductList(currentOrder) , productId);
-        if (temp!= NULL) {
-
-        }
-
         return flag;
     }
     return orderChangeProductAmount(currentOrder, productId, amount);

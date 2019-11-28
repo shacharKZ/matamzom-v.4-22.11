@@ -74,7 +74,7 @@ double productChangeAmount(Product product, double amount);
 
 MatamazomResult productSetAmountForID(List storage, unsigned int id);
 
-void productSetAmount (Product product, double amount);
+void productSetNewAmount (Product product, double amount);
 
 MatamazomResult productShipChangeAmountAndProfit(Product product, double amount);
 

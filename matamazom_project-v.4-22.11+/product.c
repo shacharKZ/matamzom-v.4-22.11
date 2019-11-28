@@ -236,7 +236,7 @@ double getCurrentProfitOfProduct(ListElement product) {
     return ((Product )product) -> profit;
 }
 
-void productSetAmount (Product product, double amount) {
+void productSetNewAmount (Product product, double amount) {
     if (product == NULL) {
         return;
     }
@@ -310,7 +310,7 @@ MatamazomResult productAddToList (List list, Product product) {
     listInsertFirst(list, product);
     listSort(list, compareProduct);
     return MATAMAZOM_SUCCESS;
-    
+
     /*
 
     if (listGetFirst(list) == NULL){
