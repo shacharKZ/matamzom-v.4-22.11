@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "libmtm/set.h"
+#include "libmtm/list.h"
 #include "amount_set.h"
 #include "product.h"
 #include <assert.h>
@@ -33,9 +34,18 @@ void testPrintSetInt (Set set) {
     printf("}----->\n");
 }
 
+void testPrintListInt (List list) {
+    printf("<----List check: {");
+    LIST_FOREACH(int*, current, list) {
+        printf("%d, ", *current);
+    }
+    printf("}----->\n");
+}
+
 int main() {
 
     Set set2 = setCreate(&copyProduct, &freeProduct, &compareProduct);
+    List list = listCreate(copyProduct, freeProduct);
 
     int * dummyData;
     int n = -999;
@@ -51,6 +61,17 @@ int main() {
     setAdd(set2, p3);
     setAdd(set2, p4);
     setAdd(set2, p5);
+
+    listInsertFirst(list, p5);
+    listInsertFirst(list, p3);
+    listInsertFirst(list, p1);
+    listInsertFirst(list, p2);
+    listInsertFirst(list, p4);
+
+
+    listSort(list, compareProduct);
+    printf("this test prove that we can add anywhere elements to list and then sort:\n");
+    testPrintListInt(list);
 
     Set set = setCreate(&copyInt, &freeInt, &compareInts);
 

@@ -310,6 +310,8 @@ MatamazomResult productAddToList (List list, Product product) {
     listInsertFirst(list, product);
     listSort(list, compareProduct);
     return MATAMAZOM_SUCCESS;
+    
+    /*
 
     if (listGetFirst(list) == NULL){
         ListResult check = listInsertFirst(list, ((ListElement)list));
@@ -335,4 +337,5 @@ MatamazomResult productAddToList (List list, Product product) {
         }
     }
     return MATAMAZOM_SUCCESS;
+     */
 }

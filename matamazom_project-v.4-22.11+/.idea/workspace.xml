@@ -58,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.matamazom_test_from_METARGELIM">
+  <component name="RunManager" selected="CMake Application.self_test4">
     <configuration name="matamazom_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="matamazom_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="matamazom_test_from_METARGELIM">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -122,7 +122,8 @@
       <workItem from="1574841398248" duration="247000" />
       <workItem from="1574854805316" duration="212000" />
       <workItem from="1574857188608" duration="7703000" />
-      <workItem from="1574873495004" duration="6271000" />
+      <workItem from="1574873495004" duration="6531000" />
+      <workItem from="1574924222315" duration="509000" />
     </task>
     <servers />
   </component>
