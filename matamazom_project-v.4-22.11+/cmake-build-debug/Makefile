@@ -123,6 +123,19 @@ self_test1/fast:
 .PHONY : self_test1/fast
 
 #=============================================================================
+# Target rules for targets named noa_test_for_AS
+
+# Build rule for target.
+noa_test_for_AS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 noa_test_for_AS
+.PHONY : noa_test_for_AS
+
+# fast build rule for target.
+noa_test_for_AS/fast:
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/build
+.PHONY : noa_test_for_AS/fast
+
+#=============================================================================
 # Target rules for targets named matamazom_test_from_METARGELIM
 
 # Build rule for target.
@@ -181,6 +194,7 @@ amount_set.obj: amount_set.c.obj
 # target to build an object file
 amount_set.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.obj
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.obj
 .PHONY : amount_set.c.obj
@@ -192,6 +206,7 @@ amount_set.i: amount_set.c.i
 # target to preprocess a source file
 amount_set.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.i
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/amount_set.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.i
 .PHONY : amount_set.c.i
@@ -203,6 +218,7 @@ amount_set.s: amount_set.c.s
 # target to generate assembly for a file
 amount_set.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.s
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/amount_set.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.s
 .PHONY : amount_set.c.s
@@ -314,6 +330,33 @@ main_test4.s: main_test4.c.s
 main_test4.c.s:
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.s
 .PHONY : main_test4.c.s
+
+main_test_noaAmountSet.obj: main_test_noaAmountSet.c.obj
+
+.PHONY : main_test_noaAmountSet.obj
+
+# target to build an object file
+main_test_noaAmountSet.c.obj:
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj
+.PHONY : main_test_noaAmountSet.c.obj
+
+main_test_noaAmountSet.i: main_test_noaAmountSet.c.i
+
+.PHONY : main_test_noaAmountSet.i
+
+# target to preprocess a source file
+main_test_noaAmountSet.c.i:
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.i
+.PHONY : main_test_noaAmountSet.c.i
+
+main_test_noaAmountSet.s: main_test_noaAmountSet.c.s
+
+.PHONY : main_test_noaAmountSet.s
+
+# target to generate assembly for a file
+main_test_noaAmountSet.c.s:
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.s
+.PHONY : main_test_noaAmountSet.c.s
 
 matamazom.obj: matamazom.c.obj
 
@@ -517,6 +560,7 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... self_test1
+	@echo ... noa_test_for_AS
 	@echo ... matamazom_test_from_METARGELIM
 	@echo ... self_test2
 	@echo ... rebuild_cache
@@ -538,6 +582,9 @@ help:
 	@echo ... main_test4.obj
 	@echo ... main_test4.i
 	@echo ... main_test4.s
+	@echo ... main_test_noaAmountSet.obj
+	@echo ... main_test_noaAmountSet.i
+	@echo ... main_test_noaAmountSet.s
 	@echo ... matamazom.obj
 	@echo ... matamazom.i
 	@echo ... matamazom.s

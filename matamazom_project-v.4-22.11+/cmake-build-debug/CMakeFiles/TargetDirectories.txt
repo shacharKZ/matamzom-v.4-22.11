@@ -1,4 +1,5 @@
 C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir
+C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir
 C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir
 C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir
 C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/rebuild_cache.dir

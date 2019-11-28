@@ -2,11 +2,12 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="matamazom_project" targetName="self_test4" />
       <config projectName="matamazom_project" targetName="self_test3" />
       <config projectName="matamazom_project" targetName="self_test2" />
-      <config projectName="matamazom_project" targetName="self_test1" />
       <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
-      <config projectName="matamazom_project" targetName="self_test4" />
+      <config projectName="matamazom_project" targetName="self_test1" />
+      <config projectName="matamazom_project" targetName="noa_test_for_AS" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -58,8 +59,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.self_test4">
+  <component name="RunManager" selected="CMake Application.matamazom_test_from_METARGELIM">
     <configuration name="matamazom_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="matamazom_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="matamazom_test_from_METARGELIM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="noa_test_for_AS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="noa_test_for_AS" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="noa_test_for_AS">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -86,6 +92,7 @@
     </configuration>
     <list>
       <item itemvalue="CMake Application.matamazom_test_from_METARGELIM" />
+      <item itemvalue="CMake Application.noa_test_for_AS" />
       <item itemvalue="CMake Application.self_test1" />
       <item itemvalue="CMake Application.self_test2" />
       <item itemvalue="CMake Application.self_test3" />
@@ -123,7 +130,9 @@
       <workItem from="1574854805316" duration="212000" />
       <workItem from="1574857188608" duration="7703000" />
       <workItem from="1574873495004" duration="6531000" />
-      <workItem from="1574924222315" duration="1051000" />
+      <workItem from="1574924222315" duration="1074000" />
+      <workItem from="1574925425637" duration="232000" />
+      <workItem from="1574957068821" duration="669000" />
     </task>
     <servers />
   </component>

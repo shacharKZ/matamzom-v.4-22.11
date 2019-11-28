@@ -53,6 +53,42 @@
 					<DistClean command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="noa_test_for_AS">
+				<Option output="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/noa_test_for_AS.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 noa_test_for_AS"/>
+					<CompileFile command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="noa_test_for_AS/fast">
+				<Option output="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/noa_test_for_AS.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 noa_test_for_AS/fast"/>
+					<CompileFile command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="matamazom_test_from_METARGELIM">
 				<Option output="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/matamazom_test_from_METARGELIM.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug"/>
@@ -220,13 +256,12 @@
 		</Build>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/amount_set.c">
 			<Option target="self_test1"/>
+			<Option target="noa_test_for_AS"/>
 			<Option target="self_test2"/>
 			<Option target="self_test3"/>
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/amount_set.h">
-			<Option target="self_test1"/>
-			<Option target="self_test2"/>
-			<Option target="self_test3"/>
+			<Option target="noa_test_for_AS"/>
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/libmtm/set.h">
 			<Option target="matamazom_test_from_METARGELIM"/>
@@ -244,6 +279,9 @@
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test4.c">
 			<Option target="self_test4"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test_noaAmountSet.c">
+			<Option target="noa_test_for_AS"/>
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/matamazom.c">
 			<Option target="matamazom_test_from_METARGELIM"/>
