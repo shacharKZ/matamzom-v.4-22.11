@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/amount_set.c" "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj"
-  "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test_noaAmountSet.c" "C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj"
+  "C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/amount_set.c" "C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj"
+  "C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test_noaAmountSet.c" "C:/Users/eilon/OneDrive/Desktop/github/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

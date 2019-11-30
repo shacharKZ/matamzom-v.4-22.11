@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+"
+CMAKE_SOURCE_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/matamazom_test_from_METARGELIM.dir/depend.make
@@ -58,81 +58,81 @@ include CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj: CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj: ../tests/matamazom_main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_main.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_main.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_main.c.obj   -c C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_main.c
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_main.c" > CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_main.c.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_main.c > CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_main.c.i
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_main.c" -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_main.c.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_main.c -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_main.c.s
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj: CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj: ../tests/matamazom_tests.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_tests.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_tests.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_tests.c.obj   -c C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_tests.c
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_tests.c" > CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_tests.c.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_tests.c > CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_tests.c.i
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_tests.c" -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_tests.c.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\tests\matamazom_tests.c -o CMakeFiles\matamazom_test_from_METARGELIM.dir\tests\matamazom_tests.c.s
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj: CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make
 CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj: ../order.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\order.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\order.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\order.c.obj   -c C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\order.c
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\order.c" > CMakeFiles\matamazom_test_from_METARGELIM.dir\order.c.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\order.c > CMakeFiles\matamazom_test_from_METARGELIM.dir\order.c.i
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\order.c" -o CMakeFiles\matamazom_test_from_METARGELIM.dir\order.c.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\order.c -o CMakeFiles\matamazom_test_from_METARGELIM.dir\order.c.s
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj: CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make
 CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj: ../product.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\product.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\product.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\product.c.obj   -c C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\product.c
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\product.c" > CMakeFiles\matamazom_test_from_METARGELIM.dir\product.c.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\product.c > CMakeFiles\matamazom_test_from_METARGELIM.dir\product.c.i
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\product.c" -o CMakeFiles\matamazom_test_from_METARGELIM.dir\product.c.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\product.c -o CMakeFiles\matamazom_test_from_METARGELIM.dir\product.c.s
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj: CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj: ../matamazom.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom.c.obj   -c C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom.c
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom.c" > CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom.c.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom.c > CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom.c.i
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom.c" -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom.c.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom.c -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom.c.s
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj: CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj: ../matamazom_print.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom_print.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom_print.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom_print.c.obj   -c C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom_print.c
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom_print.c" > CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom_print.c.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom_print.c > CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom_print.c.i
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom_print.c" -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom_print.c.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\minGW\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\matamazom_print.c -o CMakeFiles\matamazom_test_from_METARGELIM.dir\matamazom_print.c.s
 
 # Object files for target matamazom_test_from_METARGELIM
 matamazom_test_from_METARGELIM_OBJECTS = \
@@ -156,7 +156,7 @@ matamazom_test_from_METARGELIM.exe: CMakeFiles/matamazom_test_from_METARGELIM.di
 matamazom_test_from_METARGELIM.exe: CMakeFiles/matamazom_test_from_METARGELIM.dir/linklibs.rsp
 matamazom_test_from_METARGELIM.exe: CMakeFiles/matamazom_test_from_METARGELIM.dir/objects1.rsp
 matamazom_test_from_METARGELIM.exe: CMakeFiles/matamazom_test_from_METARGELIM.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable matamazom_test_from_METARGELIM.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable matamazom_test_from_METARGELIM.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\matamazom_test_from_METARGELIM.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -169,6 +169,6 @@ CMakeFiles/matamazom_test_from_METARGELIM.dir/clean:
 .PHONY : CMakeFiles/matamazom_test_from_METARGELIM.dir/clean
 
 CMakeFiles/matamazom_test_from_METARGELIM.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug" "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\matamazom_test_from_METARGELIM.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+ C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+ C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug C:\Users\eilon\OneDrive\Desktop\github\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles\matamazom_test_from_METARGELIM.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/matamazom_test_from_METARGELIM.dir/depend
 

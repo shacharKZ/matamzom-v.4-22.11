@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\M.dir/objects.a
-C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\M.dir/objects.a @CMakeFiles\M.dir\objects1.rsp
-C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe  -std=c99 -Wall -Werror -pedantic-errors -g   -Wl,--whole-archive CMakeFiles\M.dir/objects.a -Wl,--no-whole-archive  -o M.exe -Wl,--out-implib,libM.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\M.dir\linklibs.rsp

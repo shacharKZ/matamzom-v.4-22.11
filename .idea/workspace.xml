@@ -2,7 +2,13 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="matamazom_project" targetName="AS_test_from_METARGELIM" />
       <config projectName="matamazom_project" targetName="self_test4" />
+      <config projectName="matamazom_project" targetName="self_test3" />
+      <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
+      <config projectName="matamazom_project" targetName="self_test2" />
+      <config projectName="matamazom_project" targetName="self_test1" />
+      <config projectName="matamazom_project" targetName="noa_test_for_AS" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -13,18 +19,24 @@
   <component name="ChangeListManager">
     <list default="true" id="35a10edf-32d0-4dc6-b570-5539a44d7060" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/.idea/dictionaries/shach.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/.idea/untitled.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeRCCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/amount_set.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/linklibs.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/linklibs.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/objects.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_main.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_tests.c.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/M.dir/DependInfo.cmake" beforeDir="false" />
@@ -36,7 +48,6 @@
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/M.dir/linklibs.rsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/M.dir/objects1.rsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/M.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
@@ -68,47 +79,60 @@
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_.dir/linklibs.rsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_.dir/objects1.rsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/linklibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/linklibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/linklibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/objects1.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/linklibs.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/linklibs.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_main.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/matamazom_test_from_METARGELIM.dir/tests/matamazom_tests.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/linklibs.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/linklibs.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/objects.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/order.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/noa_test_for_AS.dir/product.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/amount_set.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/linklibs.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/linklibs.rsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/main_test1.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/objects.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/order.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test1.dir/product.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/linklibs.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test2.dir/linklibs.rsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/C.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/amount_set.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/linklibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/objects1.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/linklibs.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/linklibs.rsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test3.dir/order.c.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/DependInfo.cmake" afterDir="false" />
@@ -123,33 +147,11 @@
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/order.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/order.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/product.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/product.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/CMakeFiles/self_test4.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/amount_set_tests_from_METARGELIM.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/main2.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/matamazom_project.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/matamazom_project.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/self_test1.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/self_test2.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/self_test3.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/matamazom_test_from_METARGELIM.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/self_test4.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/tests.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/untitled.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/cmake-build-debug/untitled.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/libmtm.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/temp_file.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/amount_set_main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/amount_set_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/amount_set_tests.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/expected_best_selling.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/expected_filtered.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/expected_inventory.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/expected_no_selling.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/expected_order.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/matamazom_main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/matamazom_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/matamazom_tests.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matamazom_project-v.4-22.11+/tests/test_utilities.h" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,12 +189,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="CMake Application.matamazom_test_from_METARGELIM">
+    <configuration name="AS_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="AS_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="AS_test_from_METARGELIM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="matamazom_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="matamazom_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="matamazom_test_from_METARGELIM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="noa_test_for_AS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="noa_test_for_AS" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="noa_test_for_AS">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="self_test1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="self_test2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test2">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="self_test3" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test3" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test3">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="self_test4" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="self_test4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="self_test4">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="CMake Application.AS_test_from_METARGELIM" />
+      <item itemvalue="CMake Application.matamazom_test_from_METARGELIM" />
+      <item itemvalue="CMake Application.noa_test_for_AS" />
+      <item itemvalue="CMake Application.self_test1" />
+      <item itemvalue="CMake Application.self_test2" />
+      <item itemvalue="CMake Application.self_test3" />
+      <item itemvalue="CMake Application.self_test4" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -216,6 +257,7 @@
       <workItem from="1574867816215" duration="412000" />
       <workItem from="1574970064151" duration="401000" />
       <workItem from="1574970501834" duration="1044000" />
+      <workItem from="1575097582774" duration="777000" />
     </task>
     <servers />
   </component>
