@@ -2,12 +2,13 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="matamazom_project" targetName="noa_test_for_AS" />
+      <config projectName="matamazom_project" targetName="self_test2" />
       <config projectName="matamazom_project" targetName="self_test4" />
       <config projectName="matamazom_project" targetName="self_test3" />
-      <config projectName="matamazom_project" targetName="self_test2" />
       <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
       <config projectName="matamazom_project" targetName="self_test1" />
-      <config projectName="matamazom_project" targetName="noa_test_for_AS" />
+      <config projectName="matamazom_project" targetName="AS_test_from_METARGELIM" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -59,7 +60,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.matamazom_test_from_METARGELIM">
+  <component name="RunManager" selected="CMake Application.AS_test_from_METARGELIM">
+    <configuration name="AS_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="AS_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="AS_test_from_METARGELIM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="matamazom_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="matamazom_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="matamazom_test_from_METARGELIM">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -91,6 +97,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="CMake Application.AS_test_from_METARGELIM" />
       <item itemvalue="CMake Application.matamazom_test_from_METARGELIM" />
       <item itemvalue="CMake Application.noa_test_for_AS" />
       <item itemvalue="CMake Application.self_test1" />
@@ -132,7 +139,11 @@
       <workItem from="1574873495004" duration="6531000" />
       <workItem from="1574924222315" duration="1074000" />
       <workItem from="1574925425637" duration="232000" />
-      <workItem from="1574957068821" duration="669000" />
+      <workItem from="1574957068821" duration="900000" />
+      <workItem from="1575028398222" duration="2676000" />
+      <workItem from="1575031251890" duration="76000" />
+      <workItem from="1575031451824" duration="326000" />
+      <workItem from="1575093446602" duration="3607000" />
     </task>
     <servers />
   </component>
