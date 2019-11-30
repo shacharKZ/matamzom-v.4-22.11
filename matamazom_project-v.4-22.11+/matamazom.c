@@ -1,16 +1,12 @@
 #include <stdbool.h>
 #include "matamazom.h"
-#include "stdlib.h"
+#include <stdlib.h>
+#include <string.h>
 #include "product.h"
 #include "order.h"
 #include "libmtm/list.h"
 #include "libmtm/set.h"
-#include <string.h>
-#include "matamazom_print.h"
 #include <assert.h>
-//#include <stdio.h> // used only for testing
-#include "matamazom_print.h"
-
 
 
 struct Matamazom_t{
@@ -138,7 +134,9 @@ MatamazomResult mtmNewProduct(Matamazom matamazom, const unsigned int id, const 
         return MATAMAZOM_OUT_OF_MEMORY;
     }
 
-    return productAddToList(matamazom->storage, product_new);
+    MatamazomResult flag = productAddToList(matamazom->storage, product_new);
+    freeProduct(product_new);
+    return flag;
 
     /*
     if (listGetFirst(matamazom->storage) == NULL){ //case of first product
@@ -214,19 +212,24 @@ MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
         productPrintDetailsForOne(ptr, output);
     }
     return MATAMAZOM_SUCCESS;
-
 }
 
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {
     unsigned int newOrderId = setGetSize(matamazom->orders)+1;
     Order newOrder = orderCreate(newOrderId);
+    if (newOrder == NULL) {
+        return 0;
+    }
     while (setIsIn(matamazom->orders, newOrder) == true) {
         newOrderId++;
         orderChangeId(newOrder, newOrderId);
     }
     if (setAdd(matamazom->orders, newOrder) == SET_SUCCESS) {
+        orderFree(newOrder);
         return newOrderId;
     }
+    orderFree(newOrder);
+    assert(0); // if the func got to here something went wrong
     return 0;
 }
 
@@ -283,7 +286,7 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         if (amount < 0) {
             return MATAMAZOM_INSUFFICIENT_AMOUNT;
         }
-        Product newProduct = copyProduct( getPtrToProductForID (matamazom->storage ,productId) );
+        Product newProduct = getCopyOfProductForId(matamazom->storage ,productId);
         if (newProduct == NULL) {
             return MATAMAZOM_OUT_OF_MEMORY;
         }
@@ -302,7 +305,7 @@ static MatamazomResult mtmShipCheckAmounts (List storage, List order) {
     }
 
     LIST_FOREACH(ListElement, orderProduct, order) {
-        Product storageProduct = getPtrToProductForSameProduct(storage, orderProduct);
+        Product storageProduct = CheckIfProductFromOrderIsInStorage(storage, orderProduct);
         if (storageProduct == NULL) {
             return MATAMAZOM_PRODUCT_NOT_EXIST;
         }
@@ -320,7 +323,7 @@ static MatamazomResult mtmShipOrderExecute(List storage, List order) {
     }
 
     LIST_FOREACH(Product, currentOrderProduct, order) {
-        Product storageProduct = getPtrToProductForSameProduct(storage, currentOrderProduct);
+        Product storageProduct = CheckIfProductFromOrderIsInStorage(storage, currentOrderProduct);
         if (productShipChangeAmountAndProfit(storageProduct, productGetAmount(currentOrderProduct)) != MATAMAZOM_SUCCESS) {
             assert(0);
             return MATAMAZOM_OUT_OF_MEMORY;
@@ -411,21 +414,6 @@ MatamazomResult mtmCancelOrder(Matamazom matamazom, const unsigned int orderId) 
 }
 
 
-/**
- * matamazomPrintOrder: print a summary of an order from a Matamazom warehouse,
- * as explained in the *.pdf
- *
- * The printout includes the total price of the order.
- *
- * @param matamazom - the Matamazom warehouse containing the order.
- * @param orderId - id of the order in matamazom.
- * @param output - an open, writable output stream, to which the order is printed.
- * @return
- *     MATAMAZOM_NULL_ARGUMENT - if a NULL argument is passed.
- *     MATAMAZOM_ORDER_NOT_EXIST - if matamazom does not contain an order with
- *         the given orderId.
- *     MATAMAZOM_SUCCESS - if printed successfully.
- */
 MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, FILE *output) {
     if (matamazom == NULL || output == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
@@ -454,6 +442,7 @@ MatamazomResult mtmPrintBestSelling(Matamazom matamazom, FILE *output){
     productPrintIncomeLine(matamazom->storage, output);
     return MATAMAZOM_SUCCESS;
 }
+
 
 
 MatamazomResult mtmPrintFiltered(Matamazom matamazom, MtmFilterProduct customFilter, FILE *output) {

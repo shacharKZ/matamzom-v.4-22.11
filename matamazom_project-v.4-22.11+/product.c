@@ -6,7 +6,6 @@
 #include <assert.h>
 
 struct product_t{
-
     unsigned int ID;
     double amount;
     char *name;
@@ -22,7 +21,7 @@ Product productCreate(unsigned int id, const char* name, double amount, Matamazo
                       MtmProductData customData, MtmCopyData CopyFunc, MtmFreeData FreeFunc,
                       MtmGetProductPrice ProductPriceFunc){
 
-    if(CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL || customData == NULL){
+    if(CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL || customData == NULL || name == NULL){
         return NULL;
     }
 
@@ -31,8 +30,8 @@ Product productCreate(unsigned int id, const char* name, double amount, Matamazo
         return NULL;
     }
     product -> name = malloc(sizeof(char)*(strlen(name)+1));
-    if (product->name == NULL){
-        freeProduct(product);
+    if (product -> name == NULL){
+        free(product);
         return NULL;
     }
     strcpy(product -> name, name);
@@ -40,6 +39,11 @@ Product productCreate(unsigned int id, const char* name, double amount, Matamazo
     product -> amount = amount;
     product -> amountType = datatype;
     product -> customData = CopyFunc(customData);
+    if (product -> customData == NULL){
+        free(product->name);
+        free(product);
+        return NULL;
+    }
     product -> CopyFunc = CopyFunc;
     product -> FreeFunc = FreeFunc;
     product -> ProductPriceFunc = ProductPriceFunc;
@@ -48,16 +52,16 @@ Product productCreate(unsigned int id, const char* name, double amount, Matamazo
 }
 
 
-Product getPtrToProductForID (List list ,unsigned int id) {
+Product getCopyOfProductForId (List list ,unsigned int id) {
     LIST_FOREACH(ListElement, ptr,list) {
         if ((((Product)ptr)->ID) == id) {
-            return ((Product)ptr);
+            return copyProduct((Product)ptr);
         }
     }
     return NULL;
 }
 
-Product getPtrToProductForSameProduct (List list ,Product product) {
+Product CheckIfProductFromOrderIsInStorage (List list ,Product product) {
     LIST_FOREACH(ListElement, ptr,list) {
         if ((((Product)ptr)->ID) == product->ID) {
             return ((Product)ptr);
@@ -100,6 +104,9 @@ void productRemove (List list, unsigned int id){
 }
 
 static Product copyProductAUX(Product product){
+    if (product == NULL) {
+        return NULL;
+    }
     Product product_new = productCreate(product->ID, product->name, product->amount,
                                         product->amountType, product->customData, product->CopyFunc,
                                         product->FreeFunc, product->ProductPriceFunc);

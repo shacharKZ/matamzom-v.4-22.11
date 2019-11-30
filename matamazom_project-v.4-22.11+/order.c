@@ -1,7 +1,7 @@
-#include "order.h"
 #include <stdlib.h>
+#include "order.h"
 #include "product.h"
-#include "matamazom_print.h"
+#include "matamazom.h"
 #include "libmtm/list.h"
 #include <assert.h>
 
@@ -18,7 +18,7 @@ Order orderCreate(unsigned int newId) {
     }
 
     new_order->productCart = listCreate(copyProduct, freeProduct);
-    if (!new_order->productCart) {
+    if (new_order->productCart == NULL) {
         return NULL;
     }
     new_order->id = newId;
@@ -27,12 +27,20 @@ Order orderCreate(unsigned int newId) {
 }
 
 static Order orderCopyUAX (Order target) {
-    if (!target) {
+    if (target == NULL || target->productCart == NULL) {
         return NULL;
     }
-    Order newOrder = orderCreate(target->id);
-    newOrder->productCart = listCopy(target->productCart);
-    return newOrder;
+    Order neWorder = malloc(sizeof(*neWorder));
+    if (neWorder == NULL) {
+        return NULL;
+    }
+    neWorder->productCart = listCopy(target->productCart);
+    if (neWorder->productCart == NULL) {
+        free(neWorder);
+        return NULL;
+    }
+    neWorder->id = target->id;
+    return neWorder;
 }
 
 ListElement orderCopy (ListElement target) {
