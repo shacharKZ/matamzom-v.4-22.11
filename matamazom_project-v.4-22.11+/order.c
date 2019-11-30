@@ -21,13 +21,7 @@ Order orderCreate(unsigned int newId) {
         return NULL;
     }
 
-    /*
-    Product (*copyFunc)(Product product) = &copyProduct;
-    void (*freeFunc)(Product product) = &freeProduct;
-    int (*compareFunc)(Product first, Product second) = &compareProduct;
-     */
-
-    new_order->productCart = listCreate(orderCopy, orderFree);
+    new_order->productCart = listCreate(copyProduct, freeProduct);
     if (!new_order->productCart) {
         return NULL;
     }
@@ -89,7 +83,12 @@ MatamazomResult orderSetProductAmount (Order order, unsigned int id) {
 }
 
 MatamazomResult orderAddProductToCart (Order order, Product product) {
-    return productAddToList (order->productCart, product);
+    MatamazomResult flag = productAddToList (order->productCart, product);
+    Product temp = listGetFirst(order->productCart);
+    if (temp) {
+
+    }
+    return flag;
 }
 
 void orderChangeId (Order target ,unsigned int newId) {
@@ -103,6 +102,7 @@ MatamazomResult orderPrintAllProduct (Order order, FILE *output) {
     }
 
     LIST_FOREACH(Product, currentProduct, order->productCart) {
+
         productPrintDetails(currentProduct, output);
     }
     return MATAMAZOM_SUCCESS;

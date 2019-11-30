@@ -1,21 +1,22 @@
+#include <stdio.h>
 #include "matamazom_tests.h"
 #include "../matamazom.h"
 #include "test_utilities.h"
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdlib.h>
 
-#define INVENTORY_OUT_FILE "tests/printed_inventory.txt"
-#define INVENTORY_TEST_FILE "tests/expected_inventory.txt"
-#define ORDER_OUT_FILE "tests/printed_order.txt"
-#define ORDER_TEST_FILE "tests/expected_order.txt"
-#define BEST_SELLING_OUT_FILE "tests/printed_best_selling.txt"
-#define BEST_SELLING_TEST_FILE "tests/expected_best_selling.txt"
-#define NO_SELLING_OUT_FILE "tests/printed_no_selling.txt"
-#define NO_SELLING_TEST_FILE "tests/expected_no_selling.txt"
-#define FILTERED_OUT_FILE "tests/printed_filtered.txt"
-#define FILTERED_TEST_FILE "tests/expected_filtered.txt"
+
+#define INVENTORY_OUT_FILE "../tests/printed_inventory.txt"
+#define INVENTORY_TEST_FILE "../tests/expected_inventory.txt"
+#define ORDER_OUT_FILE "../tests/printed_order.txt"
+#define ORDER_TEST_FILE "../tests/expected_order.txt"
+#define BEST_SELLING_OUT_FILE "../tests/printed_best_selling.txt"
+#define BEST_SELLING_TEST_FILE "../tests/expected_best_selling.txt"
+#define NO_SELLING_OUT_FILE "../tests/printed_no_selling.txt"
+#define NO_SELLING_TEST_FILE "../tests/expected_no_selling.txt"
+#define FILTERED_OUT_FILE "../tests/printed_filtered.txt"
+#define FILTERED_TEST_FILE "../tests/expected_filtered.txt"
 
 #define ASSERT_OR_DESTROY(expr) ASSERT_TEST_WITH_FREE((expr), matamazomDestroy(mtm))
 
@@ -49,10 +50,17 @@ static void freeDouble(MtmProductData number) {
 }
 
 static double simplePrice(MtmProductData basePrice, const double amount) {
-    return (*(double*)basePrice) * amount;
+    double check = *((double*)basePrice);
+    if (check) {
+
+    }
+    double temp = (*(double*)basePrice) * amount;
+
+    return temp;
 }
 
 static double buy10Get10ForFree(MtmProductData basePrice, const double amount) {
+
     double realAmount = amount;
     if (amount >= 20) {
         realAmount -= 10;
@@ -68,6 +76,11 @@ bool testModifyProducts() {
     ASSERT_OR_DESTROY(MATAMAZOM_SUCCESS ==
                       mtmNewProduct(mtm, 4, "Tomato", 2019.11, MATAMAZOM_ANY_AMOUNT,
                                     &basePrice, copyDouble, freeDouble, simplePrice));
+    double (*tempFunc)(MtmProductData, const double amount) = simplePrice;
+    if (tempFunc) {
+
+    }
+
     basePrice = 5.8;
     ASSERT_OR_DESTROY(MATAMAZOM_SUCCESS ==
                       mtmNewProduct(mtm, 6, "Onion", 1789.75, MATAMAZOM_ANY_AMOUNT,
@@ -104,17 +117,24 @@ bool testModifyProducts() {
 
 static void makeInventory(Matamazom mtm) {
     double basePrice = 8.9;
+
     mtmNewProduct(mtm, 4, "Tomato", 2019.11, MATAMAZOM_ANY_AMOUNT, &basePrice, copyDouble,
                   freeDouble, simplePrice);
     basePrice = 5.8;
+
     mtmNewProduct(mtm, 6, "Onion", 1789.75, MATAMAZOM_ANY_AMOUNT, &basePrice, copyDouble,
                   freeDouble, buy10Get10ForFree);
+    double (*funcTemp)(MtmProductData, const double) = &simplePrice;
+    if (funcTemp) {
+
+    }
     basePrice = 2000;
     mtmNewProduct(mtm, 10, "Television", 15, MATAMAZOM_INTEGER_AMOUNT, &basePrice,
                   copyDouble, freeDouble, simplePrice);
     basePrice = 5000;
     mtmNewProduct(mtm, 11, "Smart TV", 4, MATAMAZOM_INTEGER_AMOUNT, &basePrice,
                   copyDouble, freeDouble, simplePrice);
+
     basePrice = 18.5;
     mtmNewProduct(mtm, 7, "Watermelon", 24.5, MATAMAZOM_HALF_INTEGER_AMOUNT, &basePrice,
                   copyDouble, freeDouble, simplePrice);
@@ -163,6 +183,7 @@ static bool wholeFileEqual(const char *filename1, const char *filename2) {
     assert(file1);
     assert(file2);
     bool result = fileEqual(file1, file2);
+
     fclose(file1);
     fclose(file2);
     return result;
@@ -174,6 +195,7 @@ bool testPrintInventory() {
     FILE *outputFile = fopen(INVENTORY_OUT_FILE, "w");
     assert(outputFile);
     ASSERT_OR_DESTROY(mtmPrintInventory(mtm, outputFile) == MATAMAZOM_SUCCESS);
+
     fclose(outputFile);
     ASSERT_OR_DESTROY(wholeFileEqual(INVENTORY_TEST_FILE, INVENTORY_OUT_FILE));
     matamazomDestroy(mtm);
@@ -186,6 +208,7 @@ static unsigned int makeOrder(Matamazom mtm) {
     mtmChangeProductAmountInOrder(mtm, id, 6, 10.25);
     mtmChangeProductAmountInOrder(mtm, id, 10, 2);
     mtmChangeProductAmountInOrder(mtm, id, 7, 1.5);
+
     return id;
 }
 

@@ -51,6 +51,7 @@ bool productAlreadyExists(List storage, unsigned int id);
 bool findTheProductAfterTheNewAndSetCurrentToIt (List storage, ListElement product_new);
 
 void productPrintDetails (ListElement product, FILE *output);
+void productPrintDetailsForOne (ListElement product, FILE *output);
 
 double realProductPrice (ListElement product, double amount);
 

@@ -44,9 +44,11 @@ Product productCreate(unsigned int id, const char* name, double amount, Matamazo
     product -> amount = amount;
     product -> amountType = datatype;
     product -> customData = CopyFunc(customData);
+
     product -> CopyFunc = CopyFunc;
     product -> FreeFunc = FreeFunc;
     product -> ProductPriceFunc = ProductPriceFunc;
+
     product -> profit = 0;
     return product;
 }
@@ -118,6 +120,7 @@ static Product copyProductAUX(Product product){
     Product product_new = productCreate(product->ID, product->name, product->amount,
                                         product->amountType, product->customData, product->CopyFunc,
                                         product->FreeFunc, product->ProductPriceFunc);
+
     return product_new;
 }
 
@@ -130,7 +133,9 @@ int compareProduct(ListElement product1, ListElement product2){
 }
 
 double realProductPrice (ListElement product, double amount){
-    return (((Product)product) -> ProductPriceFunc (((Product)product)->customData, amount));
+    Product temp = ((Product)product);
+    return temp->ProductPriceFunc(temp->customData, amount);
+    //return (((Product)product) -> ProductPriceFunc (((Product)product)->customData, amount));
 }
 
 double productGetPrice (ListElement product){
@@ -142,13 +147,21 @@ void changeProfitForGivenAmountSold (ListElement product, double amount){
 }
 
 void productPrintDetails (ListElement product, FILE *output) {
-    //product and output were already checked if null before sent
-    double priceTemp = ((Product)product)->
-                         ProductPriceFunc(((Product)product)->customData,((Product)product) -> amount);
+    if (product == NULL || output == NULL) {
+        return;
+    }
+    Product temp = ((Product)product);
+    double priceTemp = temp->ProductPriceFunc(temp->customData, temp->amount);
+    mtmPrintProductDetails(temp->name, temp->ID, temp->amount, priceTemp, output);
+}
 
-    mtmPrintProductDetails(((Product)product)->name, ((Product)product)->ID,
-                           ((Product)product) -> amount, priceTemp, output); // 777 maybe we need to check the funcs return SUCCESS
-                                                                            //666this is a void func, given to us at matamazom_print.c
+void productPrintDetailsForOne (ListElement product, FILE *output) {
+    if (product == NULL || output == NULL) {
+        return;
+    }
+    Product temp = ((Product)product);
+    double priceTemp = temp->ProductPriceFunc(temp->customData, 1);
+    mtmPrintProductDetails(temp->name, temp->ID, temp->amount, priceTemp, output);
 }
 
 bool productAlreadyExists(List storage, unsigned int id){
@@ -176,15 +189,16 @@ bool findTheProductAfterTheNewAndSetCurrentToIt (List storage, ListElement produ
 MatamazomResult productChangeAmountForID(List storage, unsigned int id, double amount){
 
     Product  ptr = findProductForID(storage, id);
-    if ( ( (((Product)ptr) -> amount) + amount) < 0){
+    if ( ptr->amount + amount < 0){
         return MATAMAZOM_INSUFFICIENT_AMOUNT;
     } else{
-        ((Product)ptr) -> amount += amount;
+        ptr->amount += amount;
         return MATAMAZOM_SUCCESS;
     }
 }
 
 MatamazomResult productChangeAmountInList(List list, unsigned int id, double amount){
+
     if (list == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
@@ -307,35 +321,14 @@ MatamazomResult productAddToList (List list, Product product) {
     if (productAlreadyExists(list, product->ID)){
         return MATAMAZOM_PRODUCT_ALREADY_EXIST;
     }
-    listInsertFirst(list, product);
-    listSort(list, compareProduct);
-    return MATAMAZOM_SUCCESS;
-
-    /*
-
-    if (listGetFirst(list) == NULL){
-        ListResult check = listInsertFirst(list, ((ListElement)list));
-
-        if(check == LIST_OUT_OF_MEMORY){
-            return MATAMAZOM_OUT_OF_MEMORY;
-        } else{
-            assert(check == LIST_SUCCESS);
-
-            return MATAMAZOM_SUCCESS;
-        }
-    } else {
-        findTheProductAfterTheNewAndSetCurrentToIt (list, product);
-
-        ListResult check = listInsertAfterCurrent(list, product);
-
-        if(check == LIST_OUT_OF_MEMORY){
-            return MATAMAZOM_OUT_OF_MEMORY;
-        } else{
-
-            assert(check == LIST_SUCCESS);
-            return MATAMAZOM_SUCCESS;
-        }
+    ListResult flag = listInsertFirst(list, product);
+    if (flag != LIST_SUCCESS) {
+        return MATAMAZOM_OUT_OF_MEMORY;
     }
+    flag = listSort(list, compareProduct);
+    if (flag != LIST_SUCCESS) {
+        return MATAMAZOM_OUT_OF_MEMORY;
+    }
+
     return MATAMAZOM_SUCCESS;
-     */
 }

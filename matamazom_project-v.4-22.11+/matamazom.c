@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdbool.h>
 #include "matamazom.h"
 #include "stdlib.h"
@@ -9,6 +8,7 @@
 #include <string.h>
 #include "matamazom_print.h"
 #include <assert.h>
+//#include <stdio.h> // used only for testing
 #include "matamazom_print.h"
 
 
@@ -209,9 +209,10 @@ MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
     }
     fprintf(output,"Inventory Status:\n");
     for (ListElement ptr = listGetFirst(matamazom->storage); ptr ; ptr = listGetNext(matamazom->storage)) {
-        productPrintDetails(ptr, output);
+        productPrintDetailsForOne(ptr, output);
     }
     return MATAMAZOM_SUCCESS;
+
 }
 
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
@@ -259,7 +260,6 @@ unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
  */
 MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigned int orderId,
                                               const unsigned int productId, const double amount) {
-    // if the structure of the func works i will made it cleaner by separate to sub funcs
     if (matamazom == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
@@ -285,9 +285,10 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         if (newProduct == NULL) {
             return MATAMAZOM_OUT_OF_MEMORY;
         }
+
         productSetNewAmount(newProduct, amount);
         MatamazomResult flag = orderAddProductToCart(currentOrder,newProduct);
-        free(newProduct);
+        freeProduct(newProduct);
         return flag;
     }
     return orderChangeProductAmount(currentOrder, productId, amount);

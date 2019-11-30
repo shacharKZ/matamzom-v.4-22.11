@@ -1,0 +1,6 @@
+Best Selling Product:
+name: Tomato, id: 4, total income: 0.000
+name: Onion, id: 6, total income: 0.000
+name: Watermelon, id: 7, total income: 0.000
+name: Television, id: 10, total income: 0.000
+name: Smart TV, id: 11, total income: 0.000

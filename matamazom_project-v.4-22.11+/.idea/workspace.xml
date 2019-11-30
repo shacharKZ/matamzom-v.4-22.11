@@ -2,13 +2,14 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="matamazom_project" targetName="noa_test_for_AS" />
-      <config projectName="matamazom_project" targetName="self_test2" />
+      <config projectName="matamazom_project" targetName="AS_test_from_METARGELIM" />
       <config projectName="matamazom_project" targetName="self_test4" />
       <config projectName="matamazom_project" targetName="self_test3" />
+      <config projectName="matamazom_project" targetName="TEST5" />
       <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
+      <config projectName="matamazom_project" targetName="self_test2" />
       <config projectName="matamazom_project" targetName="self_test1" />
-      <config projectName="matamazom_project" targetName="AS_test_from_METARGELIM" />
+      <config projectName="matamazom_project" targetName="noa_test_for_AS" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -28,6 +29,9 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FavoritesManager">
+    <favorites_list name="matamazom_project" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -36,7 +40,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../matamazon_project-ex1-v.1" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/matamazom_project-v.4-22.11+ GIBUI" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -62,6 +66,11 @@
   </component>
   <component name="RunManager" selected="CMake Application.matamazom_test_from_METARGELIM">
     <configuration name="AS_test_from_METARGELIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="AS_test_from_METARGELIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="AS_test_from_METARGELIM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TEST5" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="TEST5" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="TEST5">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -104,6 +113,7 @@
       <item itemvalue="CMake Application.self_test2" />
       <item itemvalue="CMake Application.self_test3" />
       <item itemvalue="CMake Application.self_test4" />
+      <item itemvalue="CMake Application.TEST5" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -143,7 +153,8 @@
       <workItem from="1575028398222" duration="2676000" />
       <workItem from="1575031251890" duration="76000" />
       <workItem from="1575031451824" duration="326000" />
-      <workItem from="1575093446602" duration="6276000" />
+      <workItem from="1575093446602" duration="7185000" />
+      <workItem from="1575100763515" duration="12440000" />
     </task>
     <servers />
   </component>
@@ -167,9 +178,38 @@
     <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tests/matamazom_tests.c</url>
+          <line>185</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tests/matamazom_main.c</url>
+          <line>12</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tests/matamazom_tests.c</url>
+          <line>57</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tests/matamazom_tests.c</url>
+          <line>54</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/product.c</url>
+          <line>200</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
-        <watch expression="prev-&gt;currentElement" />
+        <watch expression="prev-&gt;currentElement" language="ObjectiveC" />
         <watch expression="prev-&gt;currentElement" />
       </configuration>
     </watches-manager>
