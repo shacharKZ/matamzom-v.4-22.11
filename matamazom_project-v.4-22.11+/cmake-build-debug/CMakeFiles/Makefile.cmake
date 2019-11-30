@@ -50,8 +50,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/self_test1.dir/DependInfo.cmake"
   "CMakeFiles/noa_test_for_AS.dir/DependInfo.cmake"
+  "CMakeFiles/self_test3.dir/DependInfo.cmake"
+  "CMakeFiles/AS_test_from_METARGELIM.dir/DependInfo.cmake"
   "CMakeFiles/matamazom_test_from_METARGELIM.dir/DependInfo.cmake"
   "CMakeFiles/self_test2.dir/DependInfo.cmake"
-  "CMakeFiles/self_test3.dir/DependInfo.cmake"
   "CMakeFiles/self_test4.dir/DependInfo.cmake"
   )

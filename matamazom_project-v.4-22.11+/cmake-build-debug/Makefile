@@ -55,17 +55,6 @@ CMAKE_BINARY_DIR = "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -76,6 +65,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	"C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -136,6 +136,32 @@ noa_test_for_AS/fast:
 .PHONY : noa_test_for_AS/fast
 
 #=============================================================================
+# Target rules for targets named self_test3
+
+# Build rule for target.
+self_test3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 self_test3
+.PHONY : self_test3
+
+# fast build rule for target.
+self_test3/fast:
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/build
+.PHONY : self_test3/fast
+
+#=============================================================================
+# Target rules for targets named AS_test_from_METARGELIM
+
+# Build rule for target.
+AS_test_from_METARGELIM: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 AS_test_from_METARGELIM
+.PHONY : AS_test_from_METARGELIM
+
+# fast build rule for target.
+AS_test_from_METARGELIM/fast:
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/build
+.PHONY : AS_test_from_METARGELIM/fast
+
+#=============================================================================
 # Target rules for targets named matamazom_test_from_METARGELIM
 
 # Build rule for target.
@@ -162,19 +188,6 @@ self_test2/fast:
 .PHONY : self_test2/fast
 
 #=============================================================================
-# Target rules for targets named self_test3
-
-# Build rule for target.
-self_test3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 self_test3
-.PHONY : self_test3
-
-# fast build rule for target.
-self_test3/fast:
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/build
-.PHONY : self_test3/fast
-
-#=============================================================================
 # Target rules for targets named self_test4
 
 # Build rule for target.
@@ -195,8 +208,9 @@ amount_set.obj: amount_set.c.obj
 amount_set.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.obj
 	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj
-	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.obj
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/amount_set.c.obj
+	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.obj
 .PHONY : amount_set.c.obj
 
 amount_set.i: amount_set.c.i
@@ -207,8 +221,9 @@ amount_set.i: amount_set.c.i
 amount_set.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.i
 	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/amount_set.c.i
-	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.i
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/amount_set.c.i
+	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.i
 .PHONY : amount_set.c.i
 
 amount_set.s: amount_set.c.s
@@ -219,8 +234,9 @@ amount_set.s: amount_set.c.s
 amount_set.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/amount_set.c.s
 	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/amount_set.c.s
-	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/amount_set.c.s
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/amount_set.c.s
+	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.s
 .PHONY : amount_set.c.s
 
 main_test1.obj: main_test1.c.obj
@@ -364,8 +380,8 @@ matamazom.obj: matamazom.c.obj
 
 # target to build an object file
 matamazom.c.obj:
-	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.obj
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.obj
 .PHONY : matamazom.c.obj
 
@@ -375,8 +391,8 @@ matamazom.i: matamazom.c.i
 
 # target to preprocess a source file
 matamazom.c.i:
-	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.i
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.i
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.i
 .PHONY : matamazom.c.i
 
@@ -386,8 +402,8 @@ matamazom.s: matamazom.c.s
 
 # target to generate assembly for a file
 matamazom.c.s:
-	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.s
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.s
+	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.s
 .PHONY : matamazom.c.s
 
@@ -428,9 +444,9 @@ order.obj: order.c.obj
 # target to build an object file
 order.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.obj
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.obj
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.obj
 .PHONY : order.c.obj
 
@@ -441,9 +457,9 @@ order.i: order.c.i
 # target to preprocess a source file
 order.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.i
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.i
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.i
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.i
 .PHONY : order.c.i
 
@@ -454,9 +470,9 @@ order.s: order.c.s
 # target to generate assembly for a file
 order.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/order.c.s
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.s
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.s
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.s
 .PHONY : order.c.s
 
@@ -467,9 +483,9 @@ product.obj: product.c.obj
 # target to build an object file
 product.c.obj:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.obj
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.obj
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.obj
 .PHONY : product.c.obj
 
@@ -480,9 +496,9 @@ product.i: product.c.i
 # target to preprocess a source file
 product.c.i:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.i
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.i
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.i
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.i
 .PHONY : product.c.i
 
@@ -493,11 +509,65 @@ product.s: product.c.s
 # target to generate assembly for a file
 product.c.s:
 	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/product.c.s
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.s
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.s
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.s
 .PHONY : product.c.s
+
+tests/amount_set_main.obj: tests/amount_set_main.c.obj
+
+.PHONY : tests/amount_set_main.obj
+
+# target to build an object file
+tests/amount_set_main.c.obj:
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_main.c.obj
+.PHONY : tests/amount_set_main.c.obj
+
+tests/amount_set_main.i: tests/amount_set_main.c.i
+
+.PHONY : tests/amount_set_main.i
+
+# target to preprocess a source file
+tests/amount_set_main.c.i:
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_main.c.i
+.PHONY : tests/amount_set_main.c.i
+
+tests/amount_set_main.s: tests/amount_set_main.c.s
+
+.PHONY : tests/amount_set_main.s
+
+# target to generate assembly for a file
+tests/amount_set_main.c.s:
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_main.c.s
+.PHONY : tests/amount_set_main.c.s
+
+tests/amount_set_tests.obj: tests/amount_set_tests.c.obj
+
+.PHONY : tests/amount_set_tests.obj
+
+# target to build an object file
+tests/amount_set_tests.c.obj:
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_tests.c.obj
+.PHONY : tests/amount_set_tests.c.obj
+
+tests/amount_set_tests.i: tests/amount_set_tests.c.i
+
+.PHONY : tests/amount_set_tests.i
+
+# target to preprocess a source file
+tests/amount_set_tests.c.i:
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_tests.c.i
+.PHONY : tests/amount_set_tests.c.i
+
+tests/amount_set_tests.s: tests/amount_set_tests.c.s
+
+.PHONY : tests/amount_set_tests.s
+
+# target to generate assembly for a file
+tests/amount_set_tests.c.s:
+	$(MAKE) -f CMakeFiles\AS_test_from_METARGELIM.dir\build.make CMakeFiles/AS_test_from_METARGELIM.dir/tests/amount_set_tests.c.s
+.PHONY : tests/amount_set_tests.c.s
 
 tests/matamazom_main.obj: tests/matamazom_main.c.obj
 
@@ -561,12 +631,13 @@ help:
 	@echo ... depend
 	@echo ... self_test1
 	@echo ... noa_test_for_AS
+	@echo ... self_test3
+	@echo ... AS_test_from_METARGELIM
 	@echo ... matamazom_test_from_METARGELIM
 	@echo ... self_test2
-	@echo ... rebuild_cache
-	@echo ... self_test3
 	@echo ... edit_cache
 	@echo ... self_test4
+	@echo ... rebuild_cache
 	@echo ... amount_set.obj
 	@echo ... amount_set.i
 	@echo ... amount_set.s
@@ -597,6 +668,12 @@ help:
 	@echo ... product.obj
 	@echo ... product.i
 	@echo ... product.s
+	@echo ... tests/amount_set_main.obj
+	@echo ... tests/amount_set_main.i
+	@echo ... tests/amount_set_main.s
+	@echo ... tests/amount_set_tests.obj
+	@echo ... tests/amount_set_tests.i
+	@echo ... tests/amount_set_tests.s
 	@echo ... tests/matamazom_main.obj
 	@echo ... tests/matamazom_main.i
 	@echo ... tests/matamazom_main.s
