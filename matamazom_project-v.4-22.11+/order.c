@@ -1,7 +1,3 @@
-//
-// Created by shach on 15/11/2019.
-//
-
 #include "order.h"
 #include <stdlib.h>
 #include "product.h"
@@ -30,13 +26,12 @@ Order orderCreate(unsigned int newId) {
     return new_order;
 }
 
-
-
 static Order orderCopyUAX (Order target) {
     if (!target) {
         return NULL;
     }
     Order newOrder = orderCreate(target->id);
+    newOrder->productCart = listCopy(target->productCart);
     return newOrder;
 }
 
@@ -60,7 +55,6 @@ void orderFree (ListElement target) {
     orderFreeUAX(target);
 }
 
-
 static int orderCompareAUX(Order first, Order second) {
     return (int) (first->id - second->id);
 }
@@ -69,30 +63,26 @@ int orderCompare(ListElement first, ListElement second) {
     return orderCompareAUX(first, second);
 }
 
+void orderChangeId (Order target ,unsigned int newId) {
+    target->id = newId;
+}
 
 bool isProductIdInOrder (Order order, unsigned int id) {
     return productAlreadyExists(order->productCart, id);
 }
 
 MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount) {
-    return productChangeAmountInList(order->productCart, id, amount);
-}
-
-MatamazomResult orderSetProductAmount (Order order, unsigned int id) {
-    return productSetAmountForID(order->productCart, id);
+    if (order == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
+    }
+    return productChangeAmountInOrder(order->productCart, id, amount);
 }
 
 MatamazomResult orderAddProductToCart (Order order, Product product) {
-    MatamazomResult flag = productAddToList (order->productCart, product);
-    Product temp = listGetFirst(order->productCart);
-    if (temp) {
-
+    if (order == NULL || product == NULL) {
+        return MATAMAZOM_NULL_ARGUMENT;
     }
-    return flag;
-}
-
-void orderChangeId (Order target ,unsigned int newId) {
-    target->id = newId;
+    return productAddToList (order->productCart, product);
 }
 
 

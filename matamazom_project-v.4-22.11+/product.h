@@ -44,7 +44,7 @@ ListElement copyProduct(ListElement product);
 
 int compareProduct(ListElement product1, ListElement product2);
 
-MatamazomResult productChangeAmountForID(List storage, unsigned int id, double amount);
+MatamazomResult productChangeAmountInStorage(List storage, unsigned int id, double amount);
 
 bool productAlreadyExists(List storage, unsigned int id);
 
@@ -83,7 +83,7 @@ Product getPtrToProductForID (List list ,unsigned int id);
 
 Product getPtrToProductForSameProduct (List list ,Product product);
 
-MatamazomResult productChangeAmountInList(List list, unsigned int id, double amount);
+MatamazomResult productChangeAmountInOrder(List list, unsigned int id, double amount);
 
 #endif //UNTITLED1_PRODUCT17_11_H
 

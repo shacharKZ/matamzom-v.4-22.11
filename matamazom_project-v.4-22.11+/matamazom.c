@@ -18,7 +18,7 @@ struct Matamazom_t{
     Set orders;
 };
 
-static bool valid_name (const char* name){
+static bool validName (const char* name){
     if (name == NULL){
         return false;
     }
@@ -31,7 +31,7 @@ static bool valid_name (const char* name){
     return true;
 }
 
-static bool valid_amount (const double amount, MatamazomAmountType amountType){
+static bool validAmount (const double amount, MatamazomAmountType amountType){
 
     if (amount == 0 || amountType == MATAMAZOM_ANY_AMOUNT){
 
@@ -60,11 +60,10 @@ static bool valid_amount (const double amount, MatamazomAmountType amountType){
         return false;
     }
 
-
-    return true; /// 777 need a defult return
+    return true;
 }
 
-// add info
+
 static Order mtmFindOrder (Matamazom matamazom, const unsigned int orderId) {
     if (matamazom == NULL) {
         return NULL;
@@ -123,10 +122,10 @@ MatamazomResult mtmNewProduct(Matamazom matamazom, const unsigned int id, const 
         || CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
-    if (valid_name(name) == false) {
+    if (validName(name) == false) {
         return MATAMAZOM_INVALID_NAME;
     }
-    if (valid_amount(amount, amountType) == false || amount < 0) {
+    if (validAmount(amount, amountType) == false || amount < 0) {
         return MATAMAZOM_INVALID_AMOUNT;
     }
     if (productAlreadyExists(matamazom->storage, id)){
@@ -135,11 +134,13 @@ MatamazomResult mtmNewProduct(Matamazom matamazom, const unsigned int id, const 
 
     Product product_new = productCreate(id, name, amount, amountType,
                                customData, CopyFunc, FreeFunc, ProductPriceFunc);
-    /////// 777 copy to product
-    //666 what?
     if (product_new == NULL) {
         return MATAMAZOM_OUT_OF_MEMORY;
     }
+
+    return productAddToList(matamazom->storage, product_new);
+
+    /*
     if (listGetFirst(matamazom->storage) == NULL){ //case of first product
         ListResult check = listInsertFirst(matamazom -> storage, ((ListElement)product_new));
 
@@ -170,25 +171,23 @@ MatamazomResult mtmNewProduct(Matamazom matamazom, const unsigned int id, const 
             return MATAMAZOM_SUCCESS;
         }
     }
+     */
 
 }
 
 
 MatamazomResult mtmChangeProductAmount(Matamazom matamazom, const unsigned int id, const double amount){
-
     if (matamazom==NULL){
         return MATAMAZOM_NULL_ARGUMENT;
     }
     if (productAlreadyExists(matamazom->storage, id) == false){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
-    if (valid_amount(amount, productGetAmountType(matamazom->storage, id)) == false){
+    if (validAmount(amount, productGetAmountType(matamazom->storage, id)) == false){
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
-    return productChangeAmountForID(matamazom->storage, id, amount);
-    // 777 if the amount is under 0 we need to make another if/case
-    // 666 - updated and now checks for change legality
+    return productChangeAmountInStorage(matamazom->storage, id, amount);
 }
 
 MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
@@ -198,7 +197,7 @@ MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
     if (id < 0 || productAlreadyExists(matamazom->storage, id) == false){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
-    productRemove(matamazom->storage, id); // 777 i think we should put this func inside matamzom
+    productRemove(matamazom->storage, id);
 
     SET_FOREACH(Order, currentOrder, matamazom->orders) {
         productRemove(orderGetPtrToProductList(currentOrder), id);
@@ -218,7 +217,7 @@ MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
 
 }
 
-unsigned int mtmCreateNewOrder(Matamazom matamazom) {  /// 33333
+unsigned int mtmCreateNewOrder(Matamazom matamazom) {
     unsigned int newOrderId = setGetSize(matamazom->orders)+1;
     Order newOrder = orderCreate(newOrderId);
     while (setIsIn(matamazom->orders, newOrder) == true) {
@@ -276,7 +275,7 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
 
-    if (valid_amount(amount, productGetAmountType(matamazom->storage, productId)) == false){
+    if (validAmount(amount, productGetAmountType(matamazom->storage, productId)) == false) {
         return MATAMAZOM_INVALID_AMOUNT;
     }
 
@@ -297,7 +296,7 @@ MatamazomResult mtmChangeProductAmountInOrder(Matamazom matamazom, const unsigne
     return orderChangeProductAmount(currentOrder, productId, amount);
 }
 
-MatamazomResult mtmShipCheckAmount (List storage, List order) {
+static MatamazomResult mtmShipCheckAmounts (List storage, List order) {
     if (storage == NULL || order == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
@@ -307,7 +306,7 @@ MatamazomResult mtmShipCheckAmount (List storage, List order) {
         if (storageProduct == NULL) {
             return MATAMAZOM_PRODUCT_NOT_EXIST;
         }
-        if ( productGetAmount(storageProduct) < productGetAmount(((Product)orderProduct))) {
+        if (productGetAmount(storageProduct) < productGetAmount(((Product)orderProduct))) {
             return MATAMAZOM_INSUFFICIENT_AMOUNT;
         }
     }
@@ -315,20 +314,19 @@ MatamazomResult mtmShipCheckAmount (List storage, List order) {
 }
 
 
-MatamazomResult mtmShipOrderExecute(List storage, List order) {
+static MatamazomResult mtmShipOrderExecute(List storage, List order) {
     if (storage == NULL || order == NULL) {
         return MATAMAZOM_NULL_ARGUMENT;
     }
 
-    LIST_FOREACH(ListElement, currentProduct, order) {
-        Product storageProduct = getPtrToProductForSameProduct(storage, currentProduct);
-        if (productShipChangeAmountAndProfit(storageProduct, productGetAmount(((Product) currentProduct))) != MATAMAZOM_SUCCESS) {
+    LIST_FOREACH(Product, currentOrderProduct, order) {
+        Product storageProduct = getPtrToProductForSameProduct(storage, currentOrderProduct);
+        if (productShipChangeAmountAndProfit(storageProduct, productGetAmount(currentOrderProduct)) != MATAMAZOM_SUCCESS) {
             assert(0);
             return MATAMAZOM_OUT_OF_MEMORY;
         }
     }
     return MATAMAZOM_SUCCESS;
-
 }
 
 /**
@@ -364,7 +362,7 @@ MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId) {
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-    MatamazomResult flag = mtmShipCheckAmount(matamazom->storage, orderGetPtrToProductList(orderToShip));
+    MatamazomResult flag = mtmShipCheckAmounts(matamazom->storage, orderGetPtrToProductList(orderToShip));
     if (flag != MATAMAZOM_SUCCESS) {
         return flag;
     }
@@ -376,12 +374,10 @@ MatamazomResult mtmShipOrder(Matamazom matamazom, const unsigned int orderId) {
     }
     
     if (setRemove(matamazom->orders, orderToShip) != SET_SUCCESS) {
-        assert(0);
         return MATAMAZOM_OUT_OF_MEMORY;
     }
     return MATAMAZOM_SUCCESS;
 }
-
 
 
 /**
@@ -411,8 +407,7 @@ MatamazomResult mtmCancelOrder(Matamazom matamazom, const unsigned int orderId) 
         return MATAMAZOM_SUCCESS;
     }
 
-    assert(0); // does not suppose to get here
-    return MATAMAZOM_NULL_ARGUMENT;
+    return MATAMAZOM_NULL_ARGUMENT; // if the function got to here something went wrong
 }
 
 
@@ -441,10 +436,8 @@ MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, F
         return MATAMAZOM_ORDER_NOT_EXIST;
     }
 
-    //fprintf(output,"Inventory Status:\n"); changed this to that below 666
-
     fprintf(output,"Order %u Details:\n", orderId);
-    MatamazomResult flag = orderPrintAllProduct (currentOrder, output); //you can use my print storage 666
+    MatamazomResult flag = orderPrintAllProduct (currentOrder, output);
     fprintf(output, "----------\n");
     double totalPrice = orderGetTotalPrice(currentOrder);
     fprintf(output, "Total Price: %0.3f\n", totalPrice);
@@ -468,7 +461,6 @@ MatamazomResult mtmPrintFiltered(Matamazom matamazom, MtmFilterProduct customFil
         return MATAMAZOM_NULL_ARGUMENT;
     }
     for (ListElement ptr = listGetFirst(matamazom->storage); ptr; ptr = listGetNext(matamazom->storage)) {
-
         if (productCustomFilter(ptr, customFilter) == true) {
             productPrintDetailsForOne(ptr, output);
         }

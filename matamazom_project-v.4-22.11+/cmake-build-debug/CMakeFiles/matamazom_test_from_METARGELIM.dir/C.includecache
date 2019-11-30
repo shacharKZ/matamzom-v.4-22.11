@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/amount_set.h
-stdio.h
--
-stdbool.h
--
-
 C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/libmtm/list.h
 stdbool.h
 -
@@ -25,26 +19,6 @@ stdbool.h
 C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/matamazom_print.h
 stdio.h
 -
-
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/order.c
-order.h
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/order.h
-stdlib.h
--
-product.h
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/product.h
-matamazom_print.h
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/matamazom_print.h
-libmtm/list.h
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/libmtm/list.h
-assert.h
--
-
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/order.h
-amount_set.h
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/amount_set.h
-product.h
-C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/product.h
 
 C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/product.c
 stdio.h
