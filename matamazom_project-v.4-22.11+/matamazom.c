@@ -199,7 +199,10 @@ MatamazomResult mtmClearProduct(Matamazom matamazom, const unsigned int id){
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
     productRemove(matamazom->storage, id); // 777 i think we should put this func inside matamzom
-                                            // 666 we can't because it uses findProductForID which is static
+
+    SET_FOREACH(Order, currentOrder, matamazom->orders) {
+        productRemove(orderGetPtrToProductList(currentOrder), id);
+    }
     return MATAMAZOM_SUCCESS;
 }
 
@@ -444,7 +447,7 @@ MatamazomResult mtmPrintOrder(Matamazom matamazom, const unsigned int orderId, F
     MatamazomResult flag = orderPrintAllProduct (currentOrder, output); //you can use my print storage 666
     fprintf(output, "----------\n");
     double totalPrice = orderGetTotalPrice(currentOrder);
-    fprintf(output, "Total Price: %f\n", totalPrice);
+    fprintf(output, "Total Price: %0.3f\n", totalPrice);
     return flag;
 }
 
@@ -467,7 +470,7 @@ MatamazomResult mtmPrintFiltered(Matamazom matamazom, MtmFilterProduct customFil
     for (ListElement ptr = listGetFirst(matamazom->storage); ptr; ptr = listGetNext(matamazom->storage)) {
 
         if (productCustomFilter(ptr, customFilter) == true) {
-            productPrintDetails(ptr, output);
+            productPrintDetailsForOne(ptr, output);
         }
     }
     return MATAMAZOM_SUCCESS;

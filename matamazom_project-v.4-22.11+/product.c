@@ -206,8 +206,8 @@ MatamazomResult productChangeAmountInList(List list, unsigned int id, double amo
     if (ptr == NULL) {
         return MATAMAZOM_PRODUCT_NOT_EXIST;
     }
-    ((Product)ptr)->amount += amount;
-    if (((Product)ptr) -> amount< 0) {
+    ptr->amount += amount;
+    if (ptr -> amount < 0) {
         ListResult flag = listRemoveCurrent(list);
         if (flag == LIST_SUCCESS) {
             return MATAMAZOM_SUCCESS;
@@ -254,7 +254,7 @@ void productSetNewAmount (Product product, double amount) {
     if (product == NULL) {
         return;
     }
-    product->amount = 0;
+    product->amount = amount;
 }
 
 bool productCustomFilter (ListElement product, MtmFilterProduct customFilter){
@@ -274,9 +274,14 @@ void productPrintIncomeLine (List storage, FILE *output){
     for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
         max = maxOfTwo(max, ((Product)ptr)->profit);
     }
+    if (max == 0){
+        fprintf(output, "none\n");
+        return;
+    }
     for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
         if ((((Product)ptr)->profit) == max){
             mtmPrintIncomeLine(((Product)ptr)->name, ((Product)ptr)->ID, max, output);
+            return;
         }
     }
 

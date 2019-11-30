@@ -239,6 +239,7 @@ bool testPrintOrder() {
     while (fgetc(expected) != '\n');
 
     ASSERT_OR_DESTROY(fileEqual(expected, printed));
+
     fclose(expected);
     fclose(printed);
     matamazomDestroy(mtm);
@@ -253,6 +254,7 @@ bool testPrintBestSelling() {
     assert(outputFile);
     ASSERT_OR_DESTROY(mtmPrintBestSelling(mtm, outputFile) == MATAMAZOM_SUCCESS);
     fclose(outputFile);
+
     ASSERT_OR_DESTROY(wholeFileEqual(NO_SELLING_TEST_FILE, NO_SELLING_OUT_FILE));
 
     unsigned int order = mtmCreateNewOrder(mtm);
@@ -287,6 +289,7 @@ bool testPrintFiltered() {
     assert(outputFile);
     ASSERT_OR_DESTROY(mtmPrintFiltered(mtm, isAmountLessThan10, outputFile) == MATAMAZOM_SUCCESS);
     fclose(outputFile);
+
     ASSERT_OR_DESTROY(wholeFileEqual(FILTERED_TEST_FILE, FILTERED_OUT_FILE));
     matamazomDestroy(mtm);
     return true;

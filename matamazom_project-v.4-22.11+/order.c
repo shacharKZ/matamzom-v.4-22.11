@@ -76,7 +76,7 @@ bool isProductIdInOrder (Order order, unsigned int id) {
 
 MatamazomResult orderChangeProductAmount (Order order, unsigned int id, double amount) {
     return productChangeAmountInList(order->productCart, id, amount);
-    }
+}
 
 MatamazomResult orderSetProductAmount (Order order, unsigned int id) {
     return productSetAmountForID(order->productCart, id);
