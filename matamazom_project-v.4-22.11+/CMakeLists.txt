@@ -20,5 +20,11 @@ target_link_libraries(self_test4 libmtm.a)
 add_executable(matamazom_test_from_METARGELIM tests/matamazom_main.c tests/matamazom_tests.h tests/matamazom_tests.c tests/test_utilities.h libmtm/set.h order.h order.c product.h product.c matamazom.h matamazom.c matamazom_print.h matamazom_print.c)
 target_link_libraries(matamazom_test_from_METARGELIM libmtm.a)
 
+add_executable(MTMZM_from_Noa main_test_noaMatamazon.c order.c product.c matamazom.c matamazom_print.c)
+target_link_libraries(MTMZM_from_Noa libmtm.a)
+
 add_executable(TEST5 tests/matamazom_main.c tests/matamazom_tests.c  order.c product.c matamazom.c matamazom_print.c)
 target_link_libraries(TEST5 libmtm.a)
+
+add_executable(test_from_FACEBOOK main_test_from_FB.c order.c product.c matamazom.c matamazom_print.c)
+target_link_libraries(test_from_FACEBOOK libmtm.a)

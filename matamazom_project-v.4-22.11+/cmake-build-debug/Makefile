@@ -188,6 +188,32 @@ self_test2/fast:
 .PHONY : self_test2/fast
 
 #=============================================================================
+# Target rules for targets named self_test4
+
+# Build rule for target.
+self_test4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 self_test4
+.PHONY : self_test4
+
+# fast build rule for target.
+self_test4/fast:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/build
+.PHONY : self_test4/fast
+
+#=============================================================================
+# Target rules for targets named MTMZM_from_Noa
+
+# Build rule for target.
+MTMZM_from_Noa: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 MTMZM_from_Noa
+.PHONY : MTMZM_from_Noa
+
+# fast build rule for target.
+MTMZM_from_Noa/fast:
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/build
+.PHONY : MTMZM_from_Noa/fast
+
+#=============================================================================
 # Target rules for targets named TEST5
 
 # Build rule for target.
@@ -201,17 +227,17 @@ TEST5/fast:
 .PHONY : TEST5/fast
 
 #=============================================================================
-# Target rules for targets named self_test4
+# Target rules for targets named test_from_FACEBOOK
 
 # Build rule for target.
-self_test4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 self_test4
-.PHONY : self_test4
+test_from_FACEBOOK: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test_from_FACEBOOK
+.PHONY : test_from_FACEBOOK
 
 # fast build rule for target.
-self_test4/fast:
-	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/build
-.PHONY : self_test4/fast
+test_from_FACEBOOK/fast:
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/build
+.PHONY : test_from_FACEBOOK/fast
 
 amount_set.obj: amount_set.c.obj
 
@@ -360,6 +386,33 @@ main_test4.c.s:
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.s
 .PHONY : main_test4.c.s
 
+main_test_from_FB.obj: main_test_from_FB.c.obj
+
+.PHONY : main_test_from_FB.obj
+
+# target to build an object file
+main_test_from_FB.c.obj:
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.obj
+.PHONY : main_test_from_FB.c.obj
+
+main_test_from_FB.i: main_test_from_FB.c.i
+
+.PHONY : main_test_from_FB.i
+
+# target to preprocess a source file
+main_test_from_FB.c.i:
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.i
+.PHONY : main_test_from_FB.c.i
+
+main_test_from_FB.s: main_test_from_FB.c.s
+
+.PHONY : main_test_from_FB.s
+
+# target to generate assembly for a file
+main_test_from_FB.c.s:
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.s
+.PHONY : main_test_from_FB.c.s
+
 main_test_noaAmountSet.obj: main_test_noaAmountSet.c.obj
 
 .PHONY : main_test_noaAmountSet.obj
@@ -387,6 +440,33 @@ main_test_noaAmountSet.c.s:
 	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.s
 .PHONY : main_test_noaAmountSet.c.s
 
+main_test_noaMatamazon.obj: main_test_noaMatamazon.c.obj
+
+.PHONY : main_test_noaMatamazon.obj
+
+# target to build an object file
+main_test_noaMatamazon.c.obj:
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj
+.PHONY : main_test_noaMatamazon.c.obj
+
+main_test_noaMatamazon.i: main_test_noaMatamazon.c.i
+
+.PHONY : main_test_noaMatamazon.i
+
+# target to preprocess a source file
+main_test_noaMatamazon.c.i:
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.i
+.PHONY : main_test_noaMatamazon.c.i
+
+main_test_noaMatamazon.s: main_test_noaMatamazon.c.s
+
+.PHONY : main_test_noaMatamazon.s
+
+# target to generate assembly for a file
+main_test_noaMatamazon.c.s:
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.s
+.PHONY : main_test_noaMatamazon.c.s
+
 matamazom.obj: matamazom.c.obj
 
 .PHONY : matamazom.obj
@@ -395,8 +475,10 @@ matamazom.obj: matamazom.c.obj
 matamazom.c.obj:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.obj
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.obj
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.obj
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/matamazom.c.obj
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom.c.obj
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/matamazom.c.obj
 .PHONY : matamazom.c.obj
 
 matamazom.i: matamazom.c.i
@@ -407,8 +489,10 @@ matamazom.i: matamazom.c.i
 matamazom.c.i:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.i
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.i
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.i
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/matamazom.c.i
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom.c.i
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/matamazom.c.i
 .PHONY : matamazom.c.i
 
 matamazom.s: matamazom.c.s
@@ -419,8 +503,10 @@ matamazom.s: matamazom.c.s
 matamazom.c.s:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/matamazom.c.s
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom.c.s
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom.c.s
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/matamazom.c.s
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom.c.s
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/matamazom.c.s
 .PHONY : matamazom.c.s
 
 matamazom_print.obj: matamazom_print.c.obj
@@ -430,8 +516,10 @@ matamazom_print.obj: matamazom_print.c.obj
 # target to build an object file
 matamazom_print.c.obj:
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.obj
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom_print.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.obj
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/matamazom_print.c.obj
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom_print.c.obj
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/matamazom_print.c.obj
 .PHONY : matamazom_print.c.obj
 
 matamazom_print.i: matamazom_print.c.i
@@ -441,8 +529,10 @@ matamazom_print.i: matamazom_print.c.i
 # target to preprocess a source file
 matamazom_print.c.i:
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.i
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom_print.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.i
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/matamazom_print.c.i
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom_print.c.i
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/matamazom_print.c.i
 .PHONY : matamazom_print.c.i
 
 matamazom_print.s: matamazom_print.c.s
@@ -452,8 +542,10 @@ matamazom_print.s: matamazom_print.c.s
 # target to generate assembly for a file
 matamazom_print.c.s:
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/matamazom_print.c.s
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom_print.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/matamazom_print.c.s
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/matamazom_print.c.s
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/matamazom_print.c.s
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/matamazom_print.c.s
 .PHONY : matamazom_print.c.s
 
 order.obj: order.c.obj
@@ -466,8 +558,10 @@ order.c.obj:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.obj
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/order.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.obj
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/order.c.obj
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/order.c.obj
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/order.c.obj
 .PHONY : order.c.obj
 
 order.i: order.c.i
@@ -480,8 +574,10 @@ order.c.i:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.i
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.i
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/order.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.i
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/order.c.i
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/order.c.i
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/order.c.i
 .PHONY : order.c.i
 
 order.s: order.c.s
@@ -494,8 +590,10 @@ order.c.s:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/order.c.s
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/order.c.s
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/order.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/order.c.s
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/order.c.s
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/order.c.s
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/order.c.s
 .PHONY : order.c.s
 
 product.obj: product.c.obj
@@ -508,8 +606,10 @@ product.c.obj:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.obj
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/product.c.obj
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.obj
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/product.c.obj
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/product.c.obj
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/product.c.obj
 .PHONY : product.c.obj
 
 product.i: product.c.i
@@ -522,8 +622,10 @@ product.c.i:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.i
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.i
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/product.c.i
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.i
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/product.c.i
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/product.c.i
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/product.c.i
 .PHONY : product.c.i
 
 product.s: product.c.s
@@ -536,8 +638,10 @@ product.c.s:
 	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/product.c.s
 	$(MAKE) -f CMakeFiles\matamazom_test_from_METARGELIM.dir\build.make CMakeFiles/matamazom_test_from_METARGELIM.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/product.c.s
-	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/product.c.s
 	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/product.c.s
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/product.c.s
+	$(MAKE) -f CMakeFiles\TEST5.dir\build.make CMakeFiles/TEST5.dir/product.c.s
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/product.c.s
 .PHONY : product.c.s
 
 tests/amount_set_main.obj: tests/amount_set_main.c.obj
@@ -666,8 +770,10 @@ help:
 	@echo ... AS_test_from_METARGELIM
 	@echo ... matamazom_test_from_METARGELIM
 	@echo ... self_test2
-	@echo ... TEST5
 	@echo ... self_test4
+	@echo ... MTMZM_from_Noa
+	@echo ... TEST5
+	@echo ... test_from_FACEBOOK
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... amount_set.obj
@@ -685,9 +791,15 @@ help:
 	@echo ... main_test4.obj
 	@echo ... main_test4.i
 	@echo ... main_test4.s
+	@echo ... main_test_from_FB.obj
+	@echo ... main_test_from_FB.i
+	@echo ... main_test_from_FB.s
 	@echo ... main_test_noaAmountSet.obj
 	@echo ... main_test_noaAmountSet.i
 	@echo ... main_test_noaAmountSet.s
+	@echo ... main_test_noaMatamazon.obj
+	@echo ... main_test_noaMatamazon.i
+	@echo ... main_test_noaMatamazon.s
 	@echo ... matamazom.obj
 	@echo ... matamazom.i
 	@echo ... matamazom.s

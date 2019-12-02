@@ -9,7 +9,9 @@
       <config projectName="matamazom_project" targetName="matamazom_test_from_METARGELIM" />
       <config projectName="matamazom_project" targetName="self_test2" />
       <config projectName="matamazom_project" targetName="self_test1" />
+      <config projectName="matamazom_project" targetName="test_from_FACEBOOK" />
       <config projectName="matamazom_project" targetName="noa_test_for_AS" />
+      <config projectName="matamazom_project" targetName="MTMZM_from_Noa" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -70,6 +72,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MTMZM_from_Noa" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="MTMZM_from_Noa" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="MTMZM_from_Noa">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TEST5" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="TEST5" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="TEST5">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -105,15 +112,22 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test_from_FACEBOOK" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matamazom_project" TARGET_NAME="test_from_FACEBOOK" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matamazom_project" RUN_TARGET_NAME="test_from_FACEBOOK">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.AS_test_from_METARGELIM" />
       <item itemvalue="CMake Application.matamazom_test_from_METARGELIM" />
+      <item itemvalue="CMake Application.MTMZM_from_Noa" />
       <item itemvalue="CMake Application.noa_test_for_AS" />
       <item itemvalue="CMake Application.self_test1" />
       <item itemvalue="CMake Application.self_test2" />
       <item itemvalue="CMake Application.self_test3" />
       <item itemvalue="CMake Application.self_test4" />
       <item itemvalue="CMake Application.TEST5" />
+      <item itemvalue="CMake Application.test_from_FACEBOOK" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -154,7 +168,7 @@
       <workItem from="1575031251890" duration="76000" />
       <workItem from="1575031451824" duration="326000" />
       <workItem from="1575093446602" duration="7185000" />
-      <workItem from="1575100763515" duration="33597000" />
+      <workItem from="1575100763515" duration="46321000" />
     </task>
     <servers />
   </component>
@@ -189,6 +203,21 @@
           <url>file://$PROJECT_DIR$/tests/matamazom_tests.c</url>
           <line>54</line>
           <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main_test_from_FB.c</url>
+          <line>577</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main_test_from_FB.c</url>
+          <line>573</line>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main_test_from_FB.c</url>
+          <line>575</line>
+          <option name="timeStamp" value="144" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

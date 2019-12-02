@@ -12,13 +12,14 @@
 struct Matamazom_t{
     List storage;
     Set orders;
+    unsigned int ordersCount;
 };
 
 static bool validName (const char* name){
     if (name == NULL){
         return false;
     }
-    if ((name[0] <=57) && (name[0]>-48)){ //between 0-9
+    if ((name[0] <='9') && (name[0]>='0')){ //between 0-9
         return true;
     }
     if (strlen(name)==0 || (name[0]<'A') || (name[0]>'z') || ((name[0]>'Z')&&(name[0]<'a'))){ //not a-z or A-Z
@@ -101,6 +102,7 @@ Matamazom matamazomCreate(){
         free (matamazom_new);
         return NULL;
     }
+    matamazom_new->ordersCount=1;
     return matamazom_new;
 }
 
@@ -215,6 +217,23 @@ MatamazomResult mtmPrintInventory(Matamazom matamazom, FILE *output){
 }
 
 unsigned int mtmCreateNewOrder(Matamazom matamazom) {
+    if(matamazom == NULL) {
+        return 0;
+    }
+    unsigned int newOrderId = matamazom->ordersCount++;
+    Order newOrder = orderCreate(newOrderId);
+    if (setAdd(matamazom->orders, newOrder) == SET_SUCCESS) {
+        orderFree(newOrder);
+        return newOrderId;
+    }
+    orderFree(newOrder);
+    assert(0); // if the func got to here something went wrong
+    return 0;
+
+
+
+
+    /*
     unsigned int newOrderId = setGetSize(matamazom->orders)+1;
     Order newOrder = orderCreate(newOrderId);
     if (newOrder == NULL) {
@@ -231,6 +250,7 @@ unsigned int mtmCreateNewOrder(Matamazom matamazom) {
     orderFree(newOrder);
     assert(0); // if the func got to here something went wrong
     return 0;
+     */
 }
 
 
