@@ -56,18 +56,18 @@ include CMakeFiles/noa_test_for_AS.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/noa_test_for_AS.dir/flags.make
 
-CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj: CMakeFiles/noa_test_for_AS.dir/flags.make
-CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj: ../main_test_noaAmountSet.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\noa_test_for_AS.dir\main_test_noaAmountSet.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_noaAmountSet.c"
+CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.obj: CMakeFiles/noa_test_for_AS.dir/flags.make
+CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.obj: ../self_tests/main_test_noaAmountSet.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.obj"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\noa_test_for_AS.dir\self_tests\main_test_noaAmountSet.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_noaAmountSet.c"
 
-CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_noaAmountSet.c" > CMakeFiles\noa_test_for_AS.dir\main_test_noaAmountSet.c.i
+CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.i"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_noaAmountSet.c" > CMakeFiles\noa_test_for_AS.dir\self_tests\main_test_noaAmountSet.c.i
 
-CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_noaAmountSet.c" -o CMakeFiles\noa_test_for_AS.dir\main_test_noaAmountSet.c.s
+CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.s"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_noaAmountSet.c" -o CMakeFiles\noa_test_for_AS.dir\self_tests\main_test_noaAmountSet.c.s
 
 CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj: CMakeFiles/noa_test_for_AS.dir/flags.make
 CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj: ../amount_set.c
@@ -84,13 +84,13 @@ CMakeFiles/noa_test_for_AS.dir/amount_set.c.s: cmake_force
 
 # Object files for target noa_test_for_AS
 noa_test_for_AS_OBJECTS = \
-"CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj" \
+"CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.obj" \
 "CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj"
 
 # External object files for target noa_test_for_AS
 noa_test_for_AS_EXTERNAL_OBJECTS =
 
-noa_test_for_AS.exe: CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj
+noa_test_for_AS.exe: CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.obj
 noa_test_for_AS.exe: CMakeFiles/noa_test_for_AS.dir/amount_set.c.obj
 noa_test_for_AS.exe: CMakeFiles/noa_test_for_AS.dir/build.make
 noa_test_for_AS.exe: CMakeFiles/noa_test_for_AS.dir/linklibs.rsp

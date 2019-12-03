@@ -56,18 +56,18 @@ include CMakeFiles/MTMZM_from_Noa.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MTMZM_from_Noa.dir/flags.make
 
-CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj: CMakeFiles/MTMZM_from_Noa.dir/flags.make
-CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj: ../main_test_noaMatamazon.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\MTMZM_from_Noa.dir\main_test_noaMatamazon.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_noaMatamazon.c"
+CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.obj: CMakeFiles/MTMZM_from_Noa.dir/flags.make
+CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.obj: ../self_tests/main_test_noaMatamazon.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.obj"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\MTMZM_from_Noa.dir\self_tests\main_test_noaMatamazon.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_noaMatamazon.c"
 
-CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_noaMatamazon.c" > CMakeFiles\MTMZM_from_Noa.dir\main_test_noaMatamazon.c.i
+CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.i"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_noaMatamazon.c" > CMakeFiles\MTMZM_from_Noa.dir\self_tests\main_test_noaMatamazon.c.i
 
-CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_noaMatamazon.c" -o CMakeFiles\MTMZM_from_Noa.dir\main_test_noaMatamazon.c.s
+CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.s"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_noaMatamazon.c" -o CMakeFiles\MTMZM_from_Noa.dir\self_tests\main_test_noaMatamazon.c.s
 
 CMakeFiles/MTMZM_from_Noa.dir/order.c.obj: CMakeFiles/MTMZM_from_Noa.dir/flags.make
 CMakeFiles/MTMZM_from_Noa.dir/order.c.obj: ../order.c
@@ -123,7 +123,7 @@ CMakeFiles/MTMZM_from_Noa.dir/matamazom_print.c.s: cmake_force
 
 # Object files for target MTMZM_from_Noa
 MTMZM_from_Noa_OBJECTS = \
-"CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj" \
+"CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.obj" \
 "CMakeFiles/MTMZM_from_Noa.dir/order.c.obj" \
 "CMakeFiles/MTMZM_from_Noa.dir/product.c.obj" \
 "CMakeFiles/MTMZM_from_Noa.dir/matamazom.c.obj" \
@@ -132,7 +132,7 @@ MTMZM_from_Noa_OBJECTS = \
 # External object files for target MTMZM_from_Noa
 MTMZM_from_Noa_EXTERNAL_OBJECTS =
 
-MTMZM_from_Noa.exe: CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj
+MTMZM_from_Noa.exe: CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.obj
 MTMZM_from_Noa.exe: CMakeFiles/MTMZM_from_Noa.dir/order.c.obj
 MTMZM_from_Noa.exe: CMakeFiles/MTMZM_from_Noa.dir/product.c.obj
 MTMZM_from_Noa.exe: CMakeFiles/MTMZM_from_Noa.dir/matamazom.c.obj

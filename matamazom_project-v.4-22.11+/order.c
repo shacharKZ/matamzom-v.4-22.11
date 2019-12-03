@@ -2,7 +2,7 @@
 #include "order.h"
 #include "product.h"
 #include "matamazom.h"
-#include "libmtm/list.h"
+#include "list.h"
 #include <assert.h>
 
 
@@ -69,10 +69,6 @@ static int orderCompareAUX(Order first, Order second) {
 
 int orderCompare(ListElement first, ListElement second) {
     return orderCompareAUX(first, second);
-}
-
-void orderChangeId (Order target ,unsigned int newId) {
-    target->id = newId;
 }
 
 bool isProductIdInOrder (Order order, unsigned int id) {

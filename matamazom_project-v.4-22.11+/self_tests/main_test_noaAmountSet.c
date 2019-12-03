@@ -1,6 +1,6 @@
 #include <stdbool.h>
 #include <string.h>
-#include "amount_set.h"
+#include "../amount_set.h"
 #include <stdlib.h>
 
 typedef struct TestElement_t *TestElement;

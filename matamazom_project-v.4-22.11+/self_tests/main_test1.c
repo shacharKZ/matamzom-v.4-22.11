@@ -1,54 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "amount_set.h"
-#include "order.h"
-#include "product.h"
-#include "matamazom.h"
+#include "../amount_set.h"
+#include "../order.h"
+#include "../product.h"
 #include <assert.h>
 
-/*
-static void freeDouble(MtmProductData number) {
-    free(number);
-}
- */
 
 int main() {
-    /*
-    Product (*copyFunc)(Product) = &copyProduct;
-    void (*freeFunc)(Product) = &freeProduct;
-    int (*compareFunc)(Product, Product) = &compareProduct;
+    ASElement (*copyFunc)(ASElement) = &orderCopy;
+    void (*freeFunc)(ASElement) = &orderFree;
+    int (*compareFunc)(ASElement, ASElement) = &orderCompare;
+
     AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
-    AmountSet nada = asCreate(copyFunc,freeFunc,compareFunc);
-     */
-
-    Matamazom mtm1 = matamazomCreate();
-
-    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
-    mtmCancelOrder(mtm1, 1);
-    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
-    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
-    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
-    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
-    mtmCancelOrder(mtm1, 3);
-    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
-    mtmCancelOrder(mtm1, 7);
-    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
 
 
-
-
-    ASElement (*copyFunc)(ASElement) = &copyProduct;
-    void (*freeFunc)(ASElement) = &freeProduct;
-    int (*compareFunc)(ASElement, ASElement) = &compareProduct;
-    AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
-    //AmountSet nada = asCreate(copyFunc,freeFunc,compareFunc);
-
-
-    Product o1 = productCreate(1, "A prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
-    Product o2 = productCreate(2, "B prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
-    Product o3 = productCreate(3, "C prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
-    Product o4 = productCreate(4, "D prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
-    Product o5 = productCreate(5, "E prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
+    Order o1 = orderCreate(1);
+    Order o2 = orderCreate(2);
+    Order o3 = orderCreate(3);
+    Order o4 = orderCreate(4);
+    Order o5 = orderCreate(4);
 
     printf("0) size of as is: %d \n", asGetSize(as));
     asRegister(as, o3);
@@ -63,7 +33,7 @@ int main() {
     printf("5) size of as is: %d \n", asGetSize(as));
     asRegister(as, o5);
     printf("6) size of as is: %d \n", asGetSize(as));
-    //asClear(as);
+    asClear(as);
     printf("7) size of as is: %d \n", asGetSize(as));
     asRegister(as, o3);
     printf("8) size of as is: %d \n", asGetSize(as));
@@ -72,7 +42,6 @@ int main() {
 
 
     AmountSet a2 = asCopy(as);
-
     printf("10) size of a2 is: %d \n", asGetSize(a2));
     asRegister(a2, o3);
     printf("11) size of a2 is: %d \n", asGetSize(a2));
@@ -110,10 +79,8 @@ int main() {
     printf("29) getAmount pass: %d (0 means it pass ok)\n", asGetAmount(a2,o2,&f2)); // carfull using pointers or doubles
     printf("30) new amount is: %f \n", f2);
 
-
     asGetFirst(a2);
     asGetFirst(as);
-
     asGetNext(a2);
     asGetNext(as);
 
@@ -121,17 +88,13 @@ int main() {
     printf("31) size of as is: %d \n", asGetSize(as));
     asRegister(as, o3);
     printf("32) size of as is: %d \n", asGetSize(as));
-    asClear(as);
-    printf("33) is continan %d (should be false, so 0)\n", asContains(as,o3));
-    printf("34) size of as is: %d \n", asGetSize(as));
-    printf("35) changeAmount: is pass: %d (5 means element is not there)\n", asChangeAmount(as, o2, f1));
-    printf("36) getAmount pass: %d (5 means element is not there)\n", asGetAmount(as,o2,&f2)); // carfull using pointers or doubles
-
     asDestroy(as);
     // printf("size of as is: %d \n", asGetSize(as)); // PROBLEM!!! after internet serching decide its ok. i talk with u about it
 
 
-    printf("test3 finish\n");
+    printf("test1 finish!\n");
 
     return 0;
 }
+
+

@@ -3,18 +3,18 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include "matamazom.h"
+#include "../matamazom.h"
 
-#define INVENTORY_OUT_FILE "C:/mtmhw119/printed_inventory_safi_test.txt"
-#define INVENTORY_OUT_FILE3 "C:/mtmhw119/printed_inventory_safi_test3.txt"
-#define INVENTORY_OUT_FILE4 "C:/mtmhw119/printed_inventory_safi_test4.txt"
-#define ORDER_OUT_FILE "C:/mtmhw119/printed_order_safi_test.txt"
-#define ORDER_OUT_FILE3 "C:/mtmhw119/printed_order_safi_test3.txt"
-#define BEST_SELLING_OUT_FILE "C:/mtmhw119/printed_best_selling_safitest.txt"
-#define BEST_SELLING_OUT_FILE3  "C:/mtmhw119/printed_best_selling_safitest3.txt"
-#define FILTERED_OUT_FILE "C:/mtmhw119/printed_filtered_safitest.txt"
-#define FILTERED_OUT_FILE3 "C:/mtmhw119/printed_filtered_safitest3.txt"
-#define FILTERED_OUT_FILE4 "C:/mtmhw119/printed_filtered_safitest4.txt"
+#define INVENTORY_OUT_FILE "../fb_tests/printed_inventory_safi_test.txt"
+#define INVENTORY_OUT_FILE3 "../fb_tests/printed_inventory_safi_test3.txt"
+#define INVENTORY_OUT_FILE4 "../fb_tests/printed_inventory_safi_test4.txt"
+#define ORDER_OUT_FILE "../fb_tests/printed_order_safi_test.txt"
+#define ORDER_OUT_FILE3 "../fb_tests/printed_order_safi_test3.txt"
+#define BEST_SELLING_OUT_FILE "../fb_tests/printed_best_selling_safitest.txt"
+#define BEST_SELLING_OUT_FILE3  "../fb_tests/printed_best_selling_safitest3.txt"
+#define FILTERED_OUT_FILE "../fb_tests/printed_filtered_safitest.txt"
+#define FILTERED_OUT_FILE3 "../fb_tests/printed_filtered_safitest3.txt"
+#define FILTERED_OUT_FILE4 "../fb_tests/printed_filtered_safitest4.txt"
 
 #define TEST_END(test)                   \
         printf( #test " working YAHOOOOoooo\n "); \
@@ -69,12 +69,10 @@ static bool isAmountModId(const unsigned int id, const char *name,
 
 int main(){
 
-
     RUN_TEST(matamazomCreate);
     Matamazom mtm = matamazomCreate();
     assert(mtm);
     TEST_END(matamazomCreate);
-
 
     RUN_TEST(matamazomDestroy);
     matamazomDestroy(mtm);
@@ -244,9 +242,7 @@ int main(){
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmount(mtm,8,-6));
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmount(mtm,8,-2));
     assert(MATAMAZOM_INSUFFICIENT_AMOUNT==mtmChangeProductAmount(mtm,8,-2));
-
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmount(mtm,4,-7.4999999));   //amount=0
-
     assert(MATAMAZOM_INSUFFICIENT_AMOUNT==mtmChangeProductAmount(mtm,4,-7.4999999));
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmount(mtm,4,0));
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmount(mtm,4,100));
@@ -333,6 +329,7 @@ int main(){
     RUN_TEST(mtmChangeProductAmountInOrder);
     //checking the MATAMAZOM_NULL_ARGUMENT case:
     assert(MATAMAZOM_NULL_ARGUMENT==mtmChangeProductAmountInOrder(NULL,order2,1,1211));
+
     //checking the MATAMAZOM_ORDER_NOT_EXIST case:
     assert(MATAMAZOM_ORDER_NOT_EXIST==mtmChangeProductAmountInOrder(mtm, order,2,1211));
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order2,2,1211));
@@ -373,11 +370,8 @@ int main(){
 
     //checking the MATAMAZOM_SUCCESS case:
     //half-int
-
-
-    assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order4,5,-1.500));
-
-    assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order4,5,-1.500));
+    assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order4,5,-1.501));
+    assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order4,5,-1.501));
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order4,5,-20));
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order4,5,-30));
     assert(MATAMAZOM_SUCCESS==mtmChangeProductAmountInOrder(mtm,order4,5,3.5));
@@ -573,6 +567,7 @@ int main(){
     FILE *outputFile = fopen(INVENTORY_OUT_FILE, "w");
 
     assert(outputFile);
+
     //checking the MATAMAZOM_NULL_ARGUMENT case:
     assert(MATAMAZOM_NULL_ARGUMENT==mtmPrintInventory(NULL,outputFile));
     assert(MATAMAZOM_NULL_ARGUMENT==mtmPrintInventory(mtm,NULL));

@@ -1,11 +1,7 @@
-//
-// Created by shach on 15/11/2019.
-//
+#ifndef ORDER_H_
+#define ORDER_H_
 
-#ifndef UNTITLED_ORDER_H
-#define UNTITLED_ORDER_H
-
-#include "libmtm/list.h"
+#include "list.h"
 #include "product.h"
 /* Implements an order type.
  * the order type includes all fields relevant to managing orders of product
@@ -15,7 +11,6 @@
  * orderCopy                    - copy an order entirely
  * orderFree                    - free an order entirely
  * orderCompare                 - compare two products by their ID
- * orderChangeId                - change an order's ID
  * orderPrintAllProduct         - print the entire order list of products
  * orderGetTotalPrice           - receive the total price of all products in an order
  * isProductIdInOrder           - check if in the order there is a product matching a given id
@@ -24,7 +19,6 @@
  * orderAddProductToCart        - add a product entirely to an order
  * orderGetPtrToProductList     - for a given order, returns the list of items it contains
  */
-/** Type for defining the set */
 typedef struct Order_t *Order;
 
 /**
@@ -62,12 +56,6 @@ void orderFree (ListElement target);
  */
 int orderCompare(ListElement first, ListElement second);
 
-/* orderChangeId: change a given order's ID
- *
- * @param target - the order we want to change it's id
- * @param newId - the new id we want to assign to the order
- */
-void orderChangeId (Order target ,unsigned int newId);
 
 /*
  * orderPrintAllProduct: print all products that are present in the order and their details
@@ -133,4 +121,4 @@ MatamazomResult orderAddProductToCart (Order order, Product product);
 */
 List orderGetPtrToProductList (Order order);
 
-#endif //UNTITLED_ORDER_H
+#endif //ORDER_H_

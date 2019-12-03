@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "libmtm/set.h"
-#include "libmtm/list.h"
-#include "amount_set.h"
-#include "product.h"
+#include "../set.h"
+#include "../list.h"
+#include "../amount_set.h"
+#include "../product.h"
 #include <assert.h>
 
 ASElement copyInt(ASElement number) {

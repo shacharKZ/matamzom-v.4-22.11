@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "amount_set.h"
-#include "order.h"
-#include "product.h"
-#include "matamazom.h"
+#include "../amount_set.h"
+#include "../order.h"
+#include "../product.h"
+#include "../matamazom.h"
 #include <assert.h>
 
 /*
@@ -21,11 +21,28 @@ int main() {
     AmountSet nada = asCreate(copyFunc,freeFunc,compareFunc);
      */
 
+    Matamazom mtm1 = matamazomCreate();
+
+    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
+    mtmCancelOrder(mtm1, 1);
+    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
+    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
+    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
+    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
+    mtmCancelOrder(mtm1, 3);
+    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
+    mtmCancelOrder(mtm1, 7);
+    printf("new order was create. its id is: %d \n", mtmCreateNewOrder(mtm1));
+
+
+
+
     ASElement (*copyFunc)(ASElement) = &copyProduct;
     void (*freeFunc)(ASElement) = &freeProduct;
     int (*compareFunc)(ASElement, ASElement) = &compareProduct;
     AmountSet as = asCreate(copyFunc,freeFunc,compareFunc);
     //AmountSet nada = asCreate(copyFunc,freeFunc,compareFunc);
+
 
     Product o1 = productCreate(1, "A prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
     Product o2 = productCreate(2, "B prod", MATAMAZOM_ANY_AMOUNT, NULL, NULL, NULL, NULL);
@@ -114,7 +131,7 @@ int main() {
     // printf("size of as is: %d \n", asGetSize(as)); // PROBLEM!!! after internet serching decide its ok. i talk with u about it
 
 
-    printf("test2 finish!\n");
+    printf("test3 finish\n");
 
     return 0;
 }

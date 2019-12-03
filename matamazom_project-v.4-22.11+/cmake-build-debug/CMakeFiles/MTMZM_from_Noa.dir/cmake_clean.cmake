@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj"
   "CMakeFiles/MTMZM_from_Noa.dir/matamazom.c.obj"
   "CMakeFiles/MTMZM_from_Noa.dir/matamazom_print.c.obj"
   "CMakeFiles/MTMZM_from_Noa.dir/order.c.obj"
   "CMakeFiles/MTMZM_from_Noa.dir/product.c.obj"
+  "CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.obj"
   "MTMZM_from_Noa.exe"
   "MTMZM_from_Noa.exe.manifest"
   "MTMZM_from_Noa.pdb"

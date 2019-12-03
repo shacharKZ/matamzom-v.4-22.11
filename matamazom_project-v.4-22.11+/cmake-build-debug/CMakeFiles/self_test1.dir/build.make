@@ -56,18 +56,18 @@ include CMakeFiles/self_test1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/self_test1.dir/flags.make
 
-CMakeFiles/self_test1.dir/main_test1.c.obj: CMakeFiles/self_test1.dir/flags.make
-CMakeFiles/self_test1.dir/main_test1.c.obj: ../main_test1.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/self_test1.dir/main_test1.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\self_test1.dir\main_test1.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test1.c"
+CMakeFiles/self_test1.dir/self_tests/main_test1.c.obj: CMakeFiles/self_test1.dir/flags.make
+CMakeFiles/self_test1.dir/self_tests/main_test1.c.obj: ../self_tests/main_test1.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/self_test1.dir/self_tests/main_test1.c.obj"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\self_test1.dir\self_tests\main_test1.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test1.c"
 
-CMakeFiles/self_test1.dir/main_test1.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/self_test1.dir/main_test1.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test1.c" > CMakeFiles\self_test1.dir\main_test1.c.i
+CMakeFiles/self_test1.dir/self_tests/main_test1.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/self_test1.dir/self_tests/main_test1.c.i"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test1.c" > CMakeFiles\self_test1.dir\self_tests\main_test1.c.i
 
-CMakeFiles/self_test1.dir/main_test1.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/self_test1.dir/main_test1.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test1.c" -o CMakeFiles\self_test1.dir\main_test1.c.s
+CMakeFiles/self_test1.dir/self_tests/main_test1.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/self_test1.dir/self_tests/main_test1.c.s"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test1.c" -o CMakeFiles\self_test1.dir\self_tests\main_test1.c.s
 
 CMakeFiles/self_test1.dir/amount_set.c.obj: CMakeFiles/self_test1.dir/flags.make
 CMakeFiles/self_test1.dir/amount_set.c.obj: ../amount_set.c
@@ -110,7 +110,7 @@ CMakeFiles/self_test1.dir/product.c.s: cmake_force
 
 # Object files for target self_test1
 self_test1_OBJECTS = \
-"CMakeFiles/self_test1.dir/main_test1.c.obj" \
+"CMakeFiles/self_test1.dir/self_tests/main_test1.c.obj" \
 "CMakeFiles/self_test1.dir/amount_set.c.obj" \
 "CMakeFiles/self_test1.dir/order.c.obj" \
 "CMakeFiles/self_test1.dir/product.c.obj"
@@ -118,7 +118,7 @@ self_test1_OBJECTS = \
 # External object files for target self_test1
 self_test1_EXTERNAL_OBJECTS =
 
-self_test1.exe: CMakeFiles/self_test1.dir/main_test1.c.obj
+self_test1.exe: CMakeFiles/self_test1.dir/self_tests/main_test1.c.obj
 self_test1.exe: CMakeFiles/self_test1.dir/amount_set.c.obj
 self_test1.exe: CMakeFiles/self_test1.dir/order.c.obj
 self_test1.exe: CMakeFiles/self_test1.dir/product.c.obj

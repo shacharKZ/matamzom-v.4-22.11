@@ -56,18 +56,18 @@ include CMakeFiles/test_from_FACEBOOK.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/test_from_FACEBOOK.dir/flags.make
 
-CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.obj: CMakeFiles/test_from_FACEBOOK.dir/flags.make
-CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.obj: ../main_test_from_FB.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.obj"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\test_from_FACEBOOK.dir\main_test_from_FB.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_from_FB.c"
+CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.obj: CMakeFiles/test_from_FACEBOOK.dir/flags.make
+CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.obj: ../self_tests/main_test_from_FB.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.obj"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\test_from_FACEBOOK.dir\self_tests\main_test_from_FB.c.obj   -c "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_from_FB.c"
 
-CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.i"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_from_FB.c" > CMakeFiles\test_from_FACEBOOK.dir\main_test_from_FB.c.i
+CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.i"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_from_FB.c" > CMakeFiles\test_from_FACEBOOK.dir\self_tests\main_test_from_FB.c.i
 
-CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.s"
-	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\main_test_from_FB.c" -o CMakeFiles\test_from_FACEBOOK.dir\main_test_from_FB.c.s
+CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.s"
+	C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\shach\Documents\Technion - s-A\SemB\mtm 234124\ex1 (v1)\matamzom-v.4-22.11\matamazom_project-v.4-22.11+\self_tests\main_test_from_FB.c" -o CMakeFiles\test_from_FACEBOOK.dir\self_tests\main_test_from_FB.c.s
 
 CMakeFiles/test_from_FACEBOOK.dir/order.c.obj: CMakeFiles/test_from_FACEBOOK.dir/flags.make
 CMakeFiles/test_from_FACEBOOK.dir/order.c.obj: ../order.c
@@ -123,7 +123,7 @@ CMakeFiles/test_from_FACEBOOK.dir/matamazom_print.c.s: cmake_force
 
 # Object files for target test_from_FACEBOOK
 test_from_FACEBOOK_OBJECTS = \
-"CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.obj" \
+"CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.obj" \
 "CMakeFiles/test_from_FACEBOOK.dir/order.c.obj" \
 "CMakeFiles/test_from_FACEBOOK.dir/product.c.obj" \
 "CMakeFiles/test_from_FACEBOOK.dir/matamazom.c.obj" \
@@ -132,7 +132,7 @@ test_from_FACEBOOK_OBJECTS = \
 # External object files for target test_from_FACEBOOK
 test_from_FACEBOOK_EXTERNAL_OBJECTS =
 
-test_from_FACEBOOK.exe: CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.obj
+test_from_FACEBOOK.exe: CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.obj
 test_from_FACEBOOK.exe: CMakeFiles/test_from_FACEBOOK.dir/order.c.obj
 test_from_FACEBOOK.exe: CMakeFiles/test_from_FACEBOOK.dir/product.c.obj
 test_from_FACEBOOK.exe: CMakeFiles/test_from_FACEBOOK.dir/matamazom.c.obj

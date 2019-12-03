@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/self_test3.dir/amount_set.c.obj"
-  "CMakeFiles/self_test3.dir/main_test3.c.obj"
   "CMakeFiles/self_test3.dir/matamazom.c.obj"
   "CMakeFiles/self_test3.dir/order.c.obj"
   "CMakeFiles/self_test3.dir/product.c.obj"
+  "CMakeFiles/self_test3.dir/self_tests/main_test3.c.obj"
   "libself_test3.dll.a"
   "self_test3.exe"
   "self_test3.exe.manifest"

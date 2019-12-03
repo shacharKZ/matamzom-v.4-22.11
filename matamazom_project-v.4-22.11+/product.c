@@ -5,6 +5,18 @@
 #include "product.h"
 #include <assert.h>
 
+/**
+ * Explain for METARGELIM about this structure:
+ * unsigned int ID - a number representing the product
+ * double amount - a number representing the product amount
+ * char *name - a string representing the product name
+ * MatamazomAmountType amountType - representing one of 3 MatamazomAmountType the product amount is
+ * MtmProductData customData - an generic data (void*) about the product
+ * MtmCopyData CopyFunc - a pointer to a function that handles copying customData
+ * MtmFreeData FreeFunc - a pointer to a function that handles freeing customData
+ * MtmGetProductPrice ProductPriceFunc - a pointer to a function that returns product price per given amount
+ * double profit - a number representing how much money did the given product earn to the given matamazom warehouse
+ */
 struct product_t{
     unsigned int ID;
     double amount;
@@ -21,7 +33,8 @@ Product productCreate(unsigned int id, const char* name, double amount, Matamazo
                       MtmProductData customData, MtmCopyData CopyFunc, MtmFreeData FreeFunc,
                       MtmGetProductPrice ProductPriceFunc){
 
-    if(CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL || customData == NULL || name == NULL){
+    if(CopyFunc == NULL || FreeFunc == NULL || ProductPriceFunc == NULL ||
+                            customData == NULL || name == NULL){
         return NULL;
     }
 
@@ -52,6 +65,49 @@ Product productCreate(unsigned int id, const char* name, double amount, Matamazo
 }
 
 
+bool productCheckValidName(const char *name) {
+    if (name == NULL) {
+        return false;
+    }
+    if ((name[0] <= '9') && (name[0] >= '0')) { //between 0-9
+        return true;
+    }
+    if (strlen(name) == 0 || (name[0] < 'A') || (name[0] > 'z') ||
+        ((name[0] > 'Z') && (name[0] < 'a'))) { //not a-z or A-Z
+        return false;
+    }
+    return true;
+}
+
+
+bool productCheckValidAmount(const double amount, MatamazomAmountType amountType) {
+    if (amount == 0 || amountType == MATAMAZOM_ANY_AMOUNT) {
+        return true;
+    }
+    if (amountType == MATAMAZOM_INTEGER_AMOUNT) {
+        double x = (amount < 0) ? -1 * amount : amount;
+        int y = (int) x;
+        double z = x - y;
+        if (((z < 1) && (z >= 0.999)) || ((z >= 0) && (z <= 0.001))) {
+            return true;
+        }
+        return false;
+    }
+    if (amountType == MATAMAZOM_HALF_INTEGER_AMOUNT) {
+        double x = (amount < 0) ? -1 * amount : amount;
+        int y = (int) x;
+        double z = x - y;
+        if (((z < 1) && (z >= 0.999)) || ((z >= 0) && (z <= 0.001))
+                                || ((z >= 0.499) && (z <= 0.501))) {
+
+            return true;
+        }
+        return false;
+    }
+    return true;
+}
+
+
 Product getCopyOfProductForId (List list ,unsigned int id) {
     LIST_FOREACH(ListElement, ptr,list) {
         if ((((Product)ptr)->ID) == id) {
@@ -72,7 +128,8 @@ Product CheckIfProductFromOrderIsInStorage (List list ,Product product) {
 }
 
 static Product findProductForID (List storage, unsigned int id){
-    for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
+    for (ListElement ptr = listGetFirst(storage); ptr ;
+                                    ptr = listGetNext(storage)){
         if(((Product)ptr) -> ID == id){
             return ptr;
         }
@@ -107,9 +164,9 @@ static Product copyProductAUX(Product product){
     if (product == NULL) {
         return NULL;
     }
-    Product product_new = productCreate(product->ID, product->name, product->amount,
-                                        product->amountType, product->customData, product->CopyFunc,
-                                        product->FreeFunc, product->ProductPriceFunc);
+    Product product_new = productCreate(product->ID, product->name,
+            product->amount, product->amountType, product->customData,
+            product->CopyFunc, product->FreeFunc, product->ProductPriceFunc);
     return product_new;
 }
 
@@ -127,7 +184,8 @@ double realProductPrice (ListElement product, double amount){
 }
 
 double productGetPrice (ListElement product){
-    return (((Product)product) -> ProductPriceFunc (((Product)product)->customData, ((Product)product)->amount));
+    return (((Product)product) -> ProductPriceFunc (((Product)product)
+                          ->customData, ((Product)product)->amount));
 }
 
 
@@ -137,7 +195,8 @@ void productPrintDetails (ListElement product, FILE *output) {
     }
     Product temp = ((Product)product);
     double priceTemp = temp->ProductPriceFunc(temp->customData, temp->amount);
-    mtmPrintProductDetails(temp->name, temp->ID, temp->amount, priceTemp, output);
+    mtmPrintProductDetails(temp->name, temp->ID, temp->amount,
+                                                      priceTemp, output);
 }
 
 void productPrintDetailsForOne (ListElement product, FILE *output) {
@@ -146,11 +205,13 @@ void productPrintDetailsForOne (ListElement product, FILE *output) {
     }
     Product temp = ((Product)product);
     double priceTemp = temp->ProductPriceFunc(temp->customData, 1);
-    mtmPrintProductDetails(temp->name, temp->ID, temp->amount, priceTemp, output);
+    mtmPrintProductDetails(temp->name, temp->ID,
+                              temp->amount, priceTemp, output);
 }
 
 bool productAlreadyExists(List storage, unsigned int id){
-    for (ListElement ptr = listGetFirst(storage); ptr ; ptr = listGetNext(storage)){
+    for (ListElement ptr = listGetFirst(storage); ptr;
+                                    ptr = listGetNext(storage)){
 
         if(((Product)ptr) -> ID == id){
             return true;
@@ -222,7 +283,7 @@ void productSetNewAmount (Product product, double amount) {
 
 bool productCustomFilter (ListElement product, MtmFilterProduct customFilter){
     return  customFilter((((Product)product)->ID), ((Product)product)->name,
-                           ((Product)product) -> amount, ((Product)product)->customData);
+            ((Product)product) -> amount, ((Product)product)->customData);
 }
 
 static double maxOfTwo (double x, double y){
@@ -231,16 +292,19 @@ static double maxOfTwo (double x, double y){
 
 void productPrintIncomeLine (List storage, FILE *output){
     double max = 0;
-    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
+    for (ListElement ptr = listGetFirst(storage); ptr;
+                                        ptr = listGetNext(storage)){
         max = maxOfTwo(max, ((Product)ptr)->profit);
     }
     if (max == 0){
         fprintf(output, "none\n");
         return;
     }
-    for (ListElement ptr = listGetFirst(storage); ptr; ptr = listGetNext(storage)){
+    for (ListElement ptr = listGetFirst(storage); ptr;
+                                 ptr = listGetNext(storage)){
         if ((((Product)ptr)->profit) == max){
-            mtmPrintIncomeLine(((Product)ptr)->name, ((Product)ptr)->ID, max, output);
+            mtmPrintIncomeLine(((Product)ptr)->name,
+                    ((Product)ptr)->ID, max, output);
             return;
         }
     }

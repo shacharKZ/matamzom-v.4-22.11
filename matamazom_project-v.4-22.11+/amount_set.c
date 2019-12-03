@@ -1,7 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "amount_set.h"
-//#include <stdio.h> // used only for testing
 #include <assert.h>
 
 /**
@@ -131,7 +130,7 @@ static ASNode nodeCreate (AmountSet set, ASElement element) {
 void asDestroy(AmountSet set) {
     // the clear function doing the same as destroy
     // except realising the whole set param
-    // (basically realising all the set's nodes
+    // (basically realising all the set's nodes)
     asClear(set);
     free(set);
 }
@@ -181,7 +180,6 @@ AmountSet asCopy(AmountSet set) {
         temp_node_for_copying -> amount = set->current->amount;
         copy_node -> nextNode = temp_node_for_copying;
     }
-
     return duplicated_set;
 }
 
@@ -265,7 +263,7 @@ bool asContains(AmountSet set, ASElement element) {
  * @endcode
  */
 AmountSetResult asGetAmount(AmountSet set, ASElement element, double *outAmount) {
-    if (set==NULL || element==NULL) {
+    if (set==NULL || element==NULL || outAmount == NULL) {
         return AS_NULL_ARGUMENT;
     }
 

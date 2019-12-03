@@ -409,32 +409,6 @@
 			<Option target="noa_test_for_AS"/>
 			<Option target="AS_test_from_METARGELIM"/>
 		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/libmtm/set.h">
-			<Option target="matamazom_test_from_METARGELIM"/>
-			<Option target="self_test2"/>
-			<Option target="self_test4"/>
-		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test1.c">
-			<Option target="self_test1"/>
-		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test2.c">
-			<Option target="self_test2"/>
-		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test3.c">
-			<Option target="self_test3"/>
-		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test4.c">
-			<Option target="self_test4"/>
-		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test_from_FB.c">
-			<Option target="test_from_FACEBOOK"/>
-		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test_noaAmountSet.c">
-			<Option target="noa_test_for_AS"/>
-		</Unit>
-		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/main_test_noaMatamazon.c">
-			<Option target="MTMZM_from_Noa"/>
-		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/matamazom.c">
 			<Option target="self_test3"/>
 			<Option target="matamazom_test_from_METARGELIM"/>
@@ -485,6 +459,32 @@
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/product.h">
 			<Option target="matamazom_test_from_METARGELIM"/>
+			<Option target="self_test4"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/self_tests/main_test1.c">
+			<Option target="self_test1"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/self_tests/main_test2.c">
+			<Option target="self_test2"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/self_tests/main_test3.c">
+			<Option target="self_test3"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/self_tests/main_test4.c">
+			<Option target="self_test4"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/self_tests/main_test_from_FB.c">
+			<Option target="test_from_FACEBOOK"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/self_tests/main_test_noaAmountSet.c">
+			<Option target="noa_test_for_AS"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/self_tests/main_test_noaMatamazon.c">
+			<Option target="MTMZM_from_Noa"/>
+		</Unit>
+		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/set.h">
+			<Option target="matamazom_test_from_METARGELIM"/>
+			<Option target="self_test2"/>
 			<Option target="self_test4"/>
 		</Unit>
 		<Unit filename="C:/Users/shach/Documents/Technion - s-A/SemB/mtm 234124/ex1 (v1)/matamzom-v.4-22.11/matamazom_project-v.4-22.11+/tests/amount_set_main.c">

@@ -1,6 +1,6 @@
 #include <stdbool.h>
 #include <string.h>
-#include "matamazom.h"
+#include "../matamazom.h"
 #include <stdlib.h>
 #include <stdio.h>
 

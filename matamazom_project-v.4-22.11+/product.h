@@ -1,10 +1,7 @@
-//
-// Created by eilon on 17/11/2019.
-//
-#ifndef UNTITLED1_PRODUCT17_11_H
-#define UNTITLED1_PRODUCT17_11_H
+#ifndef PRODUCT_H_
+#define PRODUCT_H_
 #include <stdbool.h>
-#include "libmtm/list.h"
+#include "list.h"
 #include "matamazom_print.h"
 #include "matamazom.h"
 
@@ -17,6 +14,8 @@
  *
  * The following functions are available:
  *   productCreate                      - Creates a new detailed product
+ *   productCheckValidName              - Checks if a string is a proper name for a product
+ *   productCheckValidAmount            -  Checks if an amounts is consistent of amountType
  *   productRemove                      - Deletes an existing product and removes from storage
  *   compareProduct                      - Compare product based on their ID
  *   productChangeAmountInStorage       - Add or subtract an amount from a product in the storage
@@ -36,8 +35,6 @@
  *   productPrintDetails                - print product's details and price for a given amount
  *   productPrintDetailsForOne          - print product's details and price for a single unit
  */
-
-
 
 
 //type for representing a single product, holding all fields of data needed for a product
@@ -63,6 +60,28 @@ typedef struct product_t *Product;
 Product productCreate(unsigned int id, const char* name, double amount, MatamazomAmountType datatype, MtmProductData customData,
                       MtmCopyData CopyFunc, MtmFreeData FreeFunc, MtmGetProductPrice ProductPriceFunc);
 
+
+/*
+ * productCheckValidName: return if the param string "name" is a proper name for a product
+ *
+ * @param name - a string representing a potential name for a product
+ * @return
+ * return true if name is not empty, and start with a letter (a -z, A -Z) or a digit (0 -9)
+ * and return false otherwise
+ */
+bool productCheckValidName(const char *name);
+
+/*
+ * productCheckValidAmount: return if the param amount is from the same MatamazomAmountType amountType
+ *
+ * @param amount - a double reppresnting an amount of products
+ * @param amountType - a MatamazomAmountType (an enum value)
+ * @return
+ * return true if amount is consistent with amountType
+ * and return false otherwise
+ */
+bool productCheckValidAmount(const double amount, MatamazomAmountType amountType);
+
 //function for removing a lists element - product
 void freeProduct (ListElement product);
 
@@ -82,7 +101,6 @@ ListElement copyProduct(ListElement product);
  * 0 if they are equal (have the same ID, thus in fact, the same product, since its a unique field for each product
  */
 int compareProduct(ListElement product1, ListElement product2);
-
 
 /*
  * productChangeAmountInStorage: add or subtract from product's amount in storage , identification of said product is
@@ -258,5 +276,5 @@ void productPrintDetails (ListElement product, FILE *output);
 void productPrintDetailsForOne (ListElement product, FILE *output);
 
 
-#endif //UNTITLED1_PRODUCT17_11_H
+#endif //PRODUCT_H_
 

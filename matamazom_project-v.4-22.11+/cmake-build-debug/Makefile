@@ -278,195 +278,6 @@ amount_set.c.s:
 	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/amount_set.c.s
 .PHONY : amount_set.c.s
 
-main_test1.obj: main_test1.c.obj
-
-.PHONY : main_test1.obj
-
-# target to build an object file
-main_test1.c.obj:
-	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/main_test1.c.obj
-.PHONY : main_test1.c.obj
-
-main_test1.i: main_test1.c.i
-
-.PHONY : main_test1.i
-
-# target to preprocess a source file
-main_test1.c.i:
-	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/main_test1.c.i
-.PHONY : main_test1.c.i
-
-main_test1.s: main_test1.c.s
-
-.PHONY : main_test1.s
-
-# target to generate assembly for a file
-main_test1.c.s:
-	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/main_test1.c.s
-.PHONY : main_test1.c.s
-
-main_test2.obj: main_test2.c.obj
-
-.PHONY : main_test2.obj
-
-# target to build an object file
-main_test2.c.obj:
-	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/main_test2.c.obj
-.PHONY : main_test2.c.obj
-
-main_test2.i: main_test2.c.i
-
-.PHONY : main_test2.i
-
-# target to preprocess a source file
-main_test2.c.i:
-	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/main_test2.c.i
-.PHONY : main_test2.c.i
-
-main_test2.s: main_test2.c.s
-
-.PHONY : main_test2.s
-
-# target to generate assembly for a file
-main_test2.c.s:
-	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/main_test2.c.s
-.PHONY : main_test2.c.s
-
-main_test3.obj: main_test3.c.obj
-
-.PHONY : main_test3.obj
-
-# target to build an object file
-main_test3.c.obj:
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/main_test3.c.obj
-.PHONY : main_test3.c.obj
-
-main_test3.i: main_test3.c.i
-
-.PHONY : main_test3.i
-
-# target to preprocess a source file
-main_test3.c.i:
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/main_test3.c.i
-.PHONY : main_test3.c.i
-
-main_test3.s: main_test3.c.s
-
-.PHONY : main_test3.s
-
-# target to generate assembly for a file
-main_test3.c.s:
-	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/main_test3.c.s
-.PHONY : main_test3.c.s
-
-main_test4.obj: main_test4.c.obj
-
-.PHONY : main_test4.obj
-
-# target to build an object file
-main_test4.c.obj:
-	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.obj
-.PHONY : main_test4.c.obj
-
-main_test4.i: main_test4.c.i
-
-.PHONY : main_test4.i
-
-# target to preprocess a source file
-main_test4.c.i:
-	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.i
-.PHONY : main_test4.c.i
-
-main_test4.s: main_test4.c.s
-
-.PHONY : main_test4.s
-
-# target to generate assembly for a file
-main_test4.c.s:
-	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/main_test4.c.s
-.PHONY : main_test4.c.s
-
-main_test_from_FB.obj: main_test_from_FB.c.obj
-
-.PHONY : main_test_from_FB.obj
-
-# target to build an object file
-main_test_from_FB.c.obj:
-	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.obj
-.PHONY : main_test_from_FB.c.obj
-
-main_test_from_FB.i: main_test_from_FB.c.i
-
-.PHONY : main_test_from_FB.i
-
-# target to preprocess a source file
-main_test_from_FB.c.i:
-	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.i
-.PHONY : main_test_from_FB.c.i
-
-main_test_from_FB.s: main_test_from_FB.c.s
-
-.PHONY : main_test_from_FB.s
-
-# target to generate assembly for a file
-main_test_from_FB.c.s:
-	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/main_test_from_FB.c.s
-.PHONY : main_test_from_FB.c.s
-
-main_test_noaAmountSet.obj: main_test_noaAmountSet.c.obj
-
-.PHONY : main_test_noaAmountSet.obj
-
-# target to build an object file
-main_test_noaAmountSet.c.obj:
-	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.obj
-.PHONY : main_test_noaAmountSet.c.obj
-
-main_test_noaAmountSet.i: main_test_noaAmountSet.c.i
-
-.PHONY : main_test_noaAmountSet.i
-
-# target to preprocess a source file
-main_test_noaAmountSet.c.i:
-	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.i
-.PHONY : main_test_noaAmountSet.c.i
-
-main_test_noaAmountSet.s: main_test_noaAmountSet.c.s
-
-.PHONY : main_test_noaAmountSet.s
-
-# target to generate assembly for a file
-main_test_noaAmountSet.c.s:
-	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/main_test_noaAmountSet.c.s
-.PHONY : main_test_noaAmountSet.c.s
-
-main_test_noaMatamazon.obj: main_test_noaMatamazon.c.obj
-
-.PHONY : main_test_noaMatamazon.obj
-
-# target to build an object file
-main_test_noaMatamazon.c.obj:
-	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.obj
-.PHONY : main_test_noaMatamazon.c.obj
-
-main_test_noaMatamazon.i: main_test_noaMatamazon.c.i
-
-.PHONY : main_test_noaMatamazon.i
-
-# target to preprocess a source file
-main_test_noaMatamazon.c.i:
-	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.i
-.PHONY : main_test_noaMatamazon.c.i
-
-main_test_noaMatamazon.s: main_test_noaMatamazon.c.s
-
-.PHONY : main_test_noaMatamazon.s
-
-# target to generate assembly for a file
-main_test_noaMatamazon.c.s:
-	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/main_test_noaMatamazon.c.s
-.PHONY : main_test_noaMatamazon.c.s
-
 matamazom.obj: matamazom.c.obj
 
 .PHONY : matamazom.obj
@@ -644,6 +455,195 @@ product.c.s:
 	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/product.c.s
 .PHONY : product.c.s
 
+self_tests/main_test1.obj: self_tests/main_test1.c.obj
+
+.PHONY : self_tests/main_test1.obj
+
+# target to build an object file
+self_tests/main_test1.c.obj:
+	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/self_tests/main_test1.c.obj
+.PHONY : self_tests/main_test1.c.obj
+
+self_tests/main_test1.i: self_tests/main_test1.c.i
+
+.PHONY : self_tests/main_test1.i
+
+# target to preprocess a source file
+self_tests/main_test1.c.i:
+	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/self_tests/main_test1.c.i
+.PHONY : self_tests/main_test1.c.i
+
+self_tests/main_test1.s: self_tests/main_test1.c.s
+
+.PHONY : self_tests/main_test1.s
+
+# target to generate assembly for a file
+self_tests/main_test1.c.s:
+	$(MAKE) -f CMakeFiles\self_test1.dir\build.make CMakeFiles/self_test1.dir/self_tests/main_test1.c.s
+.PHONY : self_tests/main_test1.c.s
+
+self_tests/main_test2.obj: self_tests/main_test2.c.obj
+
+.PHONY : self_tests/main_test2.obj
+
+# target to build an object file
+self_tests/main_test2.c.obj:
+	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/self_tests/main_test2.c.obj
+.PHONY : self_tests/main_test2.c.obj
+
+self_tests/main_test2.i: self_tests/main_test2.c.i
+
+.PHONY : self_tests/main_test2.i
+
+# target to preprocess a source file
+self_tests/main_test2.c.i:
+	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/self_tests/main_test2.c.i
+.PHONY : self_tests/main_test2.c.i
+
+self_tests/main_test2.s: self_tests/main_test2.c.s
+
+.PHONY : self_tests/main_test2.s
+
+# target to generate assembly for a file
+self_tests/main_test2.c.s:
+	$(MAKE) -f CMakeFiles\self_test2.dir\build.make CMakeFiles/self_test2.dir/self_tests/main_test2.c.s
+.PHONY : self_tests/main_test2.c.s
+
+self_tests/main_test3.obj: self_tests/main_test3.c.obj
+
+.PHONY : self_tests/main_test3.obj
+
+# target to build an object file
+self_tests/main_test3.c.obj:
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/self_tests/main_test3.c.obj
+.PHONY : self_tests/main_test3.c.obj
+
+self_tests/main_test3.i: self_tests/main_test3.c.i
+
+.PHONY : self_tests/main_test3.i
+
+# target to preprocess a source file
+self_tests/main_test3.c.i:
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/self_tests/main_test3.c.i
+.PHONY : self_tests/main_test3.c.i
+
+self_tests/main_test3.s: self_tests/main_test3.c.s
+
+.PHONY : self_tests/main_test3.s
+
+# target to generate assembly for a file
+self_tests/main_test3.c.s:
+	$(MAKE) -f CMakeFiles\self_test3.dir\build.make CMakeFiles/self_test3.dir/self_tests/main_test3.c.s
+.PHONY : self_tests/main_test3.c.s
+
+self_tests/main_test4.obj: self_tests/main_test4.c.obj
+
+.PHONY : self_tests/main_test4.obj
+
+# target to build an object file
+self_tests/main_test4.c.obj:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/self_tests/main_test4.c.obj
+.PHONY : self_tests/main_test4.c.obj
+
+self_tests/main_test4.i: self_tests/main_test4.c.i
+
+.PHONY : self_tests/main_test4.i
+
+# target to preprocess a source file
+self_tests/main_test4.c.i:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/self_tests/main_test4.c.i
+.PHONY : self_tests/main_test4.c.i
+
+self_tests/main_test4.s: self_tests/main_test4.c.s
+
+.PHONY : self_tests/main_test4.s
+
+# target to generate assembly for a file
+self_tests/main_test4.c.s:
+	$(MAKE) -f CMakeFiles\self_test4.dir\build.make CMakeFiles/self_test4.dir/self_tests/main_test4.c.s
+.PHONY : self_tests/main_test4.c.s
+
+self_tests/main_test_from_FB.obj: self_tests/main_test_from_FB.c.obj
+
+.PHONY : self_tests/main_test_from_FB.obj
+
+# target to build an object file
+self_tests/main_test_from_FB.c.obj:
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.obj
+.PHONY : self_tests/main_test_from_FB.c.obj
+
+self_tests/main_test_from_FB.i: self_tests/main_test_from_FB.c.i
+
+.PHONY : self_tests/main_test_from_FB.i
+
+# target to preprocess a source file
+self_tests/main_test_from_FB.c.i:
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.i
+.PHONY : self_tests/main_test_from_FB.c.i
+
+self_tests/main_test_from_FB.s: self_tests/main_test_from_FB.c.s
+
+.PHONY : self_tests/main_test_from_FB.s
+
+# target to generate assembly for a file
+self_tests/main_test_from_FB.c.s:
+	$(MAKE) -f CMakeFiles\test_from_FACEBOOK.dir\build.make CMakeFiles/test_from_FACEBOOK.dir/self_tests/main_test_from_FB.c.s
+.PHONY : self_tests/main_test_from_FB.c.s
+
+self_tests/main_test_noaAmountSet.obj: self_tests/main_test_noaAmountSet.c.obj
+
+.PHONY : self_tests/main_test_noaAmountSet.obj
+
+# target to build an object file
+self_tests/main_test_noaAmountSet.c.obj:
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.obj
+.PHONY : self_tests/main_test_noaAmountSet.c.obj
+
+self_tests/main_test_noaAmountSet.i: self_tests/main_test_noaAmountSet.c.i
+
+.PHONY : self_tests/main_test_noaAmountSet.i
+
+# target to preprocess a source file
+self_tests/main_test_noaAmountSet.c.i:
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.i
+.PHONY : self_tests/main_test_noaAmountSet.c.i
+
+self_tests/main_test_noaAmountSet.s: self_tests/main_test_noaAmountSet.c.s
+
+.PHONY : self_tests/main_test_noaAmountSet.s
+
+# target to generate assembly for a file
+self_tests/main_test_noaAmountSet.c.s:
+	$(MAKE) -f CMakeFiles\noa_test_for_AS.dir\build.make CMakeFiles/noa_test_for_AS.dir/self_tests/main_test_noaAmountSet.c.s
+.PHONY : self_tests/main_test_noaAmountSet.c.s
+
+self_tests/main_test_noaMatamazon.obj: self_tests/main_test_noaMatamazon.c.obj
+
+.PHONY : self_tests/main_test_noaMatamazon.obj
+
+# target to build an object file
+self_tests/main_test_noaMatamazon.c.obj:
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.obj
+.PHONY : self_tests/main_test_noaMatamazon.c.obj
+
+self_tests/main_test_noaMatamazon.i: self_tests/main_test_noaMatamazon.c.i
+
+.PHONY : self_tests/main_test_noaMatamazon.i
+
+# target to preprocess a source file
+self_tests/main_test_noaMatamazon.c.i:
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.i
+.PHONY : self_tests/main_test_noaMatamazon.c.i
+
+self_tests/main_test_noaMatamazon.s: self_tests/main_test_noaMatamazon.c.s
+
+.PHONY : self_tests/main_test_noaMatamazon.s
+
+# target to generate assembly for a file
+self_tests/main_test_noaMatamazon.c.s:
+	$(MAKE) -f CMakeFiles\MTMZM_from_Noa.dir\build.make CMakeFiles/MTMZM_from_Noa.dir/self_tests/main_test_noaMatamazon.c.s
+.PHONY : self_tests/main_test_noaMatamazon.c.s
+
 tests/amount_set_main.obj: tests/amount_set_main.c.obj
 
 .PHONY : tests/amount_set_main.obj
@@ -779,27 +779,6 @@ help:
 	@echo ... amount_set.obj
 	@echo ... amount_set.i
 	@echo ... amount_set.s
-	@echo ... main_test1.obj
-	@echo ... main_test1.i
-	@echo ... main_test1.s
-	@echo ... main_test2.obj
-	@echo ... main_test2.i
-	@echo ... main_test2.s
-	@echo ... main_test3.obj
-	@echo ... main_test3.i
-	@echo ... main_test3.s
-	@echo ... main_test4.obj
-	@echo ... main_test4.i
-	@echo ... main_test4.s
-	@echo ... main_test_from_FB.obj
-	@echo ... main_test_from_FB.i
-	@echo ... main_test_from_FB.s
-	@echo ... main_test_noaAmountSet.obj
-	@echo ... main_test_noaAmountSet.i
-	@echo ... main_test_noaAmountSet.s
-	@echo ... main_test_noaMatamazon.obj
-	@echo ... main_test_noaMatamazon.i
-	@echo ... main_test_noaMatamazon.s
 	@echo ... matamazom.obj
 	@echo ... matamazom.i
 	@echo ... matamazom.s
@@ -812,6 +791,27 @@ help:
 	@echo ... product.obj
 	@echo ... product.i
 	@echo ... product.s
+	@echo ... self_tests/main_test1.obj
+	@echo ... self_tests/main_test1.i
+	@echo ... self_tests/main_test1.s
+	@echo ... self_tests/main_test2.obj
+	@echo ... self_tests/main_test2.i
+	@echo ... self_tests/main_test2.s
+	@echo ... self_tests/main_test3.obj
+	@echo ... self_tests/main_test3.i
+	@echo ... self_tests/main_test3.s
+	@echo ... self_tests/main_test4.obj
+	@echo ... self_tests/main_test4.i
+	@echo ... self_tests/main_test4.s
+	@echo ... self_tests/main_test_from_FB.obj
+	@echo ... self_tests/main_test_from_FB.i
+	@echo ... self_tests/main_test_from_FB.s
+	@echo ... self_tests/main_test_noaAmountSet.obj
+	@echo ... self_tests/main_test_noaAmountSet.i
+	@echo ... self_tests/main_test_noaAmountSet.s
+	@echo ... self_tests/main_test_noaMatamazon.obj
+	@echo ... self_tests/main_test_noaMatamazon.i
+	@echo ... self_tests/main_test_noaMatamazon.s
 	@echo ... tests/amount_set_main.obj
 	@echo ... tests/amount_set_main.i
 	@echo ... tests/amount_set_main.s

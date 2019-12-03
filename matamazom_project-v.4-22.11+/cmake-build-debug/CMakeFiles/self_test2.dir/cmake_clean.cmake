@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/self_test2.dir/amount_set.c.obj"
-  "CMakeFiles/self_test2.dir/main_test2.c.obj"
   "CMakeFiles/self_test2.dir/order.c.obj"
   "CMakeFiles/self_test2.dir/product.c.obj"
+  "CMakeFiles/self_test2.dir/self_tests/main_test2.c.obj"
   "libself_test2.dll.a"
   "self_test2.exe"
   "self_test2.exe.manifest"
